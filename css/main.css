@@ -1790,7 +1790,7 @@ pre .javascript .function {
 }
 .sidebar {
   position: fixed;
-  right: 0;
+  left: 0;
   top: 0;
   bottom: 0;
   width: 0;
@@ -1961,7 +1961,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #32ffaa;
+  background: #d2e459;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2798,6 +2798,9 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
+}
+body {
+  background: url("/img/bj.jpg");
 }
 * {
   cursor: url("/img/mouse2.ico"), auto !important;
