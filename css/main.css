@@ -1961,7 +1961,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d2e459;
+  background: #8f4f26;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2798,9 +2798,6 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
-}
-body {
-  background: url("/img/bj.jpg");
 }
 * {
   cursor: url("/img/mouse2.ico"), auto !important;
