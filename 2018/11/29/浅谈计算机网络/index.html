@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="静下来，喝杯咖啡">
 <meta property="og:description" content="浅谈计算机网络 信息转发 大家都有过发微信发qq信息的记录吧。有人想过信息是怎么到对方的手机上的吗？ 大家想象这样的一个情景： 情景一：班主任让小明通知一号楼一层的三年级二班下节的语文课变成体育课。小明收到这样的通知后他这么干： 1.小明去了一号楼 2.去了一号楼的一层 3.找到三年级二班 4.在三年级二班的讲台上喊了一句，班主任说了下节的语文课变体育课 5.三年级二班的学生听到小明的通知纷纷跑去">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-29T04:01:14.044Z">
+<meta property="og:updated_time" content="2018-11-29T05:34:01.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈计算机网络">
 <meta name="twitter:description" content="浅谈计算机网络 信息转发 大家都有过发微信发qq信息的记录吧。有人想过信息是怎么到对方的手机上的吗？ 大家想象这样的一个情景： 情景一：班主任让小明通知一号楼一层的三年级二班下节的语文课变成体育课。小明收到这样的通知后他这么干： 1.小明去了一号楼 2.去了一号楼的一层 3.找到三年级二班 4.在三年级二班的讲台上喊了一句，班主任说了下节的语文课变体育课 5.三年级二班的学生听到小明的通知纷纷跑去">
@@ -330,7 +330,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T11:59:43+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T13:34:01+08:00">
                 2018-11-29
               </time>
             
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.5k
+                  3.3k
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  11
                 </span>
               
             </div>
@@ -523,7 +523,44 @@
 <p>稍微深入一点：</p>
 <h4 id="何为狭义同一网络——网络位相同的地址的集合称为同一网络"><a href="#何为狭义同一网络——网络位相同的地址的集合称为同一网络" class="headerlink" title="何为狭义同一网络——网络位相同的地址的集合称为同一网络"></a>何为狭义同一网络——网络位相同的地址的集合称为同一网络</h4><p>上面的ABCDE类是基于自然划分的ip地址所以一般不用写掩码</p>
 <p>现代ip地址通常是这样组成的：<br><strong>网络号+主机号</strong></p>
-<p>假如是C类网段（大家日常见的最多的地址），24位掩码<br><code>`</code><br>192.168.0.1可以写成：</p>
+<p>假如是C类网段（大家日常见的最多的地址），24位掩码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">192.168.0.1可以写成：</span><br><span class="line">1100 0000.1010 1000.0000 0000.0000 0001  </span><br><span class="line">由于是24位掩码</span><br><span class="line">所以网络位是前24位</span><br><span class="line">1100 0000.1010 1000.0000 0000</span><br><span class="line">主机位是</span><br><span class="line">0000 0001</span><br></pre></td></tr></table></figure></p>
+<p>通过这样简单的划分，就有了同一网络的概念了。</p>
+<p>往小了说就是局域网，城域网，<br>往大了说就是广域网，互联网</p>
+<p><strong>从这一刻起计算机和人一样也有了地址</strong></p>
+<blockquote>
+<h3 id="网络互联"><a href="#网络互联" class="headerlink" title="网络互联"></a>网络互联</h3></blockquote>
+<p>有了ip之后呢?</p>
+<p>聪明的人开始想计算机有了地址现在计算机还缺一个“快递公司”</p>
+<ul>
+<li>回想整个人类发展有需求就有创造</li>
+</ul>
+<p>既然这么难的电脑都被发明出来了，人类怎么可能仅仅局限于让它只计算呢？</p>
+<p>既然计算机内部可以实现读取，那为什么不从内部引一根线到别的计算机上这样别人也可以进行读写呢？</p>
+<p>事实上这是一个正确的思路，前辈们确实是这么干的</p>
+<ul>
+<li><p>最笨的办法往往是最好的办法</p>
+<ul>
+<li>说干就干</li>
+</ul>
+<p>大家弄了一根线从自己的计算机连接到隔壁家的计算机。加上简单的编程，可以实现文字语言聊天<br>邻居发现这是一个好办法，恰巧邻居还很有钱发现这是一个商机。<br>你的邻居用了好多根线吧整个城市连起来了，</p>
+<ul>
+<li>无独有偶</li>
+</ul>
+<p>隔壁的城市也有一个像你这么聪明的人… …<br>大家也把自己相连的电脑连接起来了，也可以进行通信了</p>
+</li>
+</ul>
+<ul>
+<li>问题来了</li>
+</ul>
+<p>每个人电脑都只能和自己想通信的电脑进行联机，那如果有一天你交了新朋友呢？</p>
+<p>那么你又得拉一根线，这么一来世界上的线肯定有一天就不够用了。</p>
+<p>结果有一个哥们比较聪明他意识到我可以做一个“快递公司”呀。这么一来你们电脑至需要一根线就好了。你想和谁通信你告诉我，我来帮你接线就好了，你们把线都弄到我这里来。事实上这就是早期的电话了。</p>
+<ul>
+<li>问题又来了</li>
+</ul>
+<p>随着人类越来越多了这个快递公司忙不过来了。有一个员工就想既然计算机这么厉害这个工作为什么不让它来做呢。结果就有了早期的路由器的雏形。<br>而这个快递公司也成了早期的运营商</p>
+<p><strong>你告诉路由器你的ip和目的的ip，路由器帮你接好线路，你们两台计算机就进行可以通信</strong><br>这就是简单的计算机网络。</p>
+<p>关于本文未提到的解决ip不够的问题以及替代方案，随后会细细描述。<br>本文为了理解方便只阐述简单网络模型与事实可能有所偏差还请谅解</p>
 
       
     </div>
@@ -769,7 +806,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#浅谈计算机网络"><span class="nav-number">1.</span> <span class="nav-text">浅谈计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息转发"><span class="nav-number">1.1.</span> <span class="nav-text">信息转发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#大家想象这样的一个情景："><span class="nav-number">1.1.1.</span> <span class="nav-text">大家想象这样的一个情景：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络转发"><span class="nav-number">1.2.</span> <span class="nav-text">网络转发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快递转发"><span class="nav-number">1.2.1.</span> <span class="nav-text">快递转发</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络转发过程"><span class="nav-number">1.3.</span> <span class="nav-text">网络转发过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果需要收发邮件或者传达消息需要三要素："><span class="nav-number">1.3.0.1.</span> <span class="nav-text">如果需要收发邮件或者传达消息需要三要素：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没错了这三者分别对应了三样东西（ip网络中）"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">没错了这三者分别对应了三样东西（ip网络中）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#谈谈这三样东西"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">谈谈这三样东西</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由协议"><span class="nav-number">1.4.</span> <span class="nav-text">路由协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ipv4网络"><span class="nav-number">1.5.</span> <span class="nav-text">ipv4网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先来说说ipv4网络吧"><span class="nav-number">1.5.1.</span> <span class="nav-text">先来说说ipv4网络吧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ipv4的ip采用点分十进制写法就是大家经常说的192-168-0-1巴拉巴拉的东西"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">ipv4的ip采用点分十进制写法就是大家经常说的192.168.0.1巴拉巴拉的东西</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现在来说说ipv4"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">现在来说说ipv4~</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#任何创造初期时都想不到究竟事后会有多大的后果"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">任何创造初期时都想不到究竟事后会有多大的后果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为狭义同一网络——网络位相同的地址的集合称为同一网络"><span class="nav-number">1.5.1.4.</span> <span class="nav-text">何为狭义同一网络——网络位相同的地址的集合称为同一网络</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#浅谈计算机网络"><span class="nav-number">1.</span> <span class="nav-text">浅谈计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息转发"><span class="nav-number">1.1.</span> <span class="nav-text">信息转发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#大家想象这样的一个情景："><span class="nav-number">1.1.1.</span> <span class="nav-text">大家想象这样的一个情景：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络转发"><span class="nav-number">1.2.</span> <span class="nav-text">网络转发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快递转发"><span class="nav-number">1.2.1.</span> <span class="nav-text">快递转发</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络转发过程"><span class="nav-number">1.3.</span> <span class="nav-text">网络转发过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果需要收发邮件或者传达消息需要三要素："><span class="nav-number">1.3.0.1.</span> <span class="nav-text">如果需要收发邮件或者传达消息需要三要素：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没错了这三者分别对应了三样东西（ip网络中）"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">没错了这三者分别对应了三样东西（ip网络中）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#谈谈这三样东西"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">谈谈这三样东西</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由协议"><span class="nav-number">1.4.</span> <span class="nav-text">路由协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ipv4网络"><span class="nav-number">1.5.</span> <span class="nav-text">ipv4网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先来说说ipv4网络吧"><span class="nav-number">1.5.1.</span> <span class="nav-text">先来说说ipv4网络吧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ipv4的ip采用点分十进制写法就是大家经常说的192-168-0-1巴拉巴拉的东西"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">ipv4的ip采用点分十进制写法就是大家经常说的192.168.0.1巴拉巴拉的东西</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现在来说说ipv4"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">现在来说说ipv4~</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#任何创造初期时都想不到究竟事后会有多大的后果"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">任何创造初期时都想不到究竟事后会有多大的后果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为狭义同一网络——网络位相同的地址的集合称为同一网络"><span class="nav-number">1.5.1.4.</span> <span class="nav-text">何为狭义同一网络——网络位相同的地址的集合称为同一网络</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络互联"><span class="nav-number">1.5.2.</span> <span class="nav-text">网络互联</span></a></li></ol></li></ol></div>
             
 
           </div>
