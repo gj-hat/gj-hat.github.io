@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/logo-tubiao.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计算机网络,路由,路由协议,ip地址,子网划分,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="浅谈计算机网络 信息转发 大家都有过发微信发qq信息的记录吧。有人想过信息是怎么到对方的手机上的吗？ 大家想象这样的一个情景： 情景一：班主任让小明通知一号楼一层的三年级二班下节的语文课变成体育课。小明收到这样的通知后他这么干： 1.小明去了一号楼 2.去了一号楼的一层 3.找到三年级二班 4.在三年级二班的讲台上喊了一句，班主任说了下节的语文课变体育课 5.三年级二班的学生听到小明的通知纷纷跑去">
+<meta name="keywords" content="计算机网络,路由,路由协议,ip地址,子网划分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈计算机网络">
+<meta property="og:url" content="http://yoursite.com/2018/11/29/浅谈计算机网络/index.html">
+<meta property="og:site_name" content="静下来，喝杯咖啡">
+<meta property="og:description" content="浅谈计算机网络 信息转发 大家都有过发微信发qq信息的记录吧。有人想过信息是怎么到对方的手机上的吗？ 大家想象这样的一个情景： 情景一：班主任让小明通知一号楼一层的三年级二班下节的语文课变成体育课。小明收到这样的通知后他这么干： 1.小明去了一号楼 2.去了一号楼的一层 3.找到三年级二班 4.在三年级二班的讲台上喊了一句，班主任说了下节的语文课变体育课 5.三年级二班的学生听到小明的通知纷纷跑去">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-29T04:01:14.044Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈计算机网络">
+<meta name="twitter:description" content="浅谈计算机网络 信息转发 大家都有过发微信发qq信息的记录吧。有人想过信息是怎么到对方的手机上的吗？ 大家想象这样的一个情景： 情景一：班主任让小明通知一号楼一层的三年级二班下节的语文课变成体育课。小明收到这样的通知后他这么干： 1.小明去了一号楼 2.去了一号楼的一层 3.找到三年级二班 4.在三年级二班的讲台上喊了一句，班主任说了下节的语文课变体育课 5.三年级二班的学生听到小明的通知纷纷跑去">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/29/浅谈计算机网络/">
+
+
+
+
+
+  <title>浅谈计算机网络 | 静下来，喝杯咖啡</title>
+  
+
+
+
+
+
+
+
+
+  
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">静下来，喝杯咖啡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学习笔记，日记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/浅谈计算机网络/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jia_Guo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/title/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静下来，喝杯咖啡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">浅谈计算机网络</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T11:59:43+08:00">
+                2018-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/network/" itemprop="url" rel="index">
+                    <span itemprop="name">network</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="浅谈计算机网络"><a href="#浅谈计算机网络" class="headerlink" title="浅谈计算机网络"></a>浅谈计算机网络</h1><blockquote>
+<h2 id="信息转发"><a href="#信息转发" class="headerlink" title="信息转发"></a>信息转发</h2></blockquote>
+<p>大家都有过发微信发qq信息的记录吧。有人想过信息是怎么到对方的手机上的吗？</p>
+<h3 id="大家想象这样的一个情景："><a href="#大家想象这样的一个情景：" class="headerlink" title="大家想象这样的一个情景："></a>大家想象这样的一个情景：</h3><ol>
+<li><p>情景一：班主任让小明通知一号楼一层的三年级二班下节的语文课变成体育课。小明收到这样的通知后他这么干：<br> 1.小明去了一号楼<br> 2.去了一号楼的一层<br> 3.找到三年级二班<br> 4.在三年级二班的讲台上喊了一句，班主任说了下节的语文课变体育课<br> 5.三年级二班的学生听到小明的通知纷纷跑去了操场</p>
+</li>
+<li><p>情景二：下节课是数学课但是小明没带书，小明想到隔壁班刚上完数学课，可以找小美借书。然后小明做了这样一件事<br> 1.先走到隔壁班<br> 2.找到小美的座位<br> 3.问小美可不可以借一下你的数学书<br> 4.小美听到小美在叫自己然后也非常开心的把书给了小明<br> 5.小明拿到书很开心的回到自己的座位上去</p>
+</li>
+</ol>
+<p>经历了上面的两个情景，其实大家完成了微信消息的群发和单发（一对一）的操作，其实计算机它也没什么神奇的，它发送消息的过程和小明的操作没有多大差别</p>
+<blockquote>
+<h2 id="网络转发"><a href="#网络转发" class="headerlink" title="网络转发"></a>网络转发</h2></blockquote>
+<p>经历了人工的转发再来看看计算机是怎么干的。</p>
+<h3 id="快递转发"><a href="#快递转发" class="headerlink" title="快递转发"></a>快递转发</h3><p>大家回过头再去看看上面的两个情景。<br>其实小明充当了类似传话员的角色。事实上早期的电话的确是有一个电话站充当着传话的工作。<br>通过传话的这个工作引申出快递的行业。大家想想快递是怎么工作的呢？</p>
+<ol>
+<li>你要给西安的老家的父母发一件衣服</li>
+<li>找到附近的快递员</li>
+<li>填写快递单的信息</li>
+<li>拿回快递单的复件（其实就是记录快递单号）</li>
+<li>快递员拿走你的快递并装进袋子（封装）</li>
+<li>分货员通过省份分类出各个省份的快递</li>
+<li>你的快递被分到了陕西</li>
+<li>陕西的分货员也干了同样的事情，它通过城市分类快递</li>
+<li>….经过一系列过程你的快递到了你家街道的快递点</li>
+<li>父母收到了短信或者电话到了快递点</li>
+<li>快递员拿出快递核对信息是否正确</li>
+<li>信息正确，父母拿走你的快递并拆开（拆封）</li>
+</ol>
+<p>好了大家也模拟了一次收发快递的经过了，事实上这已经和计算机的收发转发很接近了。</p>
+<blockquote>
+<h2 id="网络转发过程"><a href="#网络转发过程" class="headerlink" title="网络转发过程"></a>网络转发过程</h2></blockquote>
+<p>写的是有点麻烦，不过计算机可没那么聪明它只是工作的速度比较快而已。</p>
+<p>聪明的你应该发现了一些特征了；</p>
+<h4 id="如果需要收发邮件或者传达消息需要三要素："><a href="#如果需要收发邮件或者传达消息需要三要素：" class="headerlink" title="如果需要收发邮件或者传达消息需要三要素："></a>如果需要收发邮件或者传达消息需要三要素：</h4><ul>
+<li>发件人，始作俑者</li>
+<li>转发人，传话的人，小明或者快递员</li>
+<li>收件人，结束的人</li>
+</ul>
+<h4 id="没错了这三者分别对应了三样东西（ip网络中）"><a href="#没错了这三者分别对应了三样东西（ip网络中）" class="headerlink" title="没错了这三者分别对应了三样东西（ip网络中）"></a>没错了这三者分别对应了三样东西（ip网络中）</h4><ul>
+<li>原设备的信息（IP)</li>
+<li>路由器</li>
+<li>目标设备的信息（IP)</li>
+</ul>
+<h4 id="谈谈这三样东西"><a href="#谈谈这三样东西" class="headerlink" title="谈谈这三样东西"></a>谈谈这三样东西</h4><ul>
+<li>原设备信息；</li>
+</ul>
+<p>大家可能说我发送微信的时候并没有发送我的设备信息呀，或者我根本就不知道什么是设备的源信息呢。<br>其实呢微信APP已经帮大家做了这件事微信的app将微信号和你的ip地址进行绑定了。<br>如果说你上网必须要有ip地址才可以上网大家不理解的话，换句话说你发送微信消息必须要注册微信账号大家应该可以理解吧；</p>
+<ul>
+<li>目标设备信息</li>
+</ul>
+<p>此处不做详解，类似于你用发送消息的接收方的微信号；</p>
+<ul>
+<li>路由器</li>
+</ul>
+<p>路由器大家应该都有见过的吧；不管是家里的傻瓜路由器，还是运营商的路由器。其实都在干一件事——路径计算。只不过家里的路由器相当于你家街道的快递点。运营商的路由器相当于各地省市的分货员（任务量，信息安全性不同）</p>
+<p>下面来说一下有关路由协议的东西</p>
+<blockquote>
+<h2 id="路由协议"><a href="#路由协议" class="headerlink" title="路由协议"></a>路由协议</h2></blockquote>
+<p>什么是路径计算呢？<br>通过一些列的网络协议路由器会计算出到目标设备的最优解；<br>简单来说就是快递发送过程中的分货员的工作。目的地址是西安，首先发送至陕西省显然是最优解。而路由器并不知道这些事情它需要通过路由协议计算得出。</p>
+<p>反之如果没有路由协议，你的快递可能会发送到任意省份，任意人手中。运气好的话大家看到不是自己快递会依旧转发出去。这样一来你收到快递的几率就是（1/1300000000）</p>
+<p>运气 如果差的话，任意人收到你的快递发现不是自己的会丢弃。这样一来你或许得发13亿件衣服了。</p>
+<p>运气如果再差一点的话，任意人收到你的快递虽然明知道这不是自己的快递但模仿成你父母的样子也收了快递。（事实上这就是黑客的抓包操作）</p>
+<p><strong>大家也看到没有路由协议的后果了吧，轻则无法送达快递。重则信息的安安全性泄露。</strong></p>
+<p>事实上路由协议主要也的确干了这两件事</p>
+<ol>
+<li>路径计算</li>
+<li>信息加密（有关信息加密的下篇博客再说）</li>
+</ol>
+<blockquote>
+<h2 id="ipv4网络"><a href="#ipv4网络" class="headerlink" title="ipv4网络"></a>ipv4网络</h2></blockquote>
+<p>以上浅浅的说了有关网络数据转发的过程。<br>现在来稍微深一点了；</p>
+<h3 id="先来说说ipv4网络吧"><a href="#先来说说ipv4网络吧" class="headerlink" title="先来说说ipv4网络吧"></a>先来说说ipv4网络吧</h3><h4 id="ipv4的ip采用点分十进制写法就是大家经常说的192-168-0-1巴拉巴拉的东西"><a href="#ipv4的ip采用点分十进制写法就是大家经常说的192-168-0-1巴拉巴拉的东西" class="headerlink" title="ipv4的ip采用点分十进制写法就是大家经常说的192.168.0.1巴拉巴拉的东西"></a>ipv4的ip采用点分十进制写法就是大家经常说的192.168.0.1巴拉巴拉的东西</h4><p>ipV4采用32位2进制数，每8位分隔，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">格式 :XXXXXXXX.XXXXXXXX.XXXXXXXX.XXXXXXXX</span><br><span class="line">255.255.255.255</span><br></pre></td></tr></table></figure></p>
+<h4 id="现在来说说ipv4"><a href="#现在来说说ipv4" class="headerlink" title="现在来说说ipv4~"></a>现在来说说ipv4~</h4><p><strong>细心的人或许发现了一个问题，既然之前说过每个上网的设备都需要ip地址，那么按照刚刚的说法ip地址最多有：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">255*255*255*255=4228250625</span><br></pre></td></tr></table></figure></p>
+<p>这显然是不够的地球72亿人口每人一个尚且不够。</p>
+<p>对没错这是真的ipv4网络地址的确已经告竭（那为什么现在全球人依然可以上网?下篇谈）</p>
+<p><strong>那为什么不增加位数呢？</strong></p>
+<p>先来说说ipv4的来源，为了避免杠精先来附上维基百科的介绍<br><a href="https://zh.wikipedia.org/wiki/IPv4" title="ipv4" target="_blank" rel="noopener">ipv4的介绍</a></p>
+<h4 id="任何创造初期时都想不到究竟事后会有多大的后果"><a href="#任何创造初期时都想不到究竟事后会有多大的后果" class="headerlink" title="任何创造初期时都想不到究竟事后会有多大的后果"></a>任何创造初期时都想不到究竟事后会有多大的后果</h4><p>ipv4也一样，初期的确没想到可以做到商用，更没想到会产生蝴蝶效应，等到发现时已经为时已晚，所以现在只能做一些补救措施</p>
+<p>所以人为规定：</p>
+<ul>
+<li>公有地址<br>公有地址（Public address）由Inter NIC（Internet Network Information Center 因特网信息中心）负责。这些IP地址分配给注册并向Inter NIC提出申请的组织机构。通过它直接访问因特网。</li>
+<li>私有地址<br>私有地址（Private address）属于非注册地址，专门为组织机构内部使用。<br>以下列出留用的内部私有地址<br>A类 10.0.0.0–10.255.255.255<br>B类 172.16.0.0–172.31.255.255<br>C类 192.168.0.0–192.168.255.255</li>
+</ul>
+<p><strong>通过划分子网掩码来划分地址段来合理分配（相当于快递的地区划分）</strong></p>
+<ol>
+<li><p>A类地址</p>
+<p>A类地址的表示范围为：0.0.0.0~126.255.255.255，默认网络掩码为：255.0.0.0；A类地址分配给规模特别大的网络使用.A类网络用第一组数字表示网络本身的地址，后面三组数字作为连接于网络上的主机的地址。分配给具有大量主机（直接个人用户）而局域网络个数较少的大型网络。例如IBM公司的网络。</p>
+</li>
+<li><p>B类地址</p>
+<p>B类地址的表示范围为：128.0.0.0~191.255.255.255，默认网络掩码为：255.255.0.0；B类地址分配给一般的中型网络。B类网络用第一、二组数字表示网络的地址，后面两组数字代表网络上的主机地址。</p>
+</li>
+<li><p>C类地址</p>
+<p>C类地址的表示范围为：192.0.0.0~223.255.255.255，默认网络掩码为：255.255.255.0；C类地址分配给小型网络，如一般的局域网和校园网，它可连接的主机数量是最少的，采用把所属的用户分为若干的网段进行管理。C类网络用前三组数字表示网络的地址，最后一组数字作为网络上的主机地址。</p>
+</li>
+<li><p>实际上，还存在着D类地址和E类地址。但这两类地址用途比较特殊，在这里只是简单介绍一下：D类地址称为广播地址，供特殊协议向选定的节点发送信息时用。E类地址保留给将来使用。</p>
+</li>
+</ol>
+<p><strong>人为也规定该子网全0为网络地址，全1为广播地址。（前者相当于快递分类的某某省份，后者相当于小明传达中的消息群发）</strong></p>
+<p><strong>所以大家常见于192.168.0.1 127.0.0.1 0.0.0.0的地址</strong></p>
+<p>稍微深入一点：</p>
+<h4 id="何为狭义同一网络——网络位相同的地址的集合称为同一网络"><a href="#何为狭义同一网络——网络位相同的地址的集合称为同一网络" class="headerlink" title="何为狭义同一网络——网络位相同的地址的集合称为同一网络"></a>何为狭义同一网络——网络位相同的地址的集合称为同一网络</h4><p>上面的ABCDE类是基于自然划分的ip地址所以一般不用写掩码</p>
+<p>现代ip地址通常是这样组成的：<br><strong>网络号+主机号</strong></p>
+<p>假如是C类网段（大家日常见的最多的地址），24位掩码<br><code>`</code><br>192.168.0.1可以写成：</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>分享笔记，希望能帮到更多的人</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/img/wechatmoney.jpg" alt="Jia_Guo 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/img/alipaymoney.jpg" alt="Jia_Guo 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
+          
+            <a href="/tags/路由/" rel="tag"><i class="fa fa-tag"></i> 路由</a>
+          
+            <a href="/tags/路由协议/" rel="tag"><i class="fa fa-tag"></i> 路由协议</a>
+          
+            <a href="/tags/ip地址/" rel="tag"><i class="fa fa-tag"></i> ip地址</a>
+          
+            <a href="/tags/子网划分/" rel="tag"><i class="fa fa-tag"></i> 子网划分</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/27/搭建hexo博客/" rel="next" title="搭建hexo博客">
+                <i class="fa fa-chevron-left"></i> 搭建hexo博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/title/touxiang.jpg" alt="Jia_Guo">
+            
+              <p class="site-author-name" itemprop="name">Jia_Guo</p>
+              <p class="site-description motion-element" itemprop="description">乐于现状，追求卓越</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/gj-hat" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1520047927@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="gj1520047927@gmail.com" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/JiaGuo23372893" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="Skype:1520047927@qq.com" target="_blank" title="Skype">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Skype</a>
+                  </span>
+                
+            </div>
+          
+          
+          
+
+          
+          
+<div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="110" src="//music.163.com/outchain/player?type=0&id=2530237292&auto=1&height=90"></iframe>
+</div>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#浅谈计算机网络"><span class="nav-number">1.</span> <span class="nav-text">浅谈计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息转发"><span class="nav-number">1.1.</span> <span class="nav-text">信息转发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#大家想象这样的一个情景："><span class="nav-number">1.1.1.</span> <span class="nav-text">大家想象这样的一个情景：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络转发"><span class="nav-number">1.2.</span> <span class="nav-text">网络转发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快递转发"><span class="nav-number">1.2.1.</span> <span class="nav-text">快递转发</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络转发过程"><span class="nav-number">1.3.</span> <span class="nav-text">网络转发过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果需要收发邮件或者传达消息需要三要素："><span class="nav-number">1.3.0.1.</span> <span class="nav-text">如果需要收发邮件或者传达消息需要三要素：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没错了这三者分别对应了三样东西（ip网络中）"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">没错了这三者分别对应了三样东西（ip网络中）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#谈谈这三样东西"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">谈谈这三样东西</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由协议"><span class="nav-number">1.4.</span> <span class="nav-text">路由协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ipv4网络"><span class="nav-number">1.5.</span> <span class="nav-text">ipv4网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先来说说ipv4网络吧"><span class="nav-number">1.5.1.</span> <span class="nav-text">先来说说ipv4网络吧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ipv4的ip采用点分十进制写法就是大家经常说的192-168-0-1巴拉巴拉的东西"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">ipv4的ip采用点分十进制写法就是大家经常说的192.168.0.1巴拉巴拉的东西</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现在来说说ipv4"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">现在来说说ipv4~</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#任何创造初期时都想不到究竟事后会有多大的后果"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">任何创造初期时都想不到究竟事后会有多大的后果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为狭义同一网络——网络位相同的地址的集合称为同一网络"><span class="nav-number">1.5.1.4.</span> <span class="nav-text">何为狭义同一网络——网络位相同的地址的集合称为同一网络</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jia_Guo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+ 
+<script type="text/javascript" color="100,100,100" opacity="0.3" zindex="-1" count="20" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
