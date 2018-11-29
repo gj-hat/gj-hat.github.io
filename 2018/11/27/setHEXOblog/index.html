@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/logo-tubiao.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="git,github,hexo,ubuntu,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="看着五分钟搭建hexo的教程自己折腾了近一个礼拜由于这个周被hexo折腾的会说脏话了，所以我决定第一篇就从搭建hexo开始说起本文使用linux中基于depain分支下的ubuntu系统（理论上来说基于depain分支都可以使用） 本文使用github作为服务器托管我们的hexo博客  注册github 注册github 注册成功后，注册github提供给我们的域名其实就是按照人家的要求创建一个库">
+<meta name="keywords" content="git,github,hexo,ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建hexo博客">
+<meta property="og:url" content="http://yoursite.com/2018/11/27/setHEXOblog/index.html">
+<meta property="og:site_name" content="静下来，喝杯咖啡">
+<meta property="og:description" content="看着五分钟搭建hexo的教程自己折腾了近一个礼拜由于这个周被hexo折腾的会说脏话了，所以我决定第一篇就从搭建hexo开始说起本文使用linux中基于depain分支下的ubuntu系统（理论上来说基于depain分支都可以使用） 本文使用github作为服务器托管我们的hexo博客  注册github 注册github 注册成功后，注册github提供给我们的域名其实就是按照人家的要求创建一个库">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FEA03T.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FEZeHJ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FEZGuD.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FEZj8x.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FEensS.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FEeOeg.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FEm9S0.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FEmiOU.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FEmAw4.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FEm8TH.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FEma1P.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FEnkgP.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FEnYbF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FEQWef.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FElupd.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FElM6I.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FEl878.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/27/FE1wPe.png">
+<meta property="og:updated_time" content="2018-11-27T09:07:11.263Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搭建hexo博客">
+<meta name="twitter:description" content="看着五分钟搭建hexo的教程自己折腾了近一个礼拜由于这个周被hexo折腾的会说脏话了，所以我决定第一篇就从搭建hexo开始说起本文使用linux中基于depain分支下的ubuntu系统（理论上来说基于depain分支都可以使用） 本文使用github作为服务器托管我们的hexo博客  注册github 注册github 注册成功后，注册github提供给我们的域名其实就是按照人家的要求创建一个库">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/11/27/FEA03T.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/27/setHEXOblog/">
+
+
+
+
+
+  <title>搭建hexo博客 | 静下来，喝杯咖啡</title>
+  
+
+
+
+
+
+
+
+
+  
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">静下来，喝杯咖啡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学习笔记，日记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/setHEXOblog/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jia_Guo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/title/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静下来，喝杯咖啡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">搭建hexo博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T09:20:28+08:00">
+                2018-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常被折磨的死去活来的笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">日常被折磨的死去活来的笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="看着五分钟搭建hexo的教程自己折腾了近一个礼拜"><a href="#看着五分钟搭建hexo的教程自己折腾了近一个礼拜" class="headerlink" title="看着五分钟搭建hexo的教程自己折腾了近一个礼拜"></a>看着五分钟搭建hexo的教程自己折腾了近一个礼拜</h2><p><strong>由于这个周被hexo折腾的会说脏话了，所以我决定第一篇就从搭建hexo开始说起</strong><br><strong>本文使用linux中基于depain分支下的ubuntu系统（理论上来说基于depain分支都可以使用）</strong></p>
+<p><strong>本文使用github作为服务器托管我们的hexo博客</strong></p>
+<blockquote>
+<h3 id="注册github"><a href="#注册github" class="headerlink" title="注册github"></a>注册github</h3></blockquote>
+<h4 id="注册github-1"><a href="#注册github-1" class="headerlink" title="注册github"></a><a href="http://github.com" target="_blank" rel="noopener">注册github</a></h4><p> 注册成功后，注册github提供给我们的域名<br>其实就是按照人家的要求创建一个库(项目);<br>要求如下：新建的库名必须是自己的github用户名.github.io</p>
+<h4 id="创建新库"><a href="#创建新库" class="headerlink" title="创建新库"></a>创建新库</h4><p>github的主页面找到这个按钮new repository（因为我已经建立了所以这个图标的位置可能和你们不太一样）</p>
+<p><img src="https://s1.ax1x.com/2018/11/27/FEA03T.png" alt=""></p>
+<p>点击后，安装提示输入自己库的名称，  username.github.io</p>
+<p>这么一来自己的域名创建完毕</p>
+<blockquote>
+<h3 id="第二步开始安装各种巴拉巴拉的环境"><a href="#第二步开始安装各种巴拉巴拉的环境" class="headerlink" title="第二步开始安装各种巴拉巴拉的环境"></a>第二步开始安装各种巴拉巴拉的环境</h3></blockquote>
+<h4 id="首先使用更新一下软件"><a href="#首先使用更新一下软件" class="headerlink" title="首先使用更新一下软件"></a>首先使用更新一下软件</h4><p>sudo apt-get update（以后安装前为了不出现问题大家尽可能的先使用此命令）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></p>
+<h4 id="安装git："><a href="#安装git：" class="headerlink" title="安装git："></a>安装git：</h4><p>记得sudo一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure></p>
+<p>使用git –version查看自己git的版本，也可查看自己是否已经安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后记得设置自己用户名和邮箱，用户名和邮箱和github一致即可；<br>设置命令如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;John Doe&quot;</span><br><span class="line">$ git config --global user.email johndoe@example.com</span><br></pre></td></tr></table></figure></p>
+<p>PS:插一句哦，如果是小白不知道什么是git，简单来说git是全世界全宇宙最牛的版本控制器。<br>至于什么是git什么是版本控制器大家仔细baidu，google。</p>
+<p> 算了知道你们懒给你们地址吧：<br><a href="https://git-scm.com/book/zh/" title="戳这里，这是git" target="_blank" rel="noopener">戳这里，这是git</a></p>
+<h4 id="安装npm（node-package-manager）"><a href="#安装npm（node-package-manager）" class="headerlink" title="安装npm（node package manager）"></a>安装npm（node package manager）</h4><p> 直译过来是node的包管理工具<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure></p>
+<p><strong>老规矩安装完成后先查看版本；</strong><br><em>大家可能会说都安装了还有看什么版本有意义吗？<br>不不不，这还是很有意义的，按照笔者的万年遇bug的体质还是很有意义的。<br>我的英文水准很差，提示语句大多看不懂；所以执行完安装命令后到底有没有安装成功还是得用下面的命令来查看。万一安装失败了，那我给你讲哦接下来的大多步骤你都不知道错在哪里了；<br>按照流程先心态炸裂，然后离原地爆炸。然后各种卸载命令，最后一句骂娘关电脑去他爸爸的吧。</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure>
+<p>执行完成后大家就可是使用npm的包管理工具了；</p>
+<h4 id="安装NODE-JS"><a href="#安装NODE-JS" class="headerlink" title="安装NODE.JS"></a>安装NODE.JS</h4><p> 知其然还要知其所以然，为什么要安装note.js呢；<br>根据大神的解释是这样的<br>hexo发布后是一个静态网页，而hexo本身并不是静态网页可以运行诸如js等页面。<br>这里的note.js就是将我们写的网页“翻译”成静态页面；</p>
+<p> 如果有人想细细研究的话，那就给你看看官方文档吧（总觉得这么用标签不太好）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Node.js是一个开放源代码、跨平台的、可用于服务器端和网络应用的运行环境。Node.js应用JavaScript语言写成，在Node.js运行时运行。它支持OS X、Microsoft Windows、Linux、FreeBSD、NonStop、IBM AIX、IBM System z和IBM i。Node.js由Node.js基金会拥有和维护，该基金会与Linux基金会有合作关系。</span><br><span class="line"></span><br><span class="line"> Node.js提供事件驱动和非阻塞I/O API，可优化应用程序的吞吐量和规模。这些技术通常被用于实时应用程序。</span><br><span class="line"></span><br><span class="line"> Node.js采用Google的V8引擎来执行代码。Node.js的大部分基本模块都是用JavaScript写成的。Node.js含有一系列内置模块，使得程序可以作为独立服务器运行，从而脱离Apache HTTP Server或IIS运行。</span><br><span class="line"></span><br><span class="line"> Node.js正在向服务器端平台发展，并已被IBM、Microsoft、Yahoo!、Walmart、Groupon、SAP、LinkedIn、Rakuten、PayPal、Voxer和GoDaddy等采用</span><br><span class="line"></span><br><span class="line"> Node.js允许通过JavaScript和一系列模块来编写服务器端应用和网络相关的应用。核心模块包括文件系统I/O、网络（HTTP、TCP、UDP、DNS、TLS/SSL等）、二进制数据流、加密算法、数据流等等。Node模块的API形式简单，降低了编程的复杂度。</span><br><span class="line"></span><br><span class="line"> 使用框架可以加速开发。常用的框架有Express.js、Socket.IO和Connect等。Node.js的程序可以在Microsoft Windows、Linux、Unix、Mac OS X等服务器上运行。Node.js也可以使用CoffeeScript（一种旨在简化JavaScript的替代语言，其代码可按照一定规则转化为合法的JavaScript代码）、TypeScript（微软开发的强化了数据类型的JavaScript变体）、Dart语言，以及其他能够编译成JavaScript的语言编程。</span><br><span class="line"></span><br><span class="line"> Node.js主要用于编写像Web服务器一样的网络应用，这和PHP和Python是类似的。但是Node.js与其他语言最大的不同之处在于，PHP等语言是阻塞的（只有前一条命令执行完毕才会执行后面的命令），而Node.js是非阻塞的（多条命令可以同时被运行，通过回调函数得知命令已结束运行）。</span><br><span class="line"></span><br><span class="line"> Node.js是事件驱动的。开发者可以在不使用线程的情况下开发出一个能够承载高并发的服务器。其他服务器端语言难以开发高并发应用，而且即使开发出来，性能也不尽人意。Node.js正是在这个前提下被创造出来。Node.js把JavaScript的易学易用和Unix网络编程的强大结合到了一起。</span><br><span class="line"></span><br><span class="line"> Node.js使用Google V8 JavaScript 引擎，因为：</span><br><span class="line"></span><br><span class="line"> V8是基于BSD许可证的开源软件</span><br><span class="line"> V8速度非常快</span><br><span class="line"> V8专注于网络功能，在HTTP、DNS、TCP等方面更加成熟</span><br><span class="line"> Node.js已经有数十万模块，它们可以通过一个名为**npm**的管理器免费下载。Node.js开发社 区主要有两个邮件列表、一个在freenode的名为#node.js的IRC频道。社区集中在NodeConf</span><br></pre></td></tr></table></figure></p>
+<p><strong>安装命令如下</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install note.js</span><br></pre></td></tr></table></figure></p>
+<p>（插曲一下，本人当时安装的时候一直卡在这里不动，这个时候别傻傻的一直等，人是活的总要变通一下吧）</p>
+<p><img src="https://s1.ax1x.com/2018/11/27/FEZeHJ.png" alt=""></p>
+<p>这是网络问题不是所有人都有，但如果有了就很mmp，解决的办法就是”换源“使用国内的taobao源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm --registry=https://registry.npm.taobao.org install -g cnpm</span><br></pre></td></tr></table></figure></p>
+<p>接下来用cnpm替换上面的npm，再执行一遍</p>
+<p><img src="https://s1.ax1x.com/2018/11/27/FEZGuD.png" alt=""></p>
+<p>（它动了，真的动了，真酷）接下来执行下面的命令安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install note.js</span><br></pre></td></tr></table></figure></p>
+<h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><h3 id="啊终于到了安装-hexo的地步了为了庆祝之前大家受的苦我决定用标题标签来见证这一刻"><a href="#啊终于到了安装-hexo的地步了为了庆祝之前大家受的苦我决定用标题标签来见证这一刻" class="headerlink" title="啊终于到了安装 hexo的地步了为了庆祝之前大家受的苦我决定用标题标签来见证这一刻"></a>啊终于到了安装 hexo的地步了为了庆祝之前大家受的苦我决定用标题标签来见证这一刻</h3><p>安装命令来了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo</span><br></pre></td></tr></table></figure></p>
+<p>老规矩如果超过三秒它还不动，那只能宣告它死亡了；</p>
+<p>既然费了老大功夫换了taobao源总得用一下吧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo</span><br></pre></td></tr></table></figure></p>
+<p><strong>不信你看，等了半小时就等来一个空行，换了cnpm秒开</strong></p>
+<p><img src="https://s1.ax1x.com/2018/11/27/FEZj8x.png" alt=""></p>
+<h4 id="初始化hexo"><a href="#初始化hexo" class="headerlink" title="初始化hexo"></a>初始化hexo</h4><p>软件装好了，博客总得有地方放吧。</p>
+<p>接下来使用各种cd mkdir 巴拉巴拉的命令定位到自己想安装的目录下，执行下面的初始化命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2018/11/27/FEensS.png" alt=""></p>
+<p>接下来如果不出意外的话大家可以看到该目录下有各种各样的文件了。（下篇文章介绍这些目录的作用）如果出了意外的话，比如等可久，这个时候就不能换源了，这个时候就需要走代理了<br>代理软件prochains大家自行baidu，google。奥对了，之后还会有教程，教大家搭建ssvpn是不是很激动呀。就是传说中的小飞机。</p>
+<p>哦对了，如果中途等不及了又或者不小心按了ctrl+c的话，重新执行hexo init会报错。<br>解决办法就是删除文件夹内所有文件记得是所有哦，包括隐藏文件（PS:使用ll命令可以查看，rm可以删除）</p>
+<p><img src="https://s1.ax1x.com/2018/11/27/FEeOeg.png" alt=""></p>
+<p>等待总是漫长的，不如喝杯java？</p>
+<p><em>像这样？</em><br><img src="https://s1.ax1x.com/2018/11/27/FEm9S0.jpg" alt=""><br><em>像这样？？</em><br><img src="https://s1.ax1x.com/2018/11/27/FEmiOU.jpg" alt=""><br><em>又或者这样？</em><br><img src="https://s1.ax1x.com/2018/11/27/FEmAw4.png" alt=""></p>
+<h3 id="初始化完成，纪念一下漫长的等待老规矩上标题标签"><a href="#初始化完成，纪念一下漫长的等待老规矩上标题标签" class="headerlink" title="初始化完成，纪念一下漫长的等待老规矩上标题标签"></a>初始化完成，纪念一下漫长的等待老规矩上标题标签</h3><p><img src="https://s1.ax1x.com/2018/11/27/FEm8TH.png" alt=""></p>
+<p>初始化完成后看到的就是这样的东西</p>
+<p>接下来终于可以看到界面化的东西了</p>
+<p>开始一套操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>终于要结束了。<br><img src="https://s1.ax1x.com/2018/11/27/FEma1P.png" alt=""></p>
+<p>哎哟卧槽，纳尼，报错了</p>
+<p>别急别急 ，好像少装了server插件</p>
+<p>命令来啦</p>
+<p>npm hexo -s</p>
+<p>好嘞接下来一套骚操作:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://s1.ax1x.com/2018/11/27/FEnkgP.png" alt=""></p>
+<p>安装提示浏览器输入：<a href="http://127.0.0.1:4000" target="_blank" rel="noopener">http://127.0.0.1:4000</a><br><img src="https://s1.ax1x.com/2018/11/27/FEnYbF.png" alt=""></p>
+<p><strong>别惊讶为什么我的和你们的不一样，我花了三天时间换主题容易嘛我，还不让我装个逼了（装逼得加粗）</strong></p>
+<blockquote>
+<h3 id="hexo安装没毛病了-开始得先办法怎么让别人也能看到了"><a href="#hexo安装没毛病了-开始得先办法怎么让别人也能看到了" class="headerlink" title="hexo安装没毛病了,开始得先办法怎么让别人也能看到了"></a>hexo安装没毛病了,开始得先办法怎么让别人也能看到了</h3></blockquote>
+<h4 id="github"><a href="#github" class="headerlink" title="github"></a>github</h4><p>大家还记得一开始的github吗？再不介绍都忘了。</p>
+<p>什么是github？简单说就是传说中的全球最大的同性交友网站。<br>为什么这么说呢，因为这是一个代码交流的地方因为男性居多所以这么叫。</p>
+<p>大家的交流方式就是代码库，奥对了linux的源码也在里面发布<br><img src="https://s1.ax1x.com/2018/11/27/FEQWef.jpg" alt=""></p>
+<h4 id="创建ssh密钥（为了安全，安全-，安安全）"><a href="#创建ssh密钥（为了安全，安全-，安安全）" class="headerlink" title="创建ssh密钥（为了安全，安全 ，安安全）"></a>创建ssh密钥（为了安全，安全 ，安安全）</h4><p>命令来了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure></p>
+<p>根据提示找到id_dsa.pub这个文件</p>
+<p>使用cat命令查看并ctrl+c复制：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat id_dsa.pub</span><br></pre></td></tr></table></figure></p>
+<p>粘贴到<br><img src="https://s1.ax1x.com/2018/11/27/FElupd.png" alt=""><br><img src="https://s1.ax1x.com/2018/11/27/FElM6I.png" alt=""><br><img src="https://s1.ax1x.com/2018/11/27/FEl878.png" alt=""></p>
+<h4 id="接下来修改根目录下配置文件-config-yml信息"><a href="#接下来修改根目录下配置文件-config-yml信息" class="headerlink" title="接下来修改根目录下配置文件_config.yml信息"></a>接下来修改根目录下配置文件_config.yml信息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: &lt;repository url&gt;</span><br><span class="line">branch: [branch]</span><br><span class="line">message: [message]</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>repo</td>
+<td style="text-align:left">库（Repository）地址</td>
+</tr>
+<tr>
+<td>branch</td>
+<td style="text-align:left">分支名称。如果您使用的是 GitHub 或 GitCafe 的话，程序会尝试自动检测。</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:left">自定义提交信息</td>
+</tr>
+</tbody>
+</table>
+<p>我的是这么写的<br><img src="https://s1.ax1x.com/2018/11/27/FE1wPe.png" alt=""></p>
+<p>接下来使用一系列命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git status -s</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;src commit master&quot;</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+<p><strong>上传至github库中，接下来就可以使用user.github.io访问了</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>分享笔记，希望能帮到更多的人</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/img/wechatmoney.jpg" alt="Jia_Guo 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/img/alipaymoney.jpg" alt="Jia_Guo 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+          
+            <a href="/tags/github/" rel="tag"><i class="fa fa-tag"></i> github</a>
+          
+            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+          
+            <a href="/tags/ubuntu/" rel="tag"><i class="fa fa-tag"></i> ubuntu</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/29/basicComputerNet/" rel="prev" title="浅谈计算机网络">
+                浅谈计算机网络 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/title/touxiang.jpg" alt="Jia_Guo">
+            
+              <p class="site-author-name" itemprop="name">Jia_Guo</p>
+              <p class="site-description motion-element" itemprop="description">乐于现状，追求卓越</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/gj-hat" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1520047927@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="gj1520047927@gmail.com" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/JiaGuo23372893" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="Skype:1520047927@qq.com" target="_blank" title="Skype">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Skype</a>
+                  </span>
+                
+            </div>
+          
+          
+          
+
+          
+          
+<div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="110" src="//music.163.com/outchain/player?type=0&id=2530237292&auto=1&height=90"></iframe>
+</div>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#看着五分钟搭建hexo的教程自己折腾了近一个礼拜"><span class="nav-number">1.</span> <span class="nav-text">看着五分钟搭建hexo的教程自己折腾了近一个礼拜</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册github"><span class="nav-number">1.1.</span> <span class="nav-text">注册github</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注册github-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">注册github</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建新库"><span class="nav-number">1.1.2.</span> <span class="nav-text">创建新库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步开始安装各种巴拉巴拉的环境"><span class="nav-number">1.2.</span> <span class="nav-text">第二步开始安装各种巴拉巴拉的环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#首先使用更新一下软件"><span class="nav-number">1.2.1.</span> <span class="nav-text">首先使用更新一下软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装git："><span class="nav-number">1.2.2.</span> <span class="nav-text">安装git：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装npm（node-package-manager）"><span class="nav-number">1.2.3.</span> <span class="nav-text">安装npm（node package manager）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装NODE-JS"><span class="nav-number">1.2.4.</span> <span class="nav-text">安装NODE.JS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装hexo"><span class="nav-number">1.2.5.</span> <span class="nav-text">安装hexo</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#啊终于到了安装-hexo的地步了为了庆祝之前大家受的苦我决定用标题标签来见证这一刻"><span class="nav-number">1.3.</span> <span class="nav-text">啊终于到了安装 hexo的地步了为了庆祝之前大家受的苦我决定用标题标签来见证这一刻</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化hexo"><span class="nav-number">1.3.1.</span> <span class="nav-text">初始化hexo</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化完成，纪念一下漫长的等待老规矩上标题标签"><span class="nav-number">1.4.</span> <span class="nav-text">初始化完成，纪念一下漫长的等待老规矩上标题标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo安装没毛病了-开始得先办法怎么让别人也能看到了"><span class="nav-number">1.5.</span> <span class="nav-text">hexo安装没毛病了,开始得先办法怎么让别人也能看到了</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#github"><span class="nav-number">1.5.1.</span> <span class="nav-text">github</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建ssh密钥（为了安全，安全-，安安全）"><span class="nav-number">1.5.2.</span> <span class="nav-text">创建ssh密钥（为了安全，安全 ，安安全）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接下来修改根目录下配置文件-config-yml信息"><span class="nav-number">1.5.3.</span> <span class="nav-text">接下来修改根目录下配置文件_config.yml信息</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jia_Guo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+ 
+<script type="text/javascript" color="100,100,100" opacity="0.3" zindex="-1" count="20" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
