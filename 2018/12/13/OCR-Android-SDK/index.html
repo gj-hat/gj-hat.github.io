@@ -1,0 +1,2702 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/logo-tubiao.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="API,java,android,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="OCR Android SDK 开发者文档简介本文档主要介绍OCR Android SDK的安装和使用。在使用本文档前，您需要先了解Optical Character Recognition(OCR)的基础知识，并已经开通了OCR服务。 接口能力远程API能力SDK提供了下列百度AI开放平台RESTful接口的封装    接口名称 接口能力简要描述     通用文字识别 识别图片中的文字信息">
+<meta name="keywords" content="API,java,android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OCR Android SDK 开发者文档">
+<meta property="og:url" content="http://yoursite.com/2018/12/13/OCR-Android-SDK/index.html">
+<meta property="og:site_name" content="静下来，喝杯咖啡">
+<meta property="og:description" content="OCR Android SDK 开发者文档简介本文档主要介绍OCR Android SDK的安装和使用。在使用本文档前，您需要先了解Optical Character Recognition(OCR)的基础知识，并已经开通了OCR服务。 接口能力远程API能力SDK提供了下列百度AI开放平台RESTful接口的封装    接口名称 接口能力简要描述     通用文字识别 识别图片中的文字信息">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ai.bdstatic.com/file/22808038CABB4D87A523E00A63F86A3F">
+<meta property="og:image" content="https://ai.bdstatic.com/file/E0FE42DB27494CBC895C6F24DBC1FE54">
+<meta property="og:image" content="https://ai.bdstatic.com/file/36B5703778884B73AE6E9241730B1772">
+<meta property="og:image" content="https://ai.bdstatic.com/file/E0FE42DB27494CBC895C6F24DBC1FE54">
+<meta property="og:image" content="https://ai.bdstatic.com/file/36B5703778884B73AE6E9241730B1772">
+<meta property="og:image" content="https://ai.bdstatic.com/file/6E928A2EBAE744E59D8D0CE2984AAC57">
+<meta property="og:image" content="https://ai.bdstatic.com/file/54D522AC76AA44B9BBE6E98FEEAD79EE">
+<meta property="og:updated_time" content="2018-12-13T03:13:45.725Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OCR Android SDK 开发者文档">
+<meta name="twitter:description" content="OCR Android SDK 开发者文档简介本文档主要介绍OCR Android SDK的安装和使用。在使用本文档前，您需要先了解Optical Character Recognition(OCR)的基础知识，并已经开通了OCR服务。 接口能力远程API能力SDK提供了下列百度AI开放平台RESTful接口的封装    接口名称 接口能力简要描述     通用文字识别 识别图片中的文字信息">
+<meta name="twitter:image" content="https://ai.bdstatic.com/file/22808038CABB4D87A523E00A63F86A3F">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/13/OCR-Android-SDK/">
+
+
+
+
+
+  <title>OCR Android SDK 开发者文档 | 静下来，喝杯咖啡</title>
+  
+
+
+
+
+
+
+
+
+  
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">静下来，喝杯咖啡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学习笔记，日记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/OCR-Android-SDK/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jia_Guo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/title/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静下来，喝杯咖啡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OCR Android SDK 开发者文档</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-13T11:10:19+08:00">
+                2018-12-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/API-for-Android/" itemprop="url" rel="index">
+                    <span itemprop="name">API-for-Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  9.8k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  40
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="OCR-Android-SDK-开发者文档"><a href="#OCR-Android-SDK-开发者文档" class="headerlink" title="OCR Android SDK 开发者文档"></a>OCR Android SDK 开发者文档</h1><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本文档主要介绍OCR Android SDK的安装和使用。在使用本文档前，您需要先了解Optical Character Recognition(OCR)的基础知识，并已经开通了OCR服务。</p>
+<h2 id="接口能力"><a href="#接口能力" class="headerlink" title="接口能力"></a>接口能力</h2><h3 id="远程API能力"><a href="#远程API能力" class="headerlink" title="远程API能力"></a>远程API能力</h3><p>SDK提供了下列百度AI开放平台RESTful接口的封装</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">接口名称</th>
+<th style="text-align:left">接口能力简要描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">通用文字识别</td>
+<td style="text-align:left">识别图片中的文字信息</td>
+</tr>
+<tr>
+<td style="text-align:left">通用文字识别（高精度版）</td>
+<td style="text-align:left">更高精度地识别图片中的文字信息</td>
+</tr>
+<tr>
+<td style="text-align:left">通用文字识别（含位置信息版）</td>
+<td style="text-align:left">识别图片中的文字信息（包含文字区域的坐标信息）</td>
+</tr>
+<tr>
+<td style="text-align:left">通用文字识别（高精度含位置版）</td>
+<td style="text-align:left">更高精度地识别图片中的文字信息（包含文字区域的坐标信息）</td>
+</tr>
+<tr>
+<td style="text-align:left">通用文字识别（含生僻字版）</td>
+<td style="text-align:left">识别图片中的文字信息（包含对常见字和生僻字的识别）</td>
+</tr>
+<tr>
+<td style="text-align:left">网络图片文字识别</td>
+<td style="text-align:left">识别一些网络上背景复杂，特殊字体的文字</td>
+</tr>
+<tr>
+<td style="text-align:left">身份证识别</td>
+<td style="text-align:left">识别身份证正反面的文字信息</td>
+</tr>
+<tr>
+<td style="text-align:left">银行卡识别</td>
+<td style="text-align:left">识别银行卡的卡号并返回发卡行和卡片性质信息</td>
+</tr>
+<tr>
+<td style="text-align:left">驾驶证识别</td>
+<td style="text-align:left">识别机动车驾驶证所有关键字段</td>
+</tr>
+<tr>
+<td style="text-align:left">行驶证识别</td>
+<td style="text-align:left">识别机动车行驶证所有关键字段</td>
+</tr>
+<tr>
+<td style="text-align:left">车牌识别</td>
+<td style="text-align:left">对小客车的车牌进行识别</td>
+</tr>
+<tr>
+<td style="text-align:left">营业执照识别</td>
+<td style="text-align:left">对营业执照进行识别</td>
+</tr>
+<tr>
+<td style="text-align:left">通用票据识别</td>
+<td style="text-align:left">对各类票据图片（医疗票据，保险保单等）进行文字识别，并返回文字在图片中的位置信息</td>
+</tr>
+</tbody>
+</table>
+<h3 id="本地质量控制能力"><a href="#本地质量控制能力" class="headerlink" title="本地质量控制能力"></a>本地质量控制能力</h3><p>除了包含远程API调用能力外，安卓SDK中还集成了身份证识别的本地质量控制能力，提供给开发者本地检测身份证的功能。</p>
+<h2 id="版本更新记录"><a href="#版本更新记录" class="headerlink" title="版本更新记录"></a>版本更新记录</h2><table>
+<thead>
+<tr>
+<th>上线日期</th>
+<th>版本号</th>
+<th>更新内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2018.9.29</td>
+<td>1.4.4</td>
+<td>修复自定义ocr返回解析异常的问题</td>
+</tr>
+<tr>
+<td>2018.5.31</td>
+<td>1.4.3</td>
+<td>修改获取OCR单例getInstance传入context；修复一些导致奔溃的问题；新增一些邀测接口</td>
+</tr>
+<tr>
+<td>2018.2.8</td>
+<td>1.4.2</td>
+<td>修复高精度通用文字识别调用api错误的问题</td>
+</tr>
+<tr>
+<td>2018.2.1</td>
+<td>1.4.1</td>
+<td>优化和修复了一些引起奔溃的问题；身份证本地扫描新增一个用户手动加和释放模型的类，强烈推荐用户参照demo中手动初始化和释放模型</td>
+</tr>
+<tr>
+<td>2017.11.23</td>
+<td>1.4.0</td>
+<td>新增高精度版通用文字，营业执照，通用票据接口</td>
+</tr>
+<tr>
+<td>2017.11.2</td>
+<td>1.3.3</td>
+<td>修复一个本地代码内存泄露问题，优化代码结构</td>
+</tr>
+<tr>
+<td>2017.10.17</td>
+<td>1.3.2</td>
+<td>修复token对象expireTime时间异常的问题</td>
+</tr>
+<tr>
+<td>2017.9.21</td>
+<td>1.3.1</td>
+<td>修复了一些机型下autofocus fail的错误；添加了请求接口token过期前10秒自动获取新token的逻辑；对demo界面文案做了微调</td>
+</tr>
+<tr>
+<td>2017.8.15</td>
+<td>1.3.0</td>
+<td>增加驾驶证，行驶证，车牌识别功能；修复了一个潜在内存泄露问题；身份证本地质量控制模型升级，加入完整性保证</td>
+</tr>
+<tr>
+<td>2017.8.1</td>
+<td>1.2.3</td>
+<td>ui库输出格式RGB565压缩，身份证识别参数加入压缩质量，对焦实现改为间隔自动对焦，修复了一些问题</td>
+</tr>
+<tr>
+<td>2017.7.14</td>
+<td>1.2.2</td>
+<td>配合添加身份证本地能力升级SDK的安全性，身份证识别支持自动质量控制扫描模式以及默认的拍照识别模式</td>
+</tr>
+<tr>
+<td>2017.6.30</td>
+<td>1.2.1</td>
+<td>1.对SDK的安全性作出优化 2.对本地身份证输入校验功能进行升级，该功能暂时不可用</td>
+</tr>
+<tr>
+<td>2017.6.20</td>
+<td>1.2.0</td>
+<td>ocr_ui库身份证识别升级，交互修改为基于本地模型实现实时扫描判断后自动上传识别身份证</td>
+</tr>
+<tr>
+<td>2017.5.18</td>
+<td>1.1.0</td>
+<td>增加通用文字识别基础版，生僻字，网图接口的SDK接口和demo演示；移除okhttp依赖；支持x86架构CPU；略微优化了demo的交互</td>
+</tr>
+<tr>
+<td>2017.4.13</td>
+<td>1.0.2</td>
+<td>修复部分用户使用ak，sk方式无法获取token的问题</td>
+</tr>
+<tr>
+<td>2017.3.23</td>
+<td>1.0.1</td>
+<td>更新demo获取token失败的错误提示的交互</td>
+</tr>
+<tr>
+<td>2017.3.16</td>
+<td>1.0.0</td>
+<td>在线OCR第一版！</td>
+</tr>
+</tbody>
+</table>
+<h1 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h1><p>支持的系统和硬件版本</p>
+<ul>
+<li>系统：支持 Android 4.0（API Level 15）到Android7.0（API Level 25）系统。需要开发者通过minSdkVersion来保证支持系统的检测。</li>
+<li>CPU架构：armeabi，arm64-v8a，armeabi-v7a，x86</li>
+<li>机型：手机和平板皆可</li>
+<li>硬件要求：要求设备上有相机模块。</li>
+<li>网络：支持WIFI及移动网络，移动网络支持使用NET网关及WAP网关（CMWAP、CTWAP、UNIWAP、3GWAP）。</li>
+</ul>
+<h2 id="开发包说明"><a href="#开发包说明" class="headerlink" title="开发包说明"></a>开发包说明</h2><pre><code>aip-ocr-android-sdk.zip               // OCR SDK包，包括文档，demo工程，SDK核心库
+    |- OCRDemo                         // demo示例工程
+    |- libs                            // lib 库,包括各平台的so库及 jar包。
+    |- ocr-ui                          // ocr UI模块
+    |- OCR-android-SDK.md              // 使用说明文档
+</code></pre><p>sdk的包含的UI部分和demo工程以Android Studio方式提供，sdk部分则可以较方便的集成到eclipse工程中。</p>
+<ol>
+<li>前往<a href="http://ai.baidu.com/sdk/#ocr" target="_blank" rel="noopener">SDK下载页面</a>下载Android SDK压缩包。</li>
+<li>(必须)将下载包libs目录中的ocr-sdk.jar文件拷贝到工程libs目录中，并加入工程依赖。</li>
+<li>(必须)将libs目录下armeabi，arm64-v8a，armeabi-v7a，x86文件夹按需添加到android studio工程<code>src/main/jniLibs</code>目录中， eclipse用户默认为libs目录。</li>
+<li>(可选)如果需要使用UI模块，请在Android studio中以模块方式导入下载包中的ocr-ui文件夹。</li>
+</ol>
+<h3 id="为您自己的工程添加必要的权限"><a href="#为您自己的工程添加必要的权限" class="headerlink" title="为您自己的工程添加必要的权限"></a>为您自己的工程添加必要的权限</h3><p>如果您在自己的工程中集成SDK，请确保已经在工程AndroidManifest.xml文件中添加如下权限：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.CAMERA"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.READ_EXTERNAL_STORAGE"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>各个权限的用途说明见下表：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INTERNET</td>
+<td>应用联网，发送请求数据至服务器，获得识别结果。</td>
+</tr>
+<tr>
+<td>CAMERA</td>
+<td>调用相机进行拍照（仅UI部分需要）</td>
+</tr>
+<tr>
+<td>WRITE_EXTERNAL_STORAGE</td>
+<td>图片裁剪临时存储</td>
+</tr>
+<tr>
+<td>READ_EXTERNAL_STORAGE</td>
+<td>图片裁剪临时存储</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Proguard配置"><a href="#Proguard配置" class="headerlink" title="Proguard配置"></a>Proguard配置</h3><p>如果您在自己的工程中集成SDK，请在Proguard配置文件中增加, 防止release发布时打包报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-keep class com.baidu.ocr.sdk.**&#123;*;&#125;</span><br><span class="line">-dontwarn com.baidu.ocr.**</span><br></pre></td></tr></table></figure>
+<h2 id="DEMO使用说明"><a href="#DEMO使用说明" class="headerlink" title="DEMO使用说明"></a>DEMO使用说明</h2><p>安卓SDK包中提供了一个可快速运行的demo工程，该工程已经集成了sdk，UI库，您只需直接在Android Studio中导入开发包OCRDemo目录即可运行。</p>
+<p>若运行提示”身份验证错误”，可能是您还未填写正确的Api Key和Secret Key，或者是还未绑定您安卓应用的包名，如何绑定包名请参考下一章节：<strong><em>身份验证与安全</em></strong> 章节</p>
+<p><img src="https://ai.bdstatic.com/file/22808038CABB4D87A523E00A63F86A3F" alt=""></p>
+<h2 id="身份验证与安全"><a href="#身份验证与安全" class="headerlink" title="身份验证与安全"></a>身份验证与安全</h2><p>百度AI开放平台使用OAuth2.0授权调用开放API，调用API时必须在URL中带上accesss_token参数。AccessToken可用AK/SK或者授权文件的方式获得。安卓SDK中已经为您做了封装，当初始化完毕后，所有API请求会自动带上accesss_token参数，您也可以通过initAccessTokenWithAkSk，initAccessToken这两个函数的回调中查看。</p>
+<p>OCR Android SDK提供了以下2种AccessToken管理方法.</p>
+<h3 id="API-Key-Secret-Key"><a href="#API-Key-Secret-Key" class="headerlink" title="API Key / Secret Key"></a>API Key / Secret Key</h3><p>此种身份验证方案使用AK/SK获得AccessToken。</p>
+<p>虽然SDK对网络传输的敏感数据进行了二次加密，但由于AK/SK是明文填写在代码中，在移动设备中可能会存在AK/SK被盗取的风险。有安全考虑的开发者可使用第二种授权方案。</p>
+<p>使用步骤：</p>
+<ol>
+<li>在<a href="https://console.bce.baidu.com/ai/?fromai=1&amp;_=1488766023093#/ai/ocr/app/list" target="_blank" rel="noopener">管理控制台</a>中新建一个OCR应用，并且请填写正确的包名<br><img src="https://ai.bdstatic.com/file/E0FE42DB27494CBC895C6F24DBC1FE54" alt=""><br><img src="https://ai.bdstatic.com/file/36B5703778884B73AE6E9241730B1772" alt=""></li>
+<li>在<strong><em>应用详情</em></strong>页面查看并复制应用的Api Key（简称AK） 和 Secret Key（简称SK），初始化<code>OCR</code>单例：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">OCR.getInstance(context).initAccessTokenWithAkSk(new OnResultListener&lt;AccessToken&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onResult(AccessToken result) &#123;</span><br><span class="line">        // 调用成功，返回AccessToken对象</span><br><span class="line">        String token = result.getAccessToken();</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void onError(OCRError error) &#123;</span><br><span class="line">        // 调用失败，返回OCRError子类SDKError对象</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, getApplicationContext(), &quot;您的应用AK&quot;, &quot;您的应用SK&quot;);</span><br></pre></td></tr></table></figure>
+<p>由于AK/SK是明文填写在代码中，在移动设备中可能会存在AK/SK被盗取的风险。有安全考虑的开发者可使用第二种授权方案。</p>
+<h3 id="授权文件（安全模式）"><a href="#授权文件（安全模式）" class="headerlink" title="授权文件（安全模式）"></a>授权文件（安全模式）</h3><p>此种身份验证方案使用授权文件获得AccessToken，缓存在本地。<strong><em>建议有安全考虑的开发者使用此种身份验证方式。</em></strong></p>
+<p>在您的移动APP分发出去之后，APP存在被反编译的可能，所以直接将AK / SK 置于APP源码之中，存在被盗取的风险。采用授权文件的身份验证方法，可有效保护AK/SK在移动设备中的安全。攻击者即使拦截了流量，盗取了授权文件，也难以盗用您的配额。</p>
+<p>使用步骤：</p>
+<ol>
+<li>在<a href="https://console.bce.baidu.com/ai/?fromai=1&amp;_=1488766023093#/ai/ocr/app/list" target="_blank" rel="noopener">官网</a>中配置应用<br><img src="https://ai.bdstatic.com/file/E0FE42DB27494CBC895C6F24DBC1FE54" alt=""><br><img src="https://ai.bdstatic.com/file/36B5703778884B73AE6E9241730B1772" alt=""></li>
+<li>在<strong><em>应用详情</em></strong>页面下载对应应用的授权文件<br><img src="https://ai.bdstatic.com/file/6E928A2EBAE744E59D8D0CE2984AAC57" alt=""></li>
+<li>将授权文件添加至工程assets文件夹，文件名必须为<code>aip.license</code><br><img src="https://ai.bdstatic.com/file/54D522AC76AA44B9BBE6E98FEEAD79EE" alt=""></li>
+<li>调用initAccessToken方法，初始化OCR单例：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">OCR.getInstance(context).initAccessToken(new OnResultListener&lt;AccessToken&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onResult(AccessToken result) &#123;</span><br><span class="line">        // 调用成功，返回AccessToken对象</span><br><span class="line">        String token = result.getAccessToken();</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void onError(OCRError error) &#123;</span><br><span class="line">        // 调用失败，返回OCRError子类SDKError对象</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, getApplicationContext());</span><br></pre></td></tr></table></figure>
+<h1 id="接口调用说明"><a href="#接口调用说明" class="headerlink" title="接口调用说明"></a>接口调用说明</h1><h2 id="OCR-UI模块"><a href="#OCR-UI模块" class="headerlink" title="OCR-UI模块"></a>OCR-UI模块</h2><p>OCR-UI模块提供了一套默认的UI。如需使用，请将ocr_ui模块包含到您的工程，具体使用可参考SDK包中附带的示例工程。</p>
+<h3 id="OCR-UI模块调用示例"><a href="#OCR-UI模块调用示例" class="headerlink" title="OCR-UI模块调用示例"></a>OCR-UI模块调用示例</h3><p>调用拍摄activity，更详细的类别请参考demo工程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 生成intent对象</span><br><span class="line">Intent intent = new Intent(IDCardActivity.this, CameraActivity.class);</span><br><span class="line"></span><br><span class="line">// 设置临时存储</span><br><span class="line">intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH,                     FileUtil.getSaveFile(getApplication()).getAbsolutePath());</span><br><span class="line"></span><br><span class="line">// 调用除银行卡，身份证等识别的activity</span><br><span class="line">intent.putExtra(CameraActivity.KEY_CONTENT_TYPE, CameraActivity.CONTENT_TYPE_GENERAL);</span><br><span class="line">startActivityForResult(intent, REQUEST_CODE_CAMERA);</span><br><span class="line">// 通过参数确定接口类型</span><br><span class="line">startActivityForResult(intent, REQUEST_CODE_GENERAL_BASIC);</span><br><span class="line"></span><br><span class="line">// 调用拍摄银行卡的activity</span><br><span class="line">intent.putExtra(CameraActivity.KEY_CONTENT_TYPE, CameraActivity.CONTENT_TYPE_BANK_CARD);</span><br><span class="line">startActivityForResult(intent, REQUEST_CODE_CAMERA);</span><br><span class="line"></span><br><span class="line">// 调用拍摄身份证正面（不带本地质量控制）activity</span><br><span class="line">intent.putExtra(CameraActivity.KEY_CONTENT_TYPE, CameraActivity.CONTENT_TYPE_ID_CARD_FRONT);</span><br><span class="line">startActivityForResult(intent, REQUEST_CODE_CAMERA);</span><br><span class="line"></span><br><span class="line">// 调用身份证本识别（带本地质量控制）activity</span><br><span class="line"> Intent intent = new Intent(IDCardActivity.this, CameraActivity.class);</span><br><span class="line">// 使用本地质量控制能力需要授权，需要在OCR调用initAccessToken或者</span><br><span class="line">// initAccessTokenWithAkSk成功返回后才能获取License授权本地质量控制能力</span><br><span class="line">intent.putExtra(CameraActivity.KEY_NATIVE_TOKEN,</span><br><span class="line">                        OCR.getInstance(context).getLicense());</span><br><span class="line">// 使用本地质量控制能力需要设置开启</span><br><span class="line">intent.putExtra(CameraActivity.KEY_NATIVE_ENABLE,</span><br><span class="line">                        true);</span><br><span class="line">// 开启身份证正面本地识别                    </span><br><span class="line">intent.putExtra(CameraActivity.KEY_CONTENT_TYPE, CameraActivity.CONTENT_TYPE_ID_CARD_FRONT);</span><br></pre></td></tr></table></figure>
+<p>通过onActivityResult获取拍摄结果，更详细的类别请参考demo工程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">protected void onActivityResult(int requestCode, int resultCode, Intent data) &#123;</span><br><span class="line">    // 获取调用参数</span><br><span class="line">    String contentType = data.getStringExtra(CameraActivity.KEY_CONTENT_TYPE);</span><br><span class="line">    // 通过临时文件获取拍摄的图片</span><br><span class="line">    String filePath = FileUtil.getSaveFile(getApplicationContext()).getAbsolutePath();</span><br><span class="line">    // 判断拍摄类型（通用，身份证，银行卡等）</span><br><span class="line">    if (requestCode == REQUEST_CODE_GENERAL &amp;&amp; resultCode == Activity.RESULT_OK) &#123;</span><br><span class="line">    // 判断是否是身份证正面</span><br><span class="line">        if (CameraActivity.CONTENT_TYPE_ID_CARD_FRONT.equals(contentType))&#123;</span><br><span class="line">        // 获取图片文件调用sdk数据接口，见数据接口说明</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="数据接口"><a href="#数据接口" class="headerlink" title="数据接口"></a>数据接口</h2><h3 id="通用文字识别"><a href="#通用文字识别" class="headerlink" title="通用文字识别"></a>通用文字识别</h3><ul>
+<li>调用示例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// 通用文字识别参数设置</span><br><span class="line">GeneralBasicParams param = new GeneralBasicParams();</span><br><span class="line">param.setDetectDirection(true);</span><br><span class="line">param.setImageFile(new File(filePath));</span><br><span class="line"></span><br><span class="line">// 调用通用文字识别服务</span><br><span class="line">OCR.getInstance(context).recognizeGeneralBasic(param, new OnResultListener&lt;GeneralResult&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onResult(GeneralResult result) &#123;</span><br><span class="line">        // 调用成功，返回GeneralResult对象</span><br><span class="line">        for (WordSimple wordSimple : result.getWordList()) &#123;</span><br><span class="line">            // wordSimple不包含位置信息</span><br><span class="line">            wordSimple word = wordSimple;</span><br><span class="line">            sb.append(word.getWords());</span><br><span class="line">            sb.append(&quot;\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        // json格式返回字符串</span><br><span class="line">        listener.onResult(result.getJsonRes());</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void onError(OCRError error) &#123;</span><br><span class="line">        // 调用失败，返回OCRError对象</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>options参数详情</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必选</th>
+<th>类型</th>
+<th>可选值范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>true</td>
+<td>string</td>
+<td>-</td>
+<td>图像数据，base64编码，要求base64编码后大小不超过4M，最短边至少15px，最长边最大4096px,支持jpg/png/bmp格式</td>
+</tr>
+<tr>
+<td>language_type</td>
+<td>false</td>
+<td>string</td>
+<td>CHN_ENG、ENG、POR、FRE、GER、ITA、SPA、RUS、JAP</td>
+<td>识别语言类型，默认为CHN_ENG。可选值包括：<br>- CHN_ENG：中英文混合；<br>- ENG：英文；<br>- POR：葡萄牙语；<br>- FRE：法语；<br>- GER：德语；<br>- ITA：意大利语；<br>- SPA：西班牙语；<br>- RUS：俄语；<br>- JAP：日语</td>
+</tr>
+<tr>
+<td>detect_direction</td>
+<td>false</td>
+<td>boolean</td>
+<td>true、false</td>
+<td>是否检测图像朝向，默认不检测，即：false。朝向是指输入图像是正常方向、逆时针旋转90/180/270度。可选值包括:<br>- true：检测朝向；<br>- false：不检测朝向。</td>
+</tr>
+<tr>
+<td>detect_language</td>
+<td>FALSE</td>
+<td>string</td>
+<td>true、false</td>
+<td>是否检测语言，默认不检测。当前支持（中文、英语、日语、韩语）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>结果返回</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>direction</td>
+<td>否</td>
+<td>int32</td>
+<td>图像方向，当detect_direction=true时存在。<br>- -1:未定义，<br>- 0:正向，<br>- 1: 逆时针90度，<br>- 2:逆时针180度，<br>- 3:逆时针270度</td>
+</tr>
+<tr>
+<td>log_id</td>
+<td>是</td>
+<td>uint64</td>
+<td>唯一的log id，用于问题定位</td>
+</tr>
+<tr>
+<td>words_result_num</td>
+<td>是</td>
+<td>uint32</td>
+<td>识别结果数，表示words_result的元素个数</td>
+</tr>
+<tr>
+<td>words_result</td>
+<td>是</td>
+<td>array()</td>
+<td>定位和识别结果数组</td>
+</tr>
+<tr>
+<td>+words</td>
+<td>否</td>
+<td>string</td>
+<td>识别结果字符串</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 示例</span><br><span class="line">返回格式参考通用文字识别</span><br></pre></td></tr></table></figure>
+<h3 id="通用文字识别（高精度版）"><a href="#通用文字识别（高精度版）" class="headerlink" title="通用文字识别（高精度版）"></a>通用文字识别（高精度版）</h3><ul>
+<li>调用示例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// 通用文字识别参数设置</span><br><span class="line">GeneralBasicParams param = new GeneralBasicParams();</span><br><span class="line">param.setDetectDirection(true);</span><br><span class="line">param.setImageFile(new File(filePath));</span><br><span class="line"></span><br><span class="line">// 调用通用文字识别服务</span><br><span class="line">OCR.getInstance(context).recognizeAccurateBasic(param, new OnResultListener&lt;GeneralResult&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onResult(GeneralResult result) &#123;</span><br><span class="line">        // 调用成功，返回GeneralResult对象</span><br><span class="line">        for (WordSimple wordSimple : result.getWordList()) &#123;</span><br><span class="line">            // wordSimple不包含位置信息</span><br><span class="line">            wordSimple word = wordSimple;</span><br><span class="line">            sb.append(word.getWords());</span><br><span class="line">            sb.append(&quot;\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        // json格式返回字符串</span><br><span class="line">        listener.onResult(result.getJsonRes());</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void onError(OCRError error) &#123;</span><br><span class="line">        // 调用失败，返回OCRError对象</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>options参数详情</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必选</th>
+<th>类型</th>
+<th>可选值范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>true</td>
+<td>string</td>
+<td>-</td>
+<td>图像数据，base64编码，要求base64编码后大小不超过4M，最短边至少15px，最长边最大4096px,支持jpg/png/bmp格式</td>
+</tr>
+<tr>
+<td>detect_direction</td>
+<td>false</td>
+<td>boolean</td>
+<td>true、false</td>
+<td>是否检测图像朝向，默认不检测，即：false。朝向是指输入图像是正常方向、逆时针旋转90/180/270度。可选值包括:<br>- true：检测朝向；<br>- false：不检测朝向。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>结果返回</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>direction</td>
+<td>否</td>
+<td>int32</td>
+<td>图像方向，当detect_direction=true时存在。<br>- -1:未定义，<br>- 0:正向，<br>- 1: 逆时针90度，<br>- 2:逆时针180度，<br>- 3:逆时针270度</td>
+</tr>
+<tr>
+<td>log_id</td>
+<td>是</td>
+<td>uint64</td>
+<td>唯一的log id，用于问题定位</td>
+</tr>
+<tr>
+<td>words_result_num</td>
+<td>是</td>
+<td>uint32</td>
+<td>识别结果数，表示words_result的元素个数</td>
+</tr>
+<tr>
+<td>words_result</td>
+<td>是</td>
+<td>array()</td>
+<td>定位和识别结果数组</td>
+</tr>
+<tr>
+<td>+words</td>
+<td>否</td>
+<td>string</td>
+<td>识别结果字符串</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 示例</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"log_id"</span>: <span class="number">2471272194</span>, </span><br><span class="line"><span class="attr">"words_result_num"</span>: <span class="number">2</span>,</span><br><span class="line"><span class="attr">"words_result"</span>: </span><br><span class="line">    [</span><br><span class="line">        &#123;<span class="attr">"words"</span>: <span class="string">" TSINGTAO"</span>&#125;, </span><br><span class="line">        &#123;<span class="attr">"words"</span>: <span class="string">"青島睥酒"</span>&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="通用文字识别（含位置信息版）"><a href="#通用文字识别（含位置信息版）" class="headerlink" title="通用文字识别（含位置信息版）"></a>通用文字识别（含位置信息版）</h3><ul>
+<li>调用示例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// 通用文字识别参数设置</span><br><span class="line">GeneralParams param = new GeneralParams();</span><br><span class="line">param.setDetectDirection(true);</span><br><span class="line">param.setImageFile(new File(filePath));</span><br><span class="line"></span><br><span class="line">// 调用通用文字识别服务（含位置信息版）</span><br><span class="line">OCR.getInstance(context).recognizeGeneral(param, new OnResultListener&lt;GeneralResult&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onResult(GeneralResult result) &#123;</span><br><span class="line">        StringBuilder sb = new StringBuilder();</span><br><span class="line">            for (WordSimple wordSimple : result.getWordList()) &#123;</span><br><span class="line">                // word包含位置</span><br><span class="line">                Word word = (Word) wordSimple;</span><br><span class="line">                    sb.append(word.getWords());</span><br><span class="line">                sb.append(&quot;\n&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        // 调用成功，返回GeneralResult对象，通过getJsonRes方法获取API返回字符串</span><br><span class="line">        listener.onResult(result.getJsonRes());</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void onError(OCRError error) &#123;</span><br><span class="line">        // 调用失败，返回OCRError对象</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>options参数详情</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必选</th>
+<th>类型</th>
+<th>可选值范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>true</td>
+<td>string</td>
+<td>-</td>
+<td>图像数据，base64编码，要求base64编码后大小不超过1M，最短边至少15px，最长边最大2048px,支持jpg/png/bmp格式</td>
+</tr>
+<tr>
+<td>recognize_granularity</td>
+<td>false</td>
+<td>string</td>
+<td>big、small</td>
+<td>是否定位单字符位置，big：不定位单字符位置，默认值；small：定位单字符位置</td>
+</tr>
+<tr>
+<td>language_type</td>
+<td>false</td>
+<td>string</td>
+<td>CHN_ENG、ENG、POR、FRE、GER、ITA、SPA、RUS、JAP</td>
+<td>识别语言类型，默认为CHN_ENG。可选值包括：<br>- CHN_ENG：中英文混合；<br>- ENG：英文；<br>- POR：葡萄牙语；<br>- FRE：法语；<br>- GER：德语；<br>- ITA：意大利语；<br>- SPA：西班牙语；<br>- RUS：俄语；<br>- JAP：日语</td>
+</tr>
+<tr>
+<td>detect_direction</td>
+<td>false</td>
+<td>boolean</td>
+<td>true、false</td>
+<td>是否检测图像朝向，默认不检测，即：false。朝向是指输入图像是正常方向、逆时针旋转90/180/270度。可选值包括:<br>- true：检测朝向；<br>- false：不检测朝向。</td>
+</tr>
+<tr>
+<td>detect_language</td>
+<td>false</td>
+<td>string</td>
+<td>true、false</td>
+<td>是否检测语言，默认不检测。当前支持（中文、英语、日语、韩语）</td>
+</tr>
+<tr>
+<td>vertexes_location</td>
+<td>false</td>
+<td>string</td>
+<td>true、false</td>
+<td>是否返回文字外接多边形顶点位置，不支持单字位置。默认为false</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>结果返回</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>direction</td>
+<td>否</td>
+<td>int32</td>
+<td>图像方向，当detect_direction=true时存在。<br>- -1:未定义，<br>- 0:正向，<br>- 1: 逆时针90度，<br>- 2:逆时针180度，<br>- 3:逆时针270度</td>
+</tr>
+<tr>
+<td>log_id</td>
+<td>是</td>
+<td>uint64</td>
+<td>唯一的log id，用于问题定位</td>
+</tr>
+<tr>
+<td>words_result</td>
+<td>是</td>
+<td>array()</td>
+<td>定位和识别结果数组</td>
+</tr>
+<tr>
+<td>words_result_num</td>
+<td>是</td>
+<td>uint32</td>
+<td>识别结果数，表示words_result的元素个数</td>
+</tr>
+<tr>
+<td>+vertexes_location</td>
+<td>否</td>
+<td>array()</td>
+<td>当前为四个顶点: 左上，右上，右下，左下。当vertexes_location=true时存在</td>
+</tr>
+<tr>
+<td>++x</td>
+<td>是</td>
+<td>uint32</td>
+<td>水平坐标（坐标0点为左上角）</td>
+</tr>
+<tr>
+<td>++y</td>
+<td>是</td>
+<td>uint32</td>
+<td>垂直坐标（坐标0点为左上角）</td>
+</tr>
+<tr>
+<td>+location</td>
+<td>是</td>
+<td>array()</td>
+<td>位置数组（坐标0点为左上角）</td>
+</tr>
+<tr>
+<td>++left</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形左上顶点的水平坐标</td>
+</tr>
+<tr>
+<td>++top</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形左上顶点的垂直坐标</td>
+</tr>
+<tr>
+<td>++width</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形的宽度</td>
+</tr>
+<tr>
+<td>++height</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形的高度</td>
+</tr>
+<tr>
+<td>+words</td>
+<td>否</td>
+<td>string</td>
+<td>识别结果字符串</td>
+</tr>
+<tr>
+<td>+chars</td>
+<td>否</td>
+<td>array()</td>
+<td>单字符结果，recognize_granularity=small时存在</td>
+</tr>
+<tr>
+<td>++location</td>
+<td>是</td>
+<td>array()</td>
+<td>位置数组（坐标0点为左上角）</td>
+</tr>
+<tr>
+<td>+++left</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形左上顶点的水平坐标</td>
+</tr>
+<tr>
+<td>+++top</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形左上顶点的垂直坐标</td>
+</tr>
+<tr>
+<td>+++width</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位定位位置的长方形的宽度</td>
+</tr>
+<tr>
+<td>+++height</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示位置的长方形的高度</td>
+</tr>
+<tr>
+<td>++char</td>
+<td>是</td>
+<td>string</td>
+<td>单字符识别结果</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 示例</span><br><span class="line">&#123;</span><br><span class="line">    direction : 2,</span><br><span class="line">    log_id : 676709620,</span><br><span class="line">    words_result : [ &#123;</span><br><span class="line">            location : &#123;</span><br><span class="line">                height : 20;</span><br><span class="line">                left : 86;</span><br><span class="line">                top : 387;</span><br><span class="line">                width : 22;</span><br><span class="line">            &#125;;</span><br><span class="line">            words : "N";</span><br><span class="line">        &#125;,</span><br><span class="line">    ],</span><br><span class="line">    words_result_num : 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="通用文字识别（高精度含位置信息版）"><a href="#通用文字识别（高精度含位置信息版）" class="headerlink" title="通用文字识别（高精度含位置信息版）"></a>通用文字识别（高精度含位置信息版）</h3><ul>
+<li>调用示例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// 通用文字识别参数设置</span><br><span class="line">GeneralParams param = new GeneralParams();</span><br><span class="line">param.setDetectDirection(true);</span><br><span class="line">param.setImageFile(new File(filePath));</span><br><span class="line"></span><br><span class="line">// 调用通用文字识别服务（含位置信息版）</span><br><span class="line">OCR.getInstance(context).recognizeAccurate(param, new OnResultListener&lt;GeneralResult&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onResult(GeneralResult result) &#123;</span><br><span class="line">        StringBuilder sb = new StringBuilder();</span><br><span class="line">            for (WordSimple wordSimple : result.getWordList()) &#123;</span><br><span class="line">                // word包含位置</span><br><span class="line">                Word word = (Word) wordSimple;</span><br><span class="line">                    sb.append(word.getWords());</span><br><span class="line">                sb.append(&quot;\n&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        // 调用成功，返回GeneralResult对象，通过getJsonRes方法获取API返回字符串</span><br><span class="line">        listener.onResult(result.getJsonRes());</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void onError(OCRError error) &#123;</span><br><span class="line">        // 调用失败，返回OCRError对象</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>options参数详情</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必选</th>
+<th>类型</th>
+<th>可选值范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>true</td>
+<td>string</td>
+<td>-</td>
+<td>图像数据，base64编码，要求base64编码后大小不超过1M，最短边至少15px，最长边最大2048px,支持jpg/png/bmp格式</td>
+</tr>
+<tr>
+<td>vertexes_location</td>
+<td>false</td>
+<td>string</td>
+<td>true、false</td>
+<td>是否返回文字外接多边形顶点位置，不支持单字位置。默认为false</td>
+</tr>
+<tr>
+<td>recognize_granularity</td>
+<td>false</td>
+<td>string</td>
+<td>big、small</td>
+<td>是否定位单字符位置，big：不定位单字符位置，默认值；small：定位单字符位置</td>
+</tr>
+<tr>
+<td>detect_direction</td>
+<td>false</td>
+<td>boolean</td>
+<td>true、false</td>
+<td>是否检测图像朝向，默认不检测，即：false。朝向是指输入图像是正常方向、逆时针旋转90/180/270度。可选值包括:<br>- true：检测朝向；<br>- false：不检测朝向。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>结果返回</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>direction</td>
+<td>否</td>
+<td>int32</td>
+<td>图像方向，当detect_direction=true时存在。<br>- -1:未定义，<br>- 0:正向，<br>- 1: 逆时针90度，<br>- 2:逆时针180度，<br>- 3:逆时针270度</td>
+</tr>
+<tr>
+<td>log_id</td>
+<td>是</td>
+<td>uint64</td>
+<td>唯一的log id，用于问题定位</td>
+</tr>
+<tr>
+<td>words_result</td>
+<td>是</td>
+<td>array()</td>
+<td>定位和识别结果数组</td>
+</tr>
+<tr>
+<td>words_result_num</td>
+<td>是</td>
+<td>uint32</td>
+<td>识别结果数，表示words_result的元素个数</td>
+</tr>
+<tr>
+<td>+vertexes_location</td>
+<td>否</td>
+<td>array()</td>
+<td>当前为四个顶点: 左上，右上，右下，左下。当vertexes_location=true时存在</td>
+</tr>
+<tr>
+<td>++x</td>
+<td>是</td>
+<td>uint32</td>
+<td>水平坐标（坐标0点为左上角）</td>
+</tr>
+<tr>
+<td>++y</td>
+<td>是</td>
+<td>uint32</td>
+<td>垂直坐标（坐标0点为左上角）</td>
+</tr>
+<tr>
+<td>+location</td>
+<td>是</td>
+<td>array()</td>
+<td>位置数组（坐标0点为左上角）</td>
+</tr>
+<tr>
+<td>++left</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形左上顶点的水平坐标</td>
+</tr>
+<tr>
+<td>++top</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形左上顶点的垂直坐标</td>
+</tr>
+<tr>
+<td>++width</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形的宽度</td>
+</tr>
+<tr>
+<td>++height</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形的高度</td>
+</tr>
+<tr>
+<td>+words</td>
+<td>否</td>
+<td>string</td>
+<td>识别结果字符串</td>
+</tr>
+<tr>
+<td>+chars</td>
+<td>否</td>
+<td>array()</td>
+<td>单字符结果，recognize_granularity=small时存在</td>
+</tr>
+<tr>
+<td>++location</td>
+<td>是</td>
+<td>array()</td>
+<td>位置数组（坐标0点为左上角）</td>
+</tr>
+<tr>
+<td>+++left</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形左上顶点的水平坐标</td>
+</tr>
+<tr>
+<td>+++top</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形左上顶点的垂直坐标</td>
+</tr>
+<tr>
+<td>+++width</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位定位位置的长方形的宽度</td>
+</tr>
+<tr>
+<td>+++height</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示位置的长方形的高度</td>
+</tr>
+<tr>
+<td>++char</td>
+<td>是</td>
+<td>string</td>
+<td>单字符识别结果</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// 返回结果参考通用文字识别（含位置信息版）</span><br></pre></td></tr></table></figure>
+<h3 id="通用文字识别-含生僻字版"><a href="#通用文字识别-含生僻字版" class="headerlink" title="通用文字识别(含生僻字版)"></a>通用文字识别(含生僻字版)</h3><ul>
+<li>调用示例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 通用文字识别(含生僻字版)参数设置</span><br><span class="line">GeneralBasicParams param = new GeneralBasicParams();</span><br><span class="line">param.setDetectDirection(true);</span><br><span class="line">param.setImageFile(new File(filePath));</span><br><span class="line"></span><br><span class="line">// 调用通用文字识别服务</span><br><span class="line">OCR.getInstance(context).recognizeGeneralEnhanced(param, new OnResultListener&lt;GeneralResult&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onResult(GeneralResult result) &#123;</span><br><span class="line">        // 调用成功，返回GeneralResult对象</span><br><span class="line">        for (WordSimple wordSimple : result.getWordList()) &#123;</span><br><span class="line">            // wordSimple不包含位置信息</span><br><span class="line">            wordSimple word = wordSimple;</span><br><span class="line">            sb.append(word.getWords());</span><br><span class="line">            sb.append(&quot;\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void onError(OCRError error) &#123;</span><br><span class="line">        // 调用失败，返回OCRError对象</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>options参数详情</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必选</th>
+<th>类型</th>
+<th>可选值范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>true</td>
+<td>string</td>
+<td>-</td>
+<td>图像数据，base64编码，要求base64编码后大小不超过4M，最短边至少15px，最长边最大4096px,支持jpg/png/bmp格式</td>
+</tr>
+<tr>
+<td>language_type</td>
+<td>false</td>
+<td>string</td>
+<td>CHN_ENG、ENG、POR、FRE、GER、ITA、SPA、RUS、JAP</td>
+<td>识别语言类型，默认为CHN_ENG。可选值包括：<br>- CHN_ENG：中英文混合；<br>- ENG：英文；<br>- POR：葡萄牙语；<br>- FRE：法语；<br>- GER：德语；<br>- ITA：意大利语；<br>- SPA：西班牙语；<br>- RUS：俄语；<br>- JAP：日语</td>
+</tr>
+<tr>
+<td>detect_direction</td>
+<td>false</td>
+<td>boolean</td>
+<td>true、false</td>
+<td>是否检测图像朝向，默认不检测，即：false。朝向是指输入图像是正常方向、逆时针旋转90/180/270度。可选值包括:<br>- true：检测朝向；<br>- false：不检测朝向。</td>
+</tr>
+<tr>
+<td>detect_language</td>
+<td>FALSE</td>
+<td>string</td>
+<td>true、false</td>
+<td>是否检测语言，默认不检测。当前支持（中文、英语、日语、韩语）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>结果返回</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>direction</td>
+<td>否</td>
+<td>int32</td>
+<td>图像方向，当detect_direction=true时存在。<br>- -1:未定义，<br>- 0:正向，<br>- 1: 逆时针90度，<br>- 2:逆时针180度，<br>- 3:逆时针270度</td>
+</tr>
+<tr>
+<td>log_id</td>
+<td>是</td>
+<td>uint64</td>
+<td>唯一的log id，用于问题定位</td>
+</tr>
+<tr>
+<td>words_result_num</td>
+<td>是</td>
+<td>uint32</td>
+<td>识别结果数，表示words_result的元素个数</td>
+</tr>
+<tr>
+<td>words_result</td>
+<td>是</td>
+<td>array()</td>
+<td>定位和识别结果数组</td>
+</tr>
+<tr>
+<td>+words</td>
+<td>否</td>
+<td>string</td>
+<td>识别结果字符串</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 示例</span><br><span class="line">参考通用文字识别接口</span><br></pre></td></tr></table></figure>
+<h3 id="网络图片文字识别"><a href="#网络图片文字识别" class="headerlink" title="网络图片文字识别"></a>网络图片文字识别</h3><ul>
+<li>调用示例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 网络图片文字识别参数设置</span><br><span class="line">GeneralBasicParams param = new GeneralBasicParams();</span><br><span class="line">param.setDetectDirection(true);</span><br><span class="line">param.setImageFile(new File(filePath));</span><br><span class="line"></span><br><span class="line">// 调用通用文字识别服务</span><br><span class="line">OCR.getInstance(context).recognizeWebimage(param, new OnResultListener&lt;GeneralResult&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onResult(GeneralResult result) &#123;</span><br><span class="line">        // 调用成功，返回GeneralResult对象</span><br><span class="line">        for (WordSimple wordSimple : result.getWordList()) &#123;</span><br><span class="line">            // wordSimple不包含位置信息</span><br><span class="line">            wordSimple word = wordSimple;</span><br><span class="line">            sb.append(word.getWords());</span><br><span class="line">            sb.append(&quot;\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void onError(OCRError error) &#123;</span><br><span class="line">        // 调用失败，返回OCRError对象</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>options参数详情</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必选</th>
+<th>类型</th>
+<th>可选值范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>true</td>
+<td>string</td>
+<td>-</td>
+<td>图像数据，base64编码，要求base64编码后大小不超过4M，最短边至少15px，最长边最大4096px,支持jpg/png/bmp格式</td>
+</tr>
+<tr>
+<td>detect_direction</td>
+<td>false</td>
+<td>boolean</td>
+<td>true、false</td>
+<td>是否检测图像朝向，默认不检测，即：false。朝向是指输入图像是正常方向、逆时针旋转90/180/270度。可选值包括:<br>- true：检测朝向；<br>- false：不检测朝向。</td>
+</tr>
+<tr>
+<td>detect_language</td>
+<td>false</td>
+<td>string</td>
+<td>true、false</td>
+<td>是否检测语言，默认不检测。当前支持（中文、英语、日语、韩语）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>结果返回</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>direction</td>
+<td>否</td>
+<td>int32</td>
+<td>图像方向，当detect_direction=true时存在。<br>- -1:未定义，<br>- 0:正向，<br>- 1: 逆时针90度，<br>- 2:逆时针180度，<br>- 3:逆时针270度</td>
+</tr>
+<tr>
+<td>log_id</td>
+<td>是</td>
+<td>uint64</td>
+<td>唯一的log id，用于问题定位</td>
+</tr>
+<tr>
+<td>words_result_num</td>
+<td>是</td>
+<td>uint32</td>
+<td>识别结果数，表示words_result的元素个数</td>
+</tr>
+<tr>
+<td>words_result</td>
+<td>是</td>
+<td>array()</td>
+<td>定位和识别结果数组</td>
+</tr>
+<tr>
+<td>+words</td>
+<td>否</td>
+<td>string</td>
+<td>识别结果字符串</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 示例</span><br><span class="line">参考通用文字识别接口</span><br></pre></td></tr></table></figure>
+<h3 id="银行卡识别"><a href="#银行卡识别" class="headerlink" title="银行卡识别"></a>银行卡识别</h3><ul>
+<li>调用示例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 银行卡识别参数设置</span><br><span class="line">BankCardParams param = new BankCardParams();</span><br><span class="line">param.setImageFile(new File(filePath));</span><br><span class="line"></span><br><span class="line">// 调用银行卡识别服务</span><br><span class="line">OCR.getInstance(context).recognizeBankCard(param, new OnResultListener&lt;BankCardResult&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onResult(BankCardResult result) &#123;</span><br><span class="line">        // 调用成功，返回BankCardResult对象</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void onError(OCRError error) &#123;</span><br><span class="line">        // 调用失败，返回OCRError对象</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>结果返回</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">log_id</td>
+<td style="text-align:left">Uint64</td>
+<td style="text-align:left">唯一的log id，用于问题定位</td>
+</tr>
+<tr>
+<td style="text-align:left">result</td>
+<td style="text-align:left">Object</td>
+<td style="text-align:left">定位和识别结果数组</td>
+</tr>
+<tr>
+<td style="text-align:left">+bank_card_number</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">银行卡识别结果</td>
+</tr>
+<tr>
+<td style="text-align:left">+bank_name</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">银行名，不能识别时为空</td>
+</tr>
+<tr>
+<td style="text-align:left">+bank_card_type</td>
+<td style="text-align:left">uint32</td>
+<td style="text-align:left">银行卡类型，0:不能识别; 1: 借记卡; 2: 信用卡</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> // 示例</span><br><span class="line"> &#123;</span><br><span class="line">    <span class="attr">"log_id"</span>: <span class="number">3207866271</span>;</span><br><span class="line">    result: &#123;</span><br><span class="line">        <span class="attr">"bank_card_number"</span>: <span class="string">"6226 2288 8888 8888"</span>,</span><br><span class="line">        <span class="attr">"bank_card_type"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">"bank_name"</span>: <span class="string">"\U5de5\U5546\U94f6\U884c"</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="身份证识别"><a href="#身份证识别" class="headerlink" title="身份证识别"></a>身份证识别</h3><ul>
+<li>调用示例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 身份证识别参数设置</span><br><span class="line">IDCardParams param = new IDCardParams();</span><br><span class="line">param.setImageFile(new File(filePath));</span><br><span class="line"></span><br><span class="line">// 调用身份证识别服务</span><br><span class="line">OCR.getInstance(context).recognizeIDCard(param, new OnResultListener&lt;IDCardResult&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onResult(IDCardResult result) &#123;</span><br><span class="line">        // 调用成功，返回IDCardResult对象</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void onError(OCRError error) &#123;</span><br><span class="line">        // 调用失败，返回OCRError对象</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>options参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>必选</th>
+<th>范围</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>true</td>
+<td></td>
+<td>String</td>
+<td>图像数据，支持本地图像文件路径，图像文件二进制数据，要求base64编码后大小不超过1M，最短边至少15px，最长边最大2048px,支持jpg/png/bmp格式</td>
+</tr>
+<tr>
+<td>isFront</td>
+<td>true</td>
+<td>true、false</td>
+<td>Boolean</td>
+<td>true：身份证正面，false：身份证背面</td>
+</tr>
+<tr>
+<td>detect_direction</td>
+<td>false</td>
+<td>true、false</td>
+<td>string</td>
+<td>是否检测图像朝向，默认不检测，即：false。可选值为：true - 检测图像朝向；false - 不检测图像朝向。朝向是指输入图像是正常方向、逆时针旋转90/180/270度</td>
+</tr>
+<tr>
+<td>accuracy</td>
+<td>false</td>
+<td>auto、normal、high</td>
+<td>string</td>
+<td>精准度，精度越高，速度越慢。default：auto</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>结果返回</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">direction</td>
+<td style="text-align:left">Int32</td>
+<td style="text-align:left">图像方向，当detect_direction=true时存在。-1:未定义，0:正向，1: 逆时针90度， 2:逆时针180度， 3:逆时针270度</td>
+</tr>
+<tr>
+<td style="text-align:left">log_id</td>
+<td style="text-align:left">Uint64</td>
+<td style="text-align:left">唯一的log id，用于问题定位</td>
+</tr>
+<tr>
+<td style="text-align:left">words_result</td>
+<td style="text-align:left">Array</td>
+<td style="text-align:left">定位和识别结果数组，数组元素的key是身份证的主体字段（正面支持：住址、公民身份号码、出生、姓名、性别、民族，背面支持：签发机关、签发日期、失效日期）。只返回识别出的字段。若身份证号码校验不通过，则不返回</td>
+</tr>
+<tr>
+<td style="text-align:left">words_result_num</td>
+<td style="text-align:left">Uint32</td>
+<td style="text-align:left">识别结果数，表示words_result的元素个数</td>
+</tr>
+<tr>
+<td style="text-align:left">+location</td>
+<td style="text-align:left">Array</td>
+<td style="text-align:left">位置数组（坐标0点为左上角）</td>
+</tr>
+<tr>
+<td style="text-align:left">++left</td>
+<td style="text-align:left">Uint32</td>
+<td style="text-align:left">表示定位位置的长方形左上顶点的水平坐标</td>
+</tr>
+<tr>
+<td style="text-align:left">++top</td>
+<td style="text-align:left">Uint32</td>
+<td style="text-align:left">表示定位位置的长方形左上顶点的垂直坐标</td>
+</tr>
+<tr>
+<td style="text-align:left">++width</td>
+<td style="text-align:left">Uint32</td>
+<td style="text-align:left">表示定位位置的长方形的宽度</td>
+</tr>
+<tr>
+<td style="text-align:left">++height</td>
+<td style="text-align:left">Uint32</td>
+<td style="text-align:left">表示定位位置的长方形的高度</td>
+</tr>
+<tr>
+<td style="text-align:left">+words</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">识别结果字符串</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//示例</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"log_id"</span>: <span class="number">7037721</span>,</span><br><span class="line">    <span class="attr">"direction"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"words_result_num"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">"words_result"</span>: &#123;</span><br><span class="line">        <span class="attr">"住址"</span>: &#123;</span><br><span class="line">            <span class="attr">"location"</span>: &#123;</span><br><span class="line">                <span class="attr">"left"</span>: <span class="number">227</span>,</span><br><span class="line">                <span class="attr">"top"</span>: <span class="number">235</span>,</span><br><span class="line">                <span class="attr">"width"</span>: <span class="number">229</span>,</span><br><span class="line">                <span class="attr">"height"</span>: <span class="number">51</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"words"</span>: <span class="string">"湖北省天门市渔薪镇杨咀村一组2号"</span>,</span><br><span class="line">        &#125;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="行驶证识别"><a href="#行驶证识别" class="headerlink" title="行驶证识别"></a>行驶证识别</h3><ul>
+<li>调用示例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 行驶证识别参数设置</span><br><span class="line">OcrRequestParams param = new OcrRequestParams();</span><br><span class="line"></span><br><span class="line">// 设置image参数</span><br><span class="line">param.setImageFile(new File(filePath));</span><br><span class="line">// 设置其他参数</span><br><span class="line">param.putParam(&quot;detect_direction&quot;, true);</span><br><span class="line">// 调用行驶证识别服务</span><br><span class="line">OCR.getInstance(context).recognizeVehicleLicense(param, new OnResultListener&lt;OcrResponseResult&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onResult(OcrResponseResult result) &#123;</span><br><span class="line">        // 调用成功，返回OcrResponseResult对象</span><br><span class="line">        listener.onResult(result.getJsonRes());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onError(OCRError error) &#123;</span><br><span class="line">        // 调用失败，返回OCRError对象</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>options参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>必选</th>
+<th>类型</th>
+<th>可选值范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>是</td>
+<td>File对象</td>
+<td>-</td>
+<td>图像数据, 要求base64编码后大小不超过4M，最短边至少15px，最长边最大4096px,支持jpg/png/bmp格式</td>
+</tr>
+<tr>
+<td>detect_direction</td>
+<td>否</td>
+<td>boolean</td>
+<td>true、false</td>
+<td>是否检测图像朝向，默认不检测，即：false。朝向是指输入图像是正常方向、逆时针旋转90/180/270度。可选值包括:- true：检测朝向；- false：不检测朝向。</td>
+</tr>
+<tr>
+<td>accuracy</td>
+<td>否</td>
+<td>string</td>
+<td>normal，缺省</td>
+<td>normal 使用快速服务，1200ms左右时延；缺省或其它值使用高精度服务，1600ms左右时延</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>结果返回</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>log_id</td>
+<td>是</td>
+<td>number</td>
+<td>唯一的log id，用于问题定位</td>
+</tr>
+<tr>
+<td>words_result_num</td>
+<td>是</td>
+<td>number</td>
+<td>识别结果数，表示words_result的元素个数</td>
+</tr>
+<tr>
+<td>words_result</td>
+<td>是</td>
+<td>array</td>
+<td>识别结果数组</td>
+</tr>
+<tr>
+<td>+words</td>
+<td>否</td>
+<td>string</td>
+<td>识别结果字符串</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">//示例</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"errno"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"msg"</span>: <span class="string">"success"</span>,</span><br><span class="line">    <span class="attr">"data"</span>: &#123;</span><br><span class="line">        <span class="attr">"words_result_num"</span>: <span class="number">10</span>,</span><br><span class="line">        <span class="attr">"words_result"</span>: &#123;</span><br><span class="line">            <span class="attr">"品牌型号"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"保时捷GT37182RUCRE"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"发证日期"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"20160104"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"使用性质"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"非营运"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"发动机号码"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"20832"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"号牌号码"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"苏A001"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"所有人"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"圆圆"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"住址"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"南京市江宁区弘景大道"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"注册日期"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"20160104"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"车辆识别代号"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"HCE58"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"车辆类型"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"小型轿车"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="驾驶证识别"><a href="#驾驶证识别" class="headerlink" title="驾驶证识别"></a>驾驶证识别</h3><ul>
+<li>调用示例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 驾驶证识别参数设置</span><br><span class="line">OcrRequestParams param = new OcrRequestParams();</span><br><span class="line"></span><br><span class="line">// 设置image参数</span><br><span class="line">param.setImageFile(new File(filePath));</span><br><span class="line">// 设置其他参数</span><br><span class="line">param.putParam(&quot;detect_direction&quot;, true);</span><br><span class="line">// 调用驾驶证识别服务</span><br><span class="line">OCR.getInstance(context).recognizeDrivingLicense(param, new OnResultListener&lt;OcrResponseResult&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onResult(OcrResponseResult result) &#123;</span><br><span class="line">        // 调用成功，返回OcrResponseResult对象</span><br><span class="line">        listener.onResult(result.getJsonRes());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onError(OCRError error) &#123;</span><br><span class="line">        // 调用失败，返回OCRError对象</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>options参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>必选</th>
+<th>类型</th>
+<th>可选值范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>是</td>
+<td>File对象</td>
+<td>-</td>
+<td>图像数据，要求base64编码后大小不超过4M，最短边至少15px，最长边最大4096px,支持jpg/png/bmp格式</td>
+</tr>
+<tr>
+<td>detect_direction</td>
+<td>否</td>
+<td>boolean</td>
+<td>true、false</td>
+<td>是否检测图像朝向，默认不检测，即：false。朝向是指输入图像是正常方向、逆时针旋转90/180/270度。可选值包括:- true：检测朝向；- false：不检测朝向。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>结果返回</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>必选</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>log_id</td>
+<td>是</td>
+<td>number</td>
+<td>唯一的log id，用于问题定位</td>
+</tr>
+<tr>
+<td>words_result_num</td>
+<td>是</td>
+<td>number</td>
+<td>识别结果数，表示words_result的元素个数</td>
+</tr>
+<tr>
+<td>words_result</td>
+<td>是</td>
+<td>array</td>
+<td>识别结果数组</td>
+</tr>
+<tr>
+<td>+words</td>
+<td>否</td>
+<td>string</td>
+<td>识别结果字符串</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">//示例</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"errno"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"msg"</span>: <span class="string">"success"</span>,</span><br><span class="line">    <span class="attr">"data"</span>: &#123;</span><br><span class="line">        <span class="attr">"words_result_num"</span>: <span class="number">10</span>,</span><br><span class="line">        <span class="attr">"words_result"</span>: &#123;</span><br><span class="line">            <span class="attr">"证号"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"3208231999053090"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"有效期限"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"6年"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"准驾车型"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"B2"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"有效起始日期"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"20101125"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"住址"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"江苏省南通市海门镇秀山新城"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"姓名"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"小欧欧"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"国籍"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"中国"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"出生日期"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"19990530"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"性别"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"男"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"初次领证日期"</span>: &#123;</span><br><span class="line">                <span class="attr">"words"</span>: <span class="string">"20100125"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="车牌识别"><a href="#车牌识别" class="headerlink" title="车牌识别"></a>车牌识别</h3><ul>
+<li>调用示例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 车牌识别参数设置</span><br><span class="line">OcrRequestParams param = new OcrRequestParams();</span><br><span class="line"></span><br><span class="line">// 设置image参数</span><br><span class="line">param.setImageFile(new File(filePath));</span><br><span class="line"></span><br><span class="line">// 调用车牌识别服务</span><br><span class="line">OCR.getInstance(context).recognizeLicensePlate(param, new OnResultListener&lt;OcrResponseResult&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onResult(OcrResponseResult result) &#123;</span><br><span class="line">        // 调用成功，返回OcrResponseResult对象</span><br><span class="line">        listener.onResult(result.getJsonRes());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onError(OCRError error) &#123;</span><br><span class="line">        // 调用失败，返回OCRError对象</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>options参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>必选</th>
+<th>类型</th>
+<th>可选值范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>是</td>
+<td>File对象</td>
+<td>-</td>
+<td>图像数据，要求base64编码后大小不超过4M，最短边至少15px，最长边最大4096px,支持jpg/png/bmp格式</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>结果返回</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必须</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>log_id</td>
+<td>是</td>
+<td>number</td>
+<td>请求标识码，随机数，唯一</td>
+</tr>
+<tr>
+<td>words_result</td>
+<td>是</td>
+<td>object</td>
+<td>暴恐结果置信度</td>
+</tr>
+<tr>
+<td>+color　</td>
+<td>是</td>
+<td>　string</td>
+<td>车牌颜色，如”blue”</td>
+</tr>
+<tr>
+<td>+number</td>
+<td>是</td>
+<td>string</td>
+<td>车牌号码，示例：”苏HS7766”</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//示例</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"words_result"</span>:&#123;</span><br><span class="line">     <span class="attr">"color"</span>:<span class="string">"blue"</span>,</span><br><span class="line">     <span class="attr">"number"</span>:<span class="string">"粤FQ0000"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"log_id"</span>:<span class="number">2783673432</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="营业执照识别"><a href="#营业执照识别" class="headerlink" title="营业执照识别"></a>营业执照识别</h3><ul>
+<li>调用示例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 营业执照识别参数设置</span><br><span class="line">OcrRequestParams param = new OcrRequestParams();</span><br><span class="line"></span><br><span class="line">// 设置image参数</span><br><span class="line">param.setImageFile(new File(filePath));</span><br><span class="line"></span><br><span class="line">// 调用营业执照识别服务</span><br><span class="line">OCR.getInstance(context).recognizeBusinessLicense(param, new OnResultListener&lt;OcrResponseResult&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onResult(OcrResponseResult result) &#123;</span><br><span class="line">        listener.onResult(result.getJsonRes());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onError(OCRError error) &#123;</span><br><span class="line">        listener.onResult(error.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>options参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>必选</th>
+<th>类型</th>
+<th>可选值范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>是</td>
+<td>File对象</td>
+<td>-</td>
+<td>图像数据，要求base64编码后大小不超过4M，最短边至少15px，最长边最大4096px,支持jpg/png/bmp格式</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>结果返回</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必须</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>log_id</td>
+<td>是</td>
+<td>uint64</td>
+<td>请求标识码，随机数，唯一。</td>
+</tr>
+<tr>
+<td>words_result_num</td>
+<td>是</td>
+<td>uint32</td>
+<td>识别结果数，表示words_result的元素个数</td>
+</tr>
+<tr>
+<td>words_result</td>
+<td>array()</td>
+<td>识别结果数组</td>
+<td></td>
+</tr>
+<tr>
+<td>left</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形左上顶点的水平坐标</td>
+</tr>
+<tr>
+<td>top</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形左上顶点的垂直坐标</td>
+</tr>
+<tr>
+<td>width</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形的宽度</td>
+</tr>
+<tr>
+<td>height</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形的高度</td>
+</tr>
+<tr>
+<td>words</td>
+<td>否</td>
+<td>string</td>
+<td>识别结果字符串</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">//示例</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"log_id"</span>: <span class="number">490058765</span>,</span><br><span class="line">    <span class="attr">"words_result"</span>: &#123;</span><br><span class="line">        <span class="attr">"单位名称"</span>: &#123;</span><br><span class="line">            <span class="attr">"location"</span>: &#123;</span><br><span class="line">                <span class="attr">"left"</span>: <span class="number">500</span>,</span><br><span class="line">                <span class="attr">"top"</span>: <span class="number">479</span>,</span><br><span class="line">                <span class="attr">"width"</span>: <span class="number">618</span>,</span><br><span class="line">                <span class="attr">"height"</span>: <span class="number">54</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"words"</span>: <span class="string">"袁氏财团有限公司"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"法人"</span>: &#123;</span><br><span class="line">            <span class="attr">"location"</span>: &#123;</span><br><span class="line">                <span class="attr">"left"</span>: <span class="number">938</span>,</span><br><span class="line">                <span class="attr">"top"</span>: <span class="number">557</span>,</span><br><span class="line">                <span class="attr">"width"</span>: <span class="number">94</span>,</span><br><span class="line">                <span class="attr">"height"</span>: <span class="number">46</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"words"</span>: <span class="string">"袁运筹"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"地址"</span>: &#123;</span><br><span class="line">            <span class="attr">"location"</span>: &#123;</span><br><span class="line">                <span class="attr">"left"</span>: <span class="number">503</span>,</span><br><span class="line">                <span class="attr">"top"</span>: <span class="number">644</span>,</span><br><span class="line">                <span class="attr">"width"</span>: <span class="number">574</span>,</span><br><span class="line">                <span class="attr">"height"</span>: <span class="number">57</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"words"</span>: <span class="string">"江苏省南京市中山东路19号"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"有效期"</span>: &#123;</span><br><span class="line">            <span class="attr">"location"</span>: &#123;</span><br><span class="line">                <span class="attr">"left"</span>: <span class="number">779</span>,</span><br><span class="line">                <span class="attr">"top"</span>: <span class="number">1108</span>,</span><br><span class="line">                <span class="attr">"width"</span>: <span class="number">271</span>,</span><br><span class="line">                <span class="attr">"height"</span>: <span class="number">49</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"words"</span>: <span class="string">"2015年02月12日"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"证件编号"</span>: &#123;</span><br><span class="line">            <span class="attr">"location"</span>: &#123;</span><br><span class="line">                <span class="attr">"left"</span>: <span class="number">1219</span>,</span><br><span class="line">                <span class="attr">"top"</span>: <span class="number">357</span>,</span><br><span class="line">                <span class="attr">"width"</span>: <span class="number">466</span>,</span><br><span class="line">                <span class="attr">"height"</span>: <span class="number">39</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"words"</span>: <span class="string">"苏餐证字(2019)第666602666661号"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"社会信用代码"</span>: &#123;</span><br><span class="line">            <span class="attr">"location"</span>: &#123;</span><br><span class="line">                <span class="attr">"left"</span>: <span class="number">0</span>,</span><br><span class="line">                <span class="attr">"top"</span>: <span class="number">0</span>,</span><br><span class="line">                <span class="attr">"width"</span>: <span class="number">0</span>,</span><br><span class="line">                <span class="attr">"height"</span>: <span class="number">0</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"words"</span>: <span class="string">"无"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"words_result_num"</span>: <span class="number">6</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="通用票据识别"><a href="#通用票据识别" class="headerlink" title="通用票据识别"></a>通用票据识别</h3><ul>
+<li>调用示例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// 通用票据识别参数设置</span><br><span class="line">OcrRequestParams param = new OcrRequestParams();</span><br><span class="line"></span><br><span class="line">// 设置image参数</span><br><span class="line">param.setImageFile(new File(filePath));</span><br><span class="line"></span><br><span class="line">// 设置额外参数 </span><br><span class="line">param.putParam(&quot;detect_direction&quot;, &quot;true&quot;);</span><br><span class="line"></span><br><span class="line">// 调用通用票据识别服务</span><br><span class="line">OCR.getInstance(context).recognizeReceipt(param, new OnResultListener&lt;OcrResponseResult&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onResult(OcrResponseResult result) &#123;</span><br><span class="line">        listener.onResult(result.getJsonRes());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onError(OCRError error) &#123;</span><br><span class="line">        listener.onResult(error.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>options参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>必选</th>
+<th>类型</th>
+<th>可选值范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>是</td>
+<td>File对象</td>
+<td>-</td>
+<td>图像数据，要求base64编码后大小不超过4M，最短边至少15px，最长边最大4096px,支持jpg/png/bmp格式</td>
+</tr>
+<tr>
+<td>recognize_granularity</td>
+<td>false</td>
+<td>string</td>
+<td>big、small</td>
+<td>是否定位单字符位置，big：不定位单字符位置，默认值；small：定位单字符位置</td>
+</tr>
+<tr>
+<td>probability</td>
+<td>false</td>
+<td>string</td>
+<td>true、false</td>
+<td>是否返回识别结果中每一行的置信度</td>
+</tr>
+<tr>
+<td>accuracy</td>
+<td>false</td>
+<td>string</td>
+<td>normal,缺省</td>
+<td>normal 使用快速服务;缺省或其它值使用高精度服务</td>
+</tr>
+<tr>
+<td>detect_direction</td>
+<td>false</td>
+<td>string</td>
+<td>true、false</td>
+<td>是否检测图像朝向，默认不检测，即：false。可选值包括true - 检测朝向；false - 不检测朝向。朝向是指输入图像是正常方向、逆时针旋转90/180/270度。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>结果返回</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>是否必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>log_id</td>
+<td>是</td>
+<td>uint64</td>
+<td>唯一的log id，用于问题定位</td>
+</tr>
+<tr>
+<td>words_result_num</td>
+<td>是</td>
+<td>uint32</td>
+<td>识别结果数，表示words_result的元素个数</td>
+</tr>
+<tr>
+<td>words_result</td>
+<td>是</td>
+<td>array()</td>
+<td>定位和识别结果数组</td>
+</tr>
+<tr>
+<td>location</td>
+<td>是</td>
+<td>object</td>
+<td>位置数组（坐标0点为左上角）</td>
+</tr>
+<tr>
+<td>left</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形左上顶点的水平坐标</td>
+</tr>
+<tr>
+<td>top</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形左上顶点的垂直坐标</td>
+</tr>
+<tr>
+<td>width</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形的宽度</td>
+</tr>
+<tr>
+<td>height</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形的高度</td>
+</tr>
+<tr>
+<td>words</td>
+<td>是</td>
+<td>string</td>
+<td>识别结果字符串</td>
+</tr>
+<tr>
+<td>chars</td>
+<td>否</td>
+<td>array()</td>
+<td>单字符结果，recognize_granularity=small时存在</td>
+</tr>
+<tr>
+<td>location</td>
+<td>是</td>
+<td>array()</td>
+<td>位置数组（坐标0点为左上角）</td>
+</tr>
+<tr>
+<td>left</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形左上顶点的水平坐标</td>
+</tr>
+<tr>
+<td>top</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位位置的长方形左上顶点的垂直坐标</td>
+</tr>
+<tr>
+<td>width</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示定位定位位置的长方形的宽度</td>
+</tr>
+<tr>
+<td>height</td>
+<td>是</td>
+<td>uint32</td>
+<td>表示位置的长方形的高度</td>
+</tr>
+<tr>
+<td>char</td>
+<td>是</td>
+<td>string</td>
+<td>单字符识别结果</td>
+</tr>
+<tr>
+<td>probability</td>
+<td>否</td>
+<td>object</td>
+<td>识别结果中每一行的置信度值，包含average：行置信度平均值，variance：行置信度方差，min：行置信度最小值</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;log_id&quot;: 2661573626,</span><br><span class="line">    &quot;words_result&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;location&quot;: &#123;</span><br><span class="line">                &quot;left&quot;: 10,</span><br><span class="line">                &quot;top&quot;: 3,</span><br><span class="line">                &quot;width&quot;: 121,</span><br><span class="line">                &quot;height&quot;: 24</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;words&quot;: &quot;姓名:小明明&quot;,</span><br><span class="line">            &quot;chars&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;location&quot;: &#123;</span><br><span class="line">                        &quot;left&quot;: 16,</span><br><span class="line">                        &quot;top&quot;: 6,</span><br><span class="line">                        &quot;width&quot;: 17,</span><br><span class="line">                        &quot;height&quot;: 20</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &quot;char&quot;: &quot;姓&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;location&quot;: &#123;</span><br><span class="line">                        &quot;left&quot;: 35,</span><br><span class="line">                        &quot;top&quot;: 6,</span><br><span class="line">                        &quot;width&quot;: 17,</span><br><span class="line">                        &quot;height&quot;: 20</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &quot;char&quot;: &quot;名&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;location&quot;: &#123;</span><br><span class="line">                        &quot;left&quot;: 55,</span><br><span class="line">                        &quot;top&quot;: 6,</span><br><span class="line">                        &quot;width&quot;: 11,</span><br><span class="line">                        &quot;height&quot;: 20</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &quot;char&quot;: &quot;:&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;location&quot;: &#123;</span><br><span class="line">                        &quot;left&quot;: 68,</span><br><span class="line">                        &quot;top&quot;: 6,</span><br><span class="line">                        &quot;width&quot;: 17,</span><br><span class="line">                        &quot;height&quot;: 20</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &quot;char&quot;: &quot;小&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;location&quot;: &#123;</span><br><span class="line">                        &quot;left&quot;: 87,</span><br><span class="line">                        &quot;top&quot;: 6,</span><br><span class="line">                        &quot;width&quot;: 17,</span><br><span class="line">                        &quot;height&quot;: 20</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &quot;char&quot;: &quot;明&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;location&quot;: &#123;</span><br><span class="line">                        &quot;left&quot;: 107,</span><br><span class="line">                        &quot;top&quot;: 6,</span><br><span class="line">                        &quot;width&quot;: 17,</span><br><span class="line">                        &quot;height&quot;: 20</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &quot;char&quot;: &quot;明&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;words_result_num&quot;: 2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Q：使用demo为何发生 App identifier unmatch 错误</span><br><span class="line">A：使用demo工程请在百度云控制台中绑定demo工程的包名（com.baidu.ocr.demo），然后选择license或者ak，sk方式授权。</span><br><span class="line"></span><br><span class="line">Q: demo工程为何提示token还未获取成功，无法使用识别功能</span><br><span class="line">A：识别需要token作为参数，token需要通过网络获取，网络环境较差的情况下返回较慢。</span><br><span class="line"></span><br><span class="line">Q：关于身份证识别的两种模式</span><br><span class="line">A：身份证识别依赖本地库，如果您不需要本地能力可以在传入activity的参数中选择关闭，并且移除ui模块中的本地so文件和ui模块中assets下的模型文件</span><br></pre></td></tr></table></figure>
+<h1 id="错误码表"><a href="#错误码表" class="headerlink" title="错误码表"></a>错误码表</h1><p><strong>验证错误</strong></p>
+<table>
+<thead>
+<tr>
+<th>错误码</th>
+<th>错误信息</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>110</td>
+<td>Access token invalid or no longer valid</td>
+<td>Access Token过期失效</td>
+<td>请重新获得有效的Token</td>
+</tr>
+<tr>
+<td>283501</td>
+<td>License file check error</td>
+<td>授权文件不匹配</td>
+<td>请在<a href="https://console.bce.baidu.com/ai/#/ai/ocr/overview/index" target="_blank" rel="noopener">控制台</a>中配置正确的包名，并确认使用了正确的授权文件</td>
+</tr>
+<tr>
+<td>283502</td>
+<td>App identifier unmatch</td>
+<td>BundleId不匹配</td>
+<td>请在<a href="https://console.bce.baidu.com/ai/#/ai/ocr/overview/index" target="_blank" rel="noopener">控制台</a>中配置正确的包名，并确认使用了正确的授权文件</td>
+</tr>
+<tr>
+<td>283503</td>
+<td>License file not exists</td>
+<td>请确认aip.licence文件存在于assets文件夹中</td>
+<td></td>
+</tr>
+<tr>
+<td>283504</td>
+<td>Network error</td>
+<td>网络请求失败</td>
+<td>请授权App网络权限并保证网络通畅</td>
+</tr>
+<tr>
+<td>283505</td>
+<td>Server illegal response</td>
+<td>服务器返回数据异常</td>
+<td></td>
+</tr>
+<tr>
+<td>283506</td>
+<td>Load jni so library error</td>
+<td>JNI加载异常</td>
+<td>请确认开发包中的so库被正确加载</td>
+</tr>
+<tr>
+<td>283601</td>
+<td>Server authentication error</td>
+<td>身份验证错误。</td>
+<td>请在<a href="https://console.bce.baidu.com/ai/#/ai/ocr/overview/index" target="_blank" rel="noopener">控制台</a>中配置应用，并确认填写了正确的AK/SK，或使用了正确的授权文件</td>
+</tr>
+<tr>
+<td>283602</td>
+<td>Authentication time error</td>
+<td>时间戳不正确，可能是设备时间异常。</td>
+<td>请确保不要改变调用设备的本地时间</td>
+</tr>
+<tr>
+<td>283604</td>
+<td>App identifier unmatch</td>
+<td>错误的PackageName或者BundleId</td>
+<td>请在<a href="https://console.bce.baidu.com/ai/#/ai/ocr/overview/index" target="_blank" rel="noopener">控制台</a>中配置正确的包名，并确认使用了正确的授权文件</td>
+</tr>
+<tr>
+<td>283700</td>
+<td>Server internal error</td>
+<td>服务器内部错误</td>
+<td>您可以在工单系统中提交错误信息中的logId，我们将尝试帮您排查错误原因</td>
+</tr>
+</tbody>
+</table>
+<p><strong>服务错误</strong></p>
+<table>
+<thead>
+<tr>
+<th>错误码</th>
+<th>错误信息</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>216015</td>
+<td>module closed</td>
+<td>模块关闭</td>
+</tr>
+<tr>
+<td>216100</td>
+<td>invalid param</td>
+<td>非法参数</td>
+</tr>
+<tr>
+<td>216101</td>
+<td>not enough param</td>
+<td>参数数量不够</td>
+</tr>
+<tr>
+<td>216102</td>
+<td>service not support</td>
+<td>业务不支持</td>
+</tr>
+<tr>
+<td>216103</td>
+<td>param too long</td>
+<td>参数太长</td>
+</tr>
+<tr>
+<td>216110</td>
+<td>appid not exist</td>
+<td>APP ID不存在</td>
+</tr>
+<tr>
+<td>216111</td>
+<td>invalid userid</td>
+<td>非法用户ID</td>
+</tr>
+<tr>
+<td>216200</td>
+<td>empty image</td>
+<td>空的图片</td>
+</tr>
+<tr>
+<td>216201</td>
+<td>image format error</td>
+<td>图片格式错误</td>
+</tr>
+<tr>
+<td>216202</td>
+<td>image size error</td>
+<td>图片大小错误</td>
+</tr>
+<tr>
+<td>216300</td>
+<td>db error</td>
+<td>DB错误</td>
+</tr>
+<tr>
+<td>216400</td>
+<td>backend error</td>
+<td>后端系统错误</td>
+</tr>
+<tr>
+<td>216401</td>
+<td>internal error</td>
+<td>内部错误</td>
+</tr>
+<tr>
+<td>216500</td>
+<td>unknown error</td>
+<td>未知错误</td>
+</tr>
+<tr>
+<td>216600</td>
+<td>id number format error</td>
+<td>身份证的ID格式错误</td>
+</tr>
+<tr>
+<td>216601</td>
+<td>id number and name not match</td>
+<td>身份证的ID和名字不匹配</td>
+</tr>
+<tr>
+<td>216630</td>
+<td>recognize error</td>
+<td>识别错误</td>
+</tr>
+<tr>
+<td>216631</td>
+<td>recognize bank card error</td>
+<td>识别银行卡错误（通常为检测不到银行卡）</td>
+</tr>
+<tr>
+<td>216632</td>
+<td>ocr</td>
+<td>unknown error</td>
+</tr>
+<tr>
+<td>216633</td>
+<td>recognize idcard error</td>
+<td>识别身份证错误（通常为检测不到身份证）</td>
+</tr>
+<tr>
+<td>216634</td>
+<td>detect error</td>
+<td>检测错误</td>
+</tr>
+<tr>
+<td>216635</td>
+<td>get mask error</td>
+<td>获取mask图片错误</td>
+</tr>
+<tr>
+<td>282000</td>
+<td>logic internal error</td>
+<td>业务逻辑层内部错误</td>
+</tr>
+<tr>
+<td>282001</td>
+<td>logic backend error</td>
+<td>业务逻辑层后端服务错误</td>
+</tr>
+<tr>
+<td>282100</td>
+<td>image transcode error</td>
+<td>图片压缩转码错误</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>分享笔记，希望能帮到更多的人</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/img/wechatmoney.jpg" alt="Jia_Guo 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/img/alipaymoney.jpg" alt="Jia_Guo 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/API/" rel="tag"><i class="fa fa-tag"></i> API</a>
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/android/" rel="tag"><i class="fa fa-tag"></i> android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/29/basicComputerNet/" rel="next" title="浅谈计算机网络">
+                <i class="fa fa-chevron-left"></i> 浅谈计算机网络
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/title/touxiang.jpg" alt="Jia_Guo">
+            
+              <p class="site-author-name" itemprop="name">Jia_Guo</p>
+              <p class="site-description motion-element" itemprop="description">乐于现状，追求卓越</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/gj-hat" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1520047927@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="gj1520047927@gmail.com" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/JiaGuo23372893" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="Skype:1520047927@qq.com" target="_blank" title="Skype">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Skype</a>
+                  </span>
+                
+            </div>
+          
+          
+          
+
+          
+          
+<div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="110" src="//music.163.com/outchain/player?type=0&id=2530237292&auto=1&height=90"></iframe>
+</div>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OCR-Android-SDK-开发者文档"><span class="nav-number">1.</span> <span class="nav-text">OCR Android SDK 开发者文档</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#接口能力"><span class="nav-number">2.1.</span> <span class="nav-text">接口能力</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#远程API能力"><span class="nav-number">2.1.1.</span> <span class="nav-text">远程API能力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地质量控制能力"><span class="nav-number">2.1.2.</span> <span class="nav-text">本地质量控制能力</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本更新记录"><span class="nav-number">2.2.</span> <span class="nav-text">版本更新记录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#快速入门"><span class="nav-number">3.</span> <span class="nav-text">快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开发包说明"><span class="nav-number">3.1.</span> <span class="nav-text">开发包说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为您自己的工程添加必要的权限"><span class="nav-number">3.1.1.</span> <span class="nav-text">为您自己的工程添加必要的权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proguard配置"><span class="nav-number">3.1.2.</span> <span class="nav-text">Proguard配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DEMO使用说明"><span class="nav-number">3.2.</span> <span class="nav-text">DEMO使用说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#身份验证与安全"><span class="nav-number">3.3.</span> <span class="nav-text">身份验证与安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#API-Key-Secret-Key"><span class="nav-number">3.3.1.</span> <span class="nav-text">API Key / Secret Key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#授权文件（安全模式）"><span class="nav-number">3.3.2.</span> <span class="nav-text">授权文件（安全模式）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口调用说明"><span class="nav-number">4.</span> <span class="nav-text">接口调用说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OCR-UI模块"><span class="nav-number">4.1.</span> <span class="nav-text">OCR-UI模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OCR-UI模块调用示例"><span class="nav-number">4.1.1.</span> <span class="nav-text">OCR-UI模块调用示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据接口"><span class="nav-number">4.2.</span> <span class="nav-text">数据接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通用文字识别"><span class="nav-number">4.2.1.</span> <span class="nav-text">通用文字识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通用文字识别（高精度版）"><span class="nav-number">4.2.2.</span> <span class="nav-text">通用文字识别（高精度版）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通用文字识别（含位置信息版）"><span class="nav-number">4.2.3.</span> <span class="nav-text">通用文字识别（含位置信息版）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通用文字识别（高精度含位置信息版）"><span class="nav-number">4.2.4.</span> <span class="nav-text">通用文字识别（高精度含位置信息版）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通用文字识别-含生僻字版"><span class="nav-number">4.2.5.</span> <span class="nav-text">通用文字识别(含生僻字版)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络图片文字识别"><span class="nav-number">4.2.6.</span> <span class="nav-text">网络图片文字识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#银行卡识别"><span class="nav-number">4.2.7.</span> <span class="nav-text">银行卡识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#身份证识别"><span class="nav-number">4.2.8.</span> <span class="nav-text">身份证识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行驶证识别"><span class="nav-number">4.2.9.</span> <span class="nav-text">行驶证识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#驾驶证识别"><span class="nav-number">4.2.10.</span> <span class="nav-text">驾驶证识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#车牌识别"><span class="nav-number">4.2.11.</span> <span class="nav-text">车牌识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#营业执照识别"><span class="nav-number">4.2.12.</span> <span class="nav-text">营业执照识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通用票据识别"><span class="nav-number">4.2.13.</span> <span class="nav-text">通用票据识别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-number">5.</span> <span class="nav-text">FAQ</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#错误码表"><span class="nav-number">6.</span> <span class="nav-text">错误码表</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jia_Guo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+ 
+<script type="text/javascript" color="100,100,100" opacity="0.3" zindex="-1" count="20" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
