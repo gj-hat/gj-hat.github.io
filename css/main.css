@@ -1961,7 +1961,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9a61f2;
+  background: #54d461;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2806,7 +2806,7 @@ embed {
   cursor: url("/img/mouse1.ico"), auto !important;
 }
 body {
-  background-image: url("http://www.79n.cn/uploads/allimg/121217/1-12121G92Q1.jpg");
+  background-image: url("/img/bg.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
