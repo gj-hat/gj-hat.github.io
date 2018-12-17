@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/logo-tubiao.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="路由协议,RIP,配置,报文格式,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="RIP动态路由协议引入上一篇我们讲了，数据再网络中是怎么传输的。举了一个比较贴切的例子是“快递的收发过程”，而快递的收发和转发的路径就可以近似的称为是——路由。这是一个简单的路由模型，为什么说简单呢？因为我们假设全国的所有的路径城市都是相通的，而且每一条路都十分宽敞不存在拥堵，所以近乎来说；从寄件地址到收件地址之间的路径是唯一的。不妨往深考虑一下，我们假设从北京到西安的直连路给断了，那么问题就复杂">
+<meta name="keywords" content="路由协议,RIP,配置,报文格式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rip动态路由协议">
+<meta property="og:url" content="http://yoursite.com/2018/12/17/rip/index.html">
+<meta property="og:site_name" content="静下来，喝杯咖啡">
+<meta property="og:description" content="RIP动态路由协议引入上一篇我们讲了，数据再网络中是怎么传输的。举了一个比较贴切的例子是“快递的收发过程”，而快递的收发和转发的路径就可以近似的称为是——路由。这是一个简单的路由模型，为什么说简单呢？因为我们假设全国的所有的路径城市都是相通的，而且每一条路都十分宽敞不存在拥堵，所以近乎来说；从寄件地址到收件地址之间的路径是唯一的。不妨往深考虑一下，我们假设从北京到西安的直连路给断了，那么问题就复杂">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/17/F0ulyF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/17/F0K19P.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/17/F0KcB4.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/17/F0Qsw4.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/17/F03T7F.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/17/F08Qhj.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/17/F08LVS.png">
+<meta property="og:updated_time" content="2018-12-17T08:15:11.821Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="rip动态路由协议">
+<meta name="twitter:description" content="RIP动态路由协议引入上一篇我们讲了，数据再网络中是怎么传输的。举了一个比较贴切的例子是“快递的收发过程”，而快递的收发和转发的路径就可以近似的称为是——路由。这是一个简单的路由模型，为什么说简单呢？因为我们假设全国的所有的路径城市都是相通的，而且每一条路都十分宽敞不存在拥堵，所以近乎来说；从寄件地址到收件地址之间的路径是唯一的。不妨往深考虑一下，我们假设从北京到西安的直连路给断了，那么问题就复杂">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/12/17/F0ulyF.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/17/rip/">
+
+
+
+
+
+  <title>rip动态路由协议 | 静下来，喝杯咖啡</title>
+  
+
+
+
+
+
+
+
+
+  
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">静下来，喝杯咖啡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学习笔记，日记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/17/rip/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jia_Guo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/title/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静下来，喝杯咖啡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">rip动态路由协议</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-17T16:09:19+08:00">
+                2018-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/network/" itemprop="url" rel="index">
+                    <span itemprop="name">network</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="RIP动态路由协议"><a href="#RIP动态路由协议" class="headerlink" title="RIP动态路由协议"></a>RIP动态路由协议</h1><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>上一篇我们讲了，数据再网络中是怎么传输的。举了一个比较贴切的例子是“快递的收发过程”，而快递的收发和转发的路径就可以近似的称为是——路由。<br>这是一个简单的路由模型，为什么说简单呢？因为我们假设全国的所有的路径城市都是相通的，而且每一条路都十分宽敞不存在拥堵，所以近乎来说；从寄件地址到收件地址之间的路径是唯一的。<br>不妨往深考虑一下，我们假设从北京到西安的直连路给断了，那么问题就复杂了，因为我们现在就几乎有无数种路线了，又或者就停止发送快递即就是丢包；因为计算机是比较“笨”的，他除了直连路由和静态路由之外他是不会学习路径的。<br>这个时候就需要动态路由协议的帮忙了，今天讲述的是动态路由RIP的基本路径选择原理。</p>
+<p>##RIP简介</p>
+<p>RIP（Routing information Protocol，路由信息协议）是应用较早、使用较普遍的内部网关协议），适用于小型同类网络的一个自治系统（AS）内的路由信息的传递。RIP协议是基于距离矢量算法的。它使用“跳数”，即metric来衡量到达目标地址的路由距离。文档见RFC1058、RFC1723。它是一个用于路由器和主机间交换路由信息的距离向量协议。</p>
+<p>至于上面所说到的“内部网关协议”，我们可以这样理解。由于历史的原因，当前的 INTERNET 网被组成一系列的自治系统，各自治系统通过一个核心路由器连到主干网上。而一个自治系统往往对应一个组织实体（比如一个公司或大学）内部的网络与路由器集合。每个自治系统都有自己的路由技术，对不同的自治系统路由技术是不相同的。用于自治系统间接口上的路由协议称为“外部网关协议”，简称EGP （Exterior Gateway Protocol）；而用于自治系统内部的路由协议称为“内部网关协议”，简称 IGP。内部网关与外部网关协议不同，外部路由协议只有一个，而内部路由器协议则是一族。各内部路由器协议的区别在于<strong>距离制式（distance metric, 即距离度量标准）不同，和路由刷新算法不同</strong>。<br>RIP协议被设计用于使用同种技术的中型网络，因此适应于大多数的校园网和使用速率变化不是很大的连续线的地区性网络。对于更复杂的环境，一般不使用RIP协议。</p>
+<h2 id="RIP工作原理"><a href="#RIP工作原理" class="headerlink" title="RIP工作原理"></a>RIP工作原理</h2><p>路由器的关键作用是用于网络的互连，每个路由器与两个以上的实际网络相连，负责在这些网络之间转发数据报。在讨论 IP 进行选路和对报文进行转发时，我们总是假设路由器包含了正确的路由，而且路由器可以利用 ICMP 重定向机制来要求与之相连的主机更改路由。但在实际情况下，IP 进行选路之前必须先通过某种方法获取正确的路由表。在小型的、变化缓慢的互连网络中，管理者可以用手工方式来建立和更改路由表（静态路由）。而在大型的、迅速变化的环境下，人工更新的办法慢得不能接受。这就需要自动更新路由表的方法，即所谓的动态路由协议，RIP协议是其中最简单的一种。</p>
+<p>在路由实现时，RIP作为一个系统长驻进程（daemon）而存在于路由器中，负责从网络系统的其它路由器接收路由信息，从而对本地IP层路由表作动态的维护，保证IP层发送报文时选择正确的路由。同时负责广播本路由器的路由信息，通知相邻路由器作相应的修改。RIP协议处于UDP协议的上层，RIP所接收的路由信息都封装在UDP协议的数据报中，RIP在520号UDP端口上接收来自远程路由器的路由修改信息，并对本地的路由表做相应的修改，同时通知其它路由器。通过这种方式，达到全局路由的有效。</p>
+<p>RIP路由协议用“更新（UNPDATES）”和“请求（REQUESTS）”这两种分组来传输信息的。每个具有RIP协议功能的路由器每隔30秒用UDP：520端口给与之直接相连的机器广播更新信息。更新信息反映了该路由器所有的路由选择信息数据库。路由选择信息数据库的每个条目由“局域网上能达到的IP地址”和“与该网络的距离”两部分组成。请求信息用于寻找网络上能发出RIP报文的其他设备。</p>
+<h2 id="RIP路由表"><a href="#RIP路由表" class="headerlink" title="RIP路由表"></a>RIP路由表</h2><p><strong> rip路由表大致如下：</strong><br><img src="https://s1.ax1x.com/2018/12/17/F0ulyF.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display rip 1 route</span><br></pre></td></tr></table></figure>
+<p>第一列：目标地址<br>第二列：下一跳地址<br>第三列：cost开销值</p>
+<p><strong> rip协议的距离标准是距离矢量所以在乎的主要的目标地址和下一跳</strong></p>
+<p><strong>下面来实战看看rip：</strong></p>
+<p><img src="https://s1.ax1x.com/2018/12/17/F0K19P.png" alt=""></p>
+<p>这是一个简单的拓扑图。</p>
+<p>配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int g 0/1 </span><br><span class="line">ip add 192.168.1.1 24</span><br><span class="line">int g 0/2</span><br><span class="line">ip add 192.168.2.2 24</span><br><span class="line">rip 1</span><br><span class="line">network 192.168.1.0</span><br><span class="line">network 192.168.2.0</span><br></pre></td></tr></table></figure></p>
+<p>其他路由器配置类似；<br>配置完成后看看<br><img src="https://s1.ax1x.com/2018/12/17/F0KcB4.png" alt=""></p>
+<p>这个时候已经可以看到r1已经学习到了r2,r3的路由信息</p>
+<p>如果想要去192.168.3.0网段下一跳有：192.168.1.2和192.168.2.2跳数均为1</p>
+<p>###跳数<br>RIP用“路程段数”（即“跳数”）作为网络距离的尺度。每个路由器在给相邻路由器发出路由信息时，都会给每个路径加上内部距离。在如图中，路由器1直接和网络192.168.1.0/24相连。当它向路由器2通告网络192.168.1.0/24的路径时，它把跳数增加1。</p>
+<p>##RIP的问题</p>
+<p>任何距离向量路由选择协议（如RIP）都有一个问题，路由器不知道网络的全局情况，路由器必须依靠相邻路由器来获取网络的可达信息。由于路由选择更新信息在网络上传播慢，距离向量路由选择算法有一个慢收敛问题，这个问题将导致不一致性产生。RIP协议使用以下机制减少因网络上的不一致带来的路由选择环路的可能性。</p>
+<p>对于rip动态路由协议，当网络拓扑发生改变时；运行rip协议的路由器会将所有的网络发布给rip区域内的所有路由器并将cost值+1；</p>
+<h3 id="路由环路"><a href="#路由环路" class="headerlink" title="路由环路"></a>路由环路</h3><p><img src="https://s1.ax1x.com/2018/12/17/F0Qsw4.png" alt=""></p>
+<p>还是之前的拓扑图，R1还连接了A网络1.1.1.1；</p>
+<p>（1）现假设路由器1断开了与网络A相连，则路由器1发现丢失了与网络A相连的以太网接口后产生一个触发更新送往路由器2和路由器3。这个更新信息同时告诉路由器2和路由器3，路由器1不再有到达网络A的路径。假设这个更新信息传输到路由器2被推迟了（CPU忙、链路拥塞等），但到达了路由器3，所以路由器3会立即从路由表中去掉到网络A的路径。</p>
+<p>（2）路由器2由于未收到路由器1的触发更新信息，并发出它的常规路由选择更新信息，通告网络A以2跳的距离可达。路由器3收到这个更新信息，认为出现了一条通过路由器2的到达网络A的新路径。于是路由器3告诉路由器1，它能以3跳的距离到达网络A。</p>
+<p>（3）在收到路由器3的更新新后，就把这个信息加上一跳后向路由器2和路由器3同时发出更新信息，告诉他们路由器1可以以3跳的距离到达网络A。</p>
+<p>……..</p>
+<p>由此一来整个链路处于死循环状态，跳数值一直增大，占用大量带宽来处理无用的路由学习；<br>直到耗尽路由器资源，路由器死机；</p>
+<h3 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h3><p>出现环路的原因：</p>
+<ol>
+<li>网络拓扑改变时间延时，没有及时通知</li>
+<li>出现环路各个路由器一直发送新的rip表。</li>
+<li>路由器接收新的rip表时不经思考，直接写入自己的路由表</li>
+<li>没有合适的收敛机制。</li>
+</ol>
+<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><ul>
+<li>记数到无穷大机制</li>
+</ul>
+<p>RIP协议允许最大跳数为15。大于15的目的地被认为是不可达。这个数字在限制了网络大小的同时也防止了一个叫做“记数到无穷大”的问题。<br>这也就是rip协议只能 用于小型网络中，拓扑不超过 16个设备；</p>
+<p>再回头看上面的环路；</p>
+<p>路由器2在收到路由器1的消息后更新成4跳的距离到达网络A。这个消息再次会发往路由器3，以此循环，直到跳数达到超过RIP协议允许的最大值（在RIP中定义为16）。一旦一个路由器达到这个值，它将声明这条路径不可用，并从路由表中删除此路径。</p>
+<p>由于记数到无穷大问题，路由选择信息将从一个路由器传到另一个路由器，每次段数加1。路由选择环路问题将无限制地进行下去，除非达到某个限制。这个限制就是RIP的最大跳数。当路径的跳数超过15，这条路径才从路由表中删除。</p>
+<ul>
+<li>水平分割法</li>
+</ul>
+<p>水平分割规则如下：路由器不向路径到来的方向回传此路径。当打开路由器接口后，路由器记录路径是从哪个接口来的，并且不向此接口回传此路径。</p>
+<p>再回头看上面的环路；</p>
+<p>路由器2在收到路由器1的消息后更新成4跳的距离到达网络A。这个消息再次会发往路由器3，以此循环，直到路由器2再次收到路由器1的网络A的信息就不再写入自己的路由表中。</p>
+<ul>
+<li>破坏逆转的水平分割法</li>
+</ul>
+<p>破坏逆转的水平分割法是水平分割法的升级版<br>水平分割是路由器用来防止把一个接口得来的路径又从此接口传回导致的问题的方案。水平分割方案忽略在更新过程中从一个路由器获取的路径又传回该路由器。有破坏逆转的水平分割方法是在更新信息中包括这些回传路径，但这种处理方法会把这些回传路径的跳数设为16（无穷）。通过把跳数设为无穷，并把这条路径告诉源路由器，有可能立刻解决路由选择环路。否则，不正确的路径将在路由表中驻留到超时为止。破坏逆转的缺点是它增加了路由更新的的数据大小。</p>
+<ul>
+<li>保持定时器法</li>
+</ul>
+<p>保持定时器法可防止路由器在路径从路由表中删除后一定的时间内（通常为180秒）接受新的路由信息。它的思想是保证每个路由器都收到了路径不可达信息，而且没有路由器发出无效路径信息。在图中，由于路由更新信息被延迟，路由器2向路由器3发出错误信息。但使用保持计数器法后，这种情况将不会发生，因为路由器3将在180秒内不接受通向网络A的新的路径信息，到那时路由器2将存储正确的路由信息。</p>
+<ul>
+<li>触发更新法</li>
+</ul>
+<p>有破坏逆转的水平分割将任何两个路由器构成的环路打破，但三个或更多个路由器构成的环路仍会发生，直到无穷（16）时为止。触发式更新法可加速收敛时间，它的工作原理是当某个路径的跳数改变了，路由器立即发出更新信息，不管路由器是否到达常规信息更新时间都发出更新信息。</p>
+<p>##rip路由表策略</p>
+<p>通过总结以上的解决方法，rip现在将满足如下情况的路由信息写入自己的路由表中：</p>
+<blockquote>
+<ol>
+<li>如果更新的某路由表项在路由表中没有，则直接在路由表中添加该路由表项</li>
+<li>如果路由表中已有相同目的网络的路由表项，且来源端口相同，那么无条件根据最新的路由信息更新其路由表</li>
+<li>如果路由表中已有相同目的网络的路由表项，但来源端口不同，则要比较它们的度量值，将度量值较小的一个作为自己的路由表项</li>
+<li>如果路由表中已有相同目的网络的路由表项，且度量值相等，保留原来的路由表项</li>
+</ol>
+</blockquote>
+<p>##rip报文格式</p>
+<p>RIP通过UDP报文进行路由信息的交换，使用的端口号为520。所以它又是一个不可靠的路由协议<br>由于RIP的实现较为简单，在配置和维护管理方面也远比OSPF和IS-IS容易，因此RIP主要应用于规模较小的网络中，例如校园网以及结构较简单的地区性网络。对于更为复杂的环境和大型网络，一般不使用RIP协议<br>RIP包括RIP-1和RIP-2两个版本，RIP-2对RIP-1进行了扩充，使其更具有优势</p>
+<p>RIP-1报文格式：<br><img src="https://s1.ax1x.com/2018/12/17/F03T7F.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>长度</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command</td>
+<td>8比特</td>
+<td>标识报文的类型： 1：Request报文，向邻居请求全部或部分路由信息；<br>2：Reponse报文，发送自己全部或部分路由信息，一个Response报文中最多包含25个路由表项。</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>8比特</td>
+<td>RIP的版本号：1：RIP-1<br>2：RIP-2</td>
+</tr>
+<tr>
+<td>Must be zero</td>
+<td>16/32比特</td>
+<td>必须为零字段。</td>
+</tr>
+<tr>
+<td>AFI（Address family identifier）</td>
+<td>16比特</td>
+<td>地址族标识，其值为2时表示IP协议。对于Request报文，此字段值为0。</td>
+</tr>
+<tr>
+<td>IP Address</td>
+<td>32比特</td>
+<td>该路由的目的IP地址，可以是自然网段的地址，也可以是子网地址或主机地址。</td>
+</tr>
+<tr>
+<td>Metric</td>
+<td>32比特</td>
+<td>路由的开销值。对于Request报文，此字段值为16。</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://s1.ax1x.com/2018/12/17/F08Qhj.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>长度</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command</td>
+<td>8比特</td>
+<td>标识报文的类型： 1：Request报文，向邻居请求全部或部分路由信息；<br>2：Reponse报文，发送自己全部或部分路由信息，一个Response报文中最多包含25个路由表项。</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>8比特</td>
+<td>RIP的版本号：1：RIP-1<br>2：RIP-2</td>
+</tr>
+<tr>
+<td>Must be zero</td>
+<td>16比特</td>
+<td>必须为零字段。</td>
+</tr>
+<tr>
+<td>AFI（Address family identifier）</td>
+<td>16比特</td>
+<td>地址族标识，其值为2时表示IP协议。对于Request报文，此字段值为0。</td>
+</tr>
+<tr>
+<td>Route Tag</td>
+<td>16比特</td>
+<td>外部路由标记。</td>
+</tr>
+<tr>
+<td>IP Address</td>
+<td>32比特</td>
+<td>该路由的目的IP地址，可以是自然网段的地址，也可以是子网地址或主机地址。</td>
+</tr>
+<tr>
+<td>Subnet Mask</td>
+<td>32比特</td>
+<td>目的地址的掩码。</td>
+</tr>
+<tr>
+<td>Next Hop</td>
+<td>32比特</td>
+<td>提供一个更好的下一跳地址。如果为0.0.0.0，则表示发布此路由的路由器地址就是最优下一跳地址。</td>
+</tr>
+<tr>
+<td>Metric</td>
+<td>32比特</td>
+<td>路由的开销值。对于Request报文，此字段为16。</td>
+</tr>
+</tbody>
+</table>
+<p>RIP-2为了支持报文验证，使用第一个路由表项（Route Entry）作为验证项，并将AFI字段的值设为0xFFFF作为标识。</p>
+<p> RIP-2的验证报文格式:</p>
+<p> <img src="https://s1.ax1x.com/2018/12/17/F08LVS.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>长度</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command</td>
+<td>8比特</td>
+<td>标识报文的类型： 1：Request报文，向邻居请求全部或部分路由信息；<br>2：Reponse报文，发送自己全部或部分路由信息，一个Response报文中最多包含25个路由表项。</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>8比特</td>
+<td>RIP的版本号：1：RIP-1<br>2：RIP-2</td>
+</tr>
+<tr>
+<td>Must be zero</td>
+<td>16比特</td>
+<td>必须为零字段。</td>
+</tr>
+<tr>
+<td>0xFFFF</td>
+<td>16比特</td>
+<td>验证项标识，表示整个路由报文需要验证。</td>
+</tr>
+<tr>
+<td>Authentication Type</td>
+<td>16比特</td>
+<td>验证类型：2：明文验证；<br>3：MD5验证。</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>16字节</td>
+<td>验证口令，当使用明文验证时该字段才会包含密码信息。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rip经典配置（H3C）"><a href="#rip经典配置（H3C）" class="headerlink" title="rip经典配置（H3C）"></a>rip经典配置（H3C）</h2><p>笔者电脑出问题了，回头补上</p>
+<blockquote>
+<p>本文不全是笔者原创，有部分是借鉴其他文章，没有表明出处还请谅解</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>分享笔记，希望能帮到更多的人</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/img/wechatmoney.jpg" alt="Jia_Guo 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/img/alipaymoney.jpg" alt="Jia_Guo 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/路由协议/" rel="tag"><i class="fa fa-tag"></i> 路由协议</a>
+          
+            <a href="/tags/RIP/" rel="tag"><i class="fa fa-tag"></i> RIP</a>
+          
+            <a href="/tags/配置/" rel="tag"><i class="fa fa-tag"></i> 配置</a>
+          
+            <a href="/tags/报文格式/" rel="tag"><i class="fa fa-tag"></i> 报文格式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/13/OCR-Android-SDK/" rel="next" title="OCR Android SDK 开发者文档">
+                <i class="fa fa-chevron-left"></i> OCR Android SDK 开发者文档
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/title/touxiang.jpg" alt="Jia_Guo">
+            
+              <p class="site-author-name" itemprop="name">Jia_Guo</p>
+              <p class="site-description motion-element" itemprop="description">乐于现状，追求卓越</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/gj-hat" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1520047927@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="gj1520047927@gmail.com" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/JiaGuo23372893" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="Skype:1520047927@qq.com" target="_blank" title="Skype">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Skype</a>
+                  </span>
+                
+            </div>
+          
+          
+          
+
+          
+          
+<div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="110" src="//music.163.com/outchain/player?type=0&id=2530237292&auto=1&height=90"></iframe>
+</div>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RIP动态路由协议"><span class="nav-number">1.</span> <span class="nav-text">RIP动态路由协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入"><span class="nav-number">1.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RIP工作原理"><span class="nav-number">1.2.</span> <span class="nav-text">RIP工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RIP路由表"><span class="nav-number">1.3.</span> <span class="nav-text">RIP路由表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#路由环路"><span class="nav-number">1.3.1.</span> <span class="nav-text">路由环路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析问题"><span class="nav-number">1.3.2.</span> <span class="nav-text">分析问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决问题"><span class="nav-number">1.3.3.</span> <span class="nav-text">解决问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rip经典配置（H3C）"><span class="nav-number">1.4.</span> <span class="nav-text">rip经典配置（H3C）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jia_Guo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+ 
+<script type="text/javascript" color="100,100,100" opacity="0.3" zindex="-1" count="20" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
