@@ -95,13 +95,16 @@
 <meta property="og:description" content="RIP动态路由协议引入上一篇我们讲了，数据再网络中是怎么传输的。举了一个比较贴切的例子是“快递的收发过程”，而快递的收发和转发的路径就可以近似的称为是——路由。这是一个简单的路由模型，为什么说简单呢？因为我们假设全国的所有的路径城市都是相通的，而且每一条路都十分宽敞不存在拥堵，所以近乎来说；从寄件地址到收件地址之间的路径是唯一的。不妨往深考虑一下，我们假设从北京到西安的直连路给断了，那么问题就复杂">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/17/F0ulyF.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/12/17/F0K19P.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/12/17/F0KcB4.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/12/17/F0Qsw4.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/19/FBzfUg.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/19/FBzh5Q.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/19/FBzj54.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/19/FBzfUg.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/17/F03T7F.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/17/F08Qhj.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/17/F08LVS.png">
-<meta property="og:updated_time" content="2018-12-17T08:15:11.821Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/19/FBzfUg.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/19/FDPpFO.png">
+<meta property="og:updated_time" content="2018-12-19T06:29:03.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rip动态路由协议">
 <meta name="twitter:description" content="RIP动态路由协议引入上一篇我们讲了，数据再网络中是怎么传输的。举了一个比较贴切的例子是“快递的收发过程”，而快递的收发和转发的路径就可以近似的称为是——路由。这是一个简单的路由模型，为什么说简单呢？因为我们假设全国的所有的路径城市都是相通的，而且每一条路都十分宽敞不存在拥堵，所以近乎来说；从寄件地址到收件地址之间的路径是唯一的。不妨往深考虑一下，我们假设从北京到西安的直连路给断了，那么问题就复杂">
@@ -392,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4.3k
+                  4.6k
                 </span>
               
 
@@ -408,7 +411,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  15
+                  16
                 </span>
               
             </div>
@@ -430,58 +433,73 @@
 
       
         <h1 id="RIP动态路由协议"><a href="#RIP动态路由协议" class="headerlink" title="RIP动态路由协议"></a>RIP动态路由协议</h1><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>上一篇我们讲了，数据再网络中是怎么传输的。举了一个比较贴切的例子是“快递的收发过程”，而快递的收发和转发的路径就可以近似的称为是——路由。<br>这是一个简单的路由模型，为什么说简单呢？因为我们假设全国的所有的路径城市都是相通的，而且每一条路都十分宽敞不存在拥堵，所以近乎来说；从寄件地址到收件地址之间的路径是唯一的。<br>不妨往深考虑一下，我们假设从北京到西安的直连路给断了，那么问题就复杂了，因为我们现在就几乎有无数种路线了，又或者就停止发送快递即就是丢包；因为计算机是比较“笨”的，他除了直连路由和静态路由之外他是不会学习路径的。<br>这个时候就需要动态路由协议的帮忙了，今天讲述的是动态路由RIP的基本路径选择原理。</p>
-<p>##RIP简介</p>
-<p>RIP（Routing information Protocol，路由信息协议）是应用较早、使用较普遍的内部网关协议），适用于小型同类网络的一个自治系统（AS）内的路由信息的传递。RIP协议是基于距离矢量算法的。它使用“跳数”，即metric来衡量到达目标地址的路由距离。文档见RFC1058、RFC1723。它是一个用于路由器和主机间交换路由信息的距离向量协议。</p>
+<h2 id="RIP简介"><a href="#RIP简介" class="headerlink" title="RIP简介"></a>RIP简介</h2><p>RIP（Routing information Protocol，路由信息协议）是应用较早、使用较普遍的内部网关协议），适用于小型同类网络的一个自治系统（AS）内的路由信息的传递。RIP协议是基于距离矢量算法的。它使用“跳数”，即metric来衡量到达目标地址的路由距离。文档见RFC1058、RFC1723。它是一个用于路由器和主机间交换路由信息的距离向量协议。</p>
 <p>至于上面所说到的“内部网关协议”，我们可以这样理解。由于历史的原因，当前的 INTERNET 网被组成一系列的自治系统，各自治系统通过一个核心路由器连到主干网上。而一个自治系统往往对应一个组织实体（比如一个公司或大学）内部的网络与路由器集合。每个自治系统都有自己的路由技术，对不同的自治系统路由技术是不相同的。用于自治系统间接口上的路由协议称为“外部网关协议”，简称EGP （Exterior Gateway Protocol）；而用于自治系统内部的路由协议称为“内部网关协议”，简称 IGP。内部网关与外部网关协议不同，外部路由协议只有一个，而内部路由器协议则是一族。各内部路由器协议的区别在于<strong>距离制式（distance metric, 即距离度量标准）不同，和路由刷新算法不同</strong>。<br>RIP协议被设计用于使用同种技术的中型网络，因此适应于大多数的校园网和使用速率变化不是很大的连续线的地区性网络。对于更复杂的环境，一般不使用RIP协议。</p>
+<p>rip分为ripv1和ripv2两个版本。<br>ripv1是有类别路由协议，报文不包含掩码信息，不支持VLSM。RIPV1只支持广播形式发送。<br>ripv2支持VLSM,支持明文和md5认证</p>
 <h2 id="RIP工作原理"><a href="#RIP工作原理" class="headerlink" title="RIP工作原理"></a>RIP工作原理</h2><p>路由器的关键作用是用于网络的互连，每个路由器与两个以上的实际网络相连，负责在这些网络之间转发数据报。在讨论 IP 进行选路和对报文进行转发时，我们总是假设路由器包含了正确的路由，而且路由器可以利用 ICMP 重定向机制来要求与之相连的主机更改路由。但在实际情况下，IP 进行选路之前必须先通过某种方法获取正确的路由表。在小型的、变化缓慢的互连网络中，管理者可以用手工方式来建立和更改路由表（静态路由）。而在大型的、迅速变化的环境下，人工更新的办法慢得不能接受。这就需要自动更新路由表的方法，即所谓的动态路由协议，RIP协议是其中最简单的一种。</p>
 <p>在路由实现时，RIP作为一个系统长驻进程（daemon）而存在于路由器中，负责从网络系统的其它路由器接收路由信息，从而对本地IP层路由表作动态的维护，保证IP层发送报文时选择正确的路由。同时负责广播本路由器的路由信息，通知相邻路由器作相应的修改。RIP协议处于UDP协议的上层，RIP所接收的路由信息都封装在UDP协议的数据报中，RIP在520号UDP端口上接收来自远程路由器的路由修改信息，并对本地的路由表做相应的修改，同时通知其它路由器。通过这种方式，达到全局路由的有效。</p>
 <p>RIP路由协议用“更新（UNPDATES）”和“请求（REQUESTS）”这两种分组来传输信息的。每个具有RIP协议功能的路由器每隔30秒用UDP：520端口给与之直接相连的机器广播更新信息。更新信息反映了该路由器所有的路由选择信息数据库。路由选择信息数据库的每个条目由“局域网上能达到的IP地址”和“与该网络的距离”两部分组成。请求信息用于寻找网络上能发出RIP报文的其他设备。</p>
+<h2 id="rip默认设置"><a href="#rip默认设置" class="headerlink" title="rip默认设置"></a>rip默认设置</h2><ol>
+<li>Cost值：度量值大于等于16表示该路由不可达</li>
+<li>Update定时器：邻居间路由更新的发送时间默认30s（每隔30s一广播形式发送自己的rip路由表）</li>
+<li>Timeout定时器：默认180秒没有收到的回复路由信息会将cost设置为无穷大（16）并在ip路由表中撤销</li>
+<li>rip端口520采用udp传输</li>
+</ol>
 <h2 id="RIP路由表"><a href="#RIP路由表" class="headerlink" title="RIP路由表"></a>RIP路由表</h2><p><strong> rip路由表大致如下：</strong><br><img src="https://s1.ax1x.com/2018/12/17/F0ulyF.png" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display rip 1 route</span><br></pre></td></tr></table></figure>
 <p>第一列：目标地址<br>第二列：下一跳地址<br>第三列：cost开销值</p>
 <p><strong> rip协议的距离标准是距离矢量所以在乎的主要的目标地址和下一跳</strong></p>
-<p><strong>下面来实战看看rip：</strong></p>
-<p><img src="https://s1.ax1x.com/2018/12/17/F0K19P.png" alt=""></p>
+<h3 id="跳数"><a href="#跳数" class="headerlink" title="跳数"></a>跳数</h3><p>RIP用“路程段数”（即“跳数”）作为网络距离的尺度。每个路由器在给相邻路由器发出路由信息时，都会给每个路径加上内部距离。在如图中，路由器1直接和网络192.168.1.0/24相连。当它向路由器2通告网络192.168.1.0/24的路径时，它把跳数增加1。</p>
+<h2 id="rip的更新机制"><a href="#rip的更新机制" class="headerlink" title="rip的更新机制"></a>rip的更新机制</h2><p>任何距离向量路由选择协议（如RIP）都有一个问题，路由器不知道网络的全局情况，路由器必须依靠相邻路由器来获取网络的可达信息。由于路由选择更新信息在网络上传播慢，距离向量路由选择算法有一个慢收敛问题，这个问题将导致不一致性产生。RIP协议使用以下机制减少因网络上的不一致带来的路由选择环路的可能性。</p>
+<p>对于rip动态路由协议，当网络拓扑发生改变后的Update时间后；运行rip协议的路由器会将所有的网络发布给rip区域内的所有路由器并将cost值+1；</p>
+<p><strong>下面来实战看看运行rip的网络拓扑：</strong></p>
+<blockquote>
+<p>同一设备不同端口网段不同，同一链路须在同一网段</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2018/12/19/FBzfUg.png" alt=""></p>
 <p>这是一个简单的拓扑图。</p>
-<p>配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int g 0/1 </span><br><span class="line">ip add 192.168.1.1 24</span><br><span class="line">int g 0/2</span><br><span class="line">ip add 192.168.2.2 24</span><br><span class="line">rip 1</span><br><span class="line">network 192.168.1.0</span><br><span class="line">network 192.168.2.0</span><br></pre></td></tr></table></figure></p>
-<p>其他路由器配置类似；<br>配置完成后看看<br><img src="https://s1.ax1x.com/2018/12/17/F0KcB4.png" alt=""></p>
-<p>这个时候已经可以看到r1已经学习到了r2,r3的路由信息</p>
-<p>如果想要去192.168.3.0网段下一跳有：192.168.1.2和192.168.2.2跳数均为1</p>
-<p>###跳数<br>RIP用“路程段数”（即“跳数”）作为网络距离的尺度。每个路由器在给相邻路由器发出路由信息时，都会给每个路径加上内部距离。在如图中，路由器1直接和网络192.168.1.0/24相连。当它向路由器2通告网络192.168.1.0/24的路径时，它把跳数增加1。</p>
-<p>##RIP的问题</p>
-<p>任何距离向量路由选择协议（如RIP）都有一个问题，路由器不知道网络的全局情况，路由器必须依靠相邻路由器来获取网络的可达信息。由于路由选择更新信息在网络上传播慢，距离向量路由选择算法有一个慢收敛问题，这个问题将导致不一致性产生。RIP协议使用以下机制减少因网络上的不一致带来的路由选择环路的可能性。</p>
-<p>对于rip动态路由协议，当网络拓扑发生改变时；运行rip协议的路由器会将所有的网络发布给rip区域内的所有路由器并将cost值+1；</p>
-<h3 id="路由环路"><a href="#路由环路" class="headerlink" title="路由环路"></a>路由环路</h3><p><img src="https://s1.ax1x.com/2018/12/17/F0Qsw4.png" alt=""></p>
-<p>还是之前的拓扑图，R1还连接了A网络1.1.1.1；</p>
-<p>（1）现假设路由器1断开了与网络A相连，则路由器1发现丢失了与网络A相连的以太网接口后产生一个触发更新送往路由器2和路由器3。这个更新信息同时告诉路由器2和路由器3，路由器1不再有到达网络A的路径。假设这个更新信息传输到路由器2被推迟了（CPU忙、链路拥塞等），但到达了路由器3，所以路由器3会立即从路由表中去掉到网络A的路径。</p>
-<p>（2）路由器2由于未收到路由器1的触发更新信息，并发出它的常规路由选择更新信息，通告网络A以2跳的距离可达。路由器3收到这个更新信息，认为出现了一条通过路由器2的到达网络A的新路径。于是路由器3告诉路由器1，它能以3跳的距离到达网络A。</p>
-<p>（3）在收到路由器3的更新新后，就把这个信息加上一跳后向路由器2和路由器3同时发出更新信息，告诉他们路由器1可以以3跳的距离到达网络A。</p>
-<p>……..</p>
-<p>由此一来整个链路处于死循环状态，跳数值一直增大，占用大量带宽来处理无用的路由学习；<br>直到耗尽路由器资源，路由器死机；</p>
-<h3 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h3><p>出现环路的原因：</p>
+<p>配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int g 0/1 </span><br><span class="line">ip add 192.0.1.1 24</span><br><span class="line">int g 0/2</span><br><span class="line">ip add 192.0.2.1 24</span><br><span class="line">quit</span><br><span class="line">int loopback 0</span><br><span class="line">ip add 1.1.1.1 32</span><br></pre></td></tr></table></figure></p>
+<p>其他路由器配置类似；<br>查看路由表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dis ip-route</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://s1.ax1x.com/2018/12/19/FBzh5Q.png" alt=""></p>
+<blockquote>
+<p>可以看到只有本地和对端路由</p>
+</blockquote>
+<p>下来简单配置rip</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rip</span><br><span class="line">version 2</span><br><span class="line">network 1.1.1.1</span><br><span class="line">network 192.0.1.0</span><br><span class="line">network 192.0.2.0</span><br></pre></td></tr></table></figure>
+<p>其他设备配置类似</p>
+<p>查看路由表，可以看到已经学习到了邻居的路由信息,<br><img src="https://s1.ax1x.com/2018/12/19/FBzj54.png" alt=""></p>
+<h3 id="rip学习原理"><a href="#rip学习原理" class="headerlink" title="rip学习原理"></a>rip学习原理</h3><p><strong>以RT1的loopback0接口1.1.1.1/32（以下称为A)为例子</strong></p>
 <ol>
-<li>网络拓扑改变时间延时，没有及时通知</li>
-<li>出现环路各个路由器一直发送新的rip表。</li>
-<li>路由器接收新的rip表时不经思考，直接写入自己的路由表</li>
-<li>没有合适的收敛机制。</li>
+<li>当A网络接入rt1中，等待30s的邻居更新时间，将自己的A网络的rip路由信息和其cost值+1以广播的形式扩散出去。</li>
+<li>RT2,RT3接收到RT1发送的A的路由信息发现自己并没有A的信息，所以将接收到的自己没有的路由信息写入自己的路由表中。</li>
+<li>rip表中第一列目标地址（此处为A)的地址。<br>第二列为下一跳地址（在RT2中，如果想和A网络进行通信，则下一跳地址是RT1的0/1接口的地址）。<br>第三列是跳数，RT1广播扩散的是1跳（在RT1中是0跳，广播扩散时需要+1）</li>
+<li>同理2.2.2.2和3.3.3.3都被RE1,RT2,RT3互相学习到。如此一来整个拓扑在rip协议的连接下形成了一张互联的网。</li>
 </ol>
-<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><ul>
-<li>记数到无穷大机制</li>
+<h3 id="路由环路产生的过程"><a href="#路由环路产生的过程" class="headerlink" title="路由环路产生的过程"></a>路由环路产生的过程</h3><p><img src="https://s1.ax1x.com/2018/12/19/FBzfUg.png" alt=""></p>
+<p>还是之前的拓扑图；</p>
+<ol>
+<li>如果A网络出现故障，直连路由RT1最先收到故障报告，180s没有收到回复信息后删除A的路由信息。并等待30s更新时间后一广播自己路由表的形式通告给网络中其他的rip设备。</li>
+<li>30s后在RT1发送自己路由信息的同时其他设备也开始发送自己的路由信息。而RT2的路由信息中依然有A网络的信息;</li>
+<li>RT1收到RT2的路由表认为RT2中也有一条可以通往A网络的路由，所以RT1又将A网络写进自己的rip路由表下一跳为RT2的g0/2接口的地址，cost值为2；</li>
+<li>之后RT3也收到RT2的信息也接收了A网络的路由信息。<br>……</li>
+</ol>
+<p>这么一来就形成了环路，直到跳数为16认为网络不可达。</p>
+<h3 id="环路避免机制"><a href="#环路避免机制" class="headerlink" title="环路避免机制"></a>环路避免机制</h3><ul>
+<li>路由毒化</li>
 </ul>
-<p>RIP协议允许最大跳数为15。大于15的目的地被认为是不可达。这个数字在限制了网络大小的同时也防止了一个叫做“记数到无穷大”的问题。<br>这也就是rip协议只能 用于小型网络中，拓扑不超过 16个设备；</p>
-<p>再回头看上面的环路；</p>
-<p>路由器2在收到路由器1的消息后更新成4跳的距离到达网络A。这个消息再次会发往路由器3，以此循环，直到跳数达到超过RIP协议允许的最大值（在RIP中定义为16）。一旦一个路由器达到这个值，它将声明这条路径不可用，并从路由表中删除此路径。</p>
-<p>由于记数到无穷大问题，路由选择信息将从一个路由器传到另一个路由器，每次段数加1。路由选择环路问题将无限制地进行下去，除非达到某个限制。这个限制就是RIP的最大跳数。当路径的跳数超过15，这条路径才从路由表中删除。</p>
-<ul>
-<li>水平分割法</li>
-</ul>
+<p>当RT1收到A网络的故障信息之后，由原来的删除路由信息变为直接将其跳数置为16（无穷大）路由不可达。</p>
+<p>等待30s的更新时间后，RT1将自己的cost=16的路由信息广播 扩散出去。</p>
+<p>RT2,RT3收到COST值为无穷大的A网络更新写进自己的rip路由表中，等待老化时间。</p>
+<p>-水平分割</p>
 <p>水平分割规则如下：路由器不向路径到来的方向回传此路径。当打开路由器接口后，路由器记录路径是从哪个接口来的，并且不向此接口回传此路径。</p>
-<p>再回头看上面的环路；</p>
-<p>路由器2在收到路由器1的消息后更新成4跳的距离到达网络A。这个消息再次会发往路由器3，以此循环，直到路由器2再次收到路由器1的网络A的信息就不再写入自己的路由表中。</p>
+<p>如上例所说，产生环路的原因是，路由器将从RT1学到的路由信息又发送给了RT1。</p>
+<p>按照这样的思路，先设置为，从某一端口学习到的路由信息，不再从这一端口发出。</p>
+<p>原来的学习过程现在变为，RT2收到RT1的信息后，RT2发送自己路由信息将不再发送给RT1。</p>
 <ul>
-<li>破坏逆转的水平分割法</li>
+<li>毒性逆转</li>
 </ul>
-<p>破坏逆转的水平分割法是水平分割法的升级版<br>水平分割是路由器用来防止把一个接口得来的路径又从此接口传回导致的问题的方案。水平分割方案忽略在更新过程中从一个路由器获取的路径又传回该路由器。有破坏逆转的水平分割方法是在更新信息中包括这些回传路径，但这种处理方法会把这些回传路径的跳数设为16（无穷）。通过把跳数设为无穷，并把这条路径告诉源路由器，有可能立刻解决路由选择环路。否则，不正确的路径将在路由表中驻留到超时为止。破坏逆转的缺点是它增加了路由更新的的数据大小。</p>
+<p>水平分割是路由器用来防止把一个接口得来的路径又从此接口传回导致的问题的方案。水平分割方案忽略在更新过程中从一个路由器获取的路径又传回该路由器。有破坏逆转的水平分割方法是在更新信息中包括这些回传路径，但这种处理方法会把这些回传路径的跳数设为16（无穷）。通过把跳数设为无穷，并把这条路径告诉源路由器，有可能立刻解决路由选择环路。否则，不正确的路径将在路由表中驻留到超时为止。破坏逆转的缺点是它增加了路由更新的的数据大小。</p>
+<p>之前的水平分割和路由毒化是被动防御，而毒性逆转是主动将不可达信息发送。</p>
 <ul>
 <li>保持定时器法</li>
 </ul>
@@ -490,8 +508,7 @@
 <li>触发更新法</li>
 </ul>
 <p>有破坏逆转的水平分割将任何两个路由器构成的环路打破，但三个或更多个路由器构成的环路仍会发生，直到无穷（16）时为止。触发式更新法可加速收敛时间，它的工作原理是当某个路径的跳数改变了，路由器立即发出更新信息，不管路由器是否到达常规信息更新时间都发出更新信息。</p>
-<p>##rip路由表策略</p>
-<p>通过总结以上的解决方法，rip现在将满足如下情况的路由信息写入自己的路由表中：</p>
+<h2 id="rip路由表策略"><a href="#rip路由表策略" class="headerlink" title="rip路由表策略"></a>rip路由表策略</h2><p>通过总结以上的解决方法，rip现在将满足如下情况的路由信息写入自己的路由表中：</p>
 <blockquote>
 <ol>
 <li>如果更新的某路由表项在路由表中没有，则直接在路由表中添加该路由表项</li>
@@ -500,8 +517,7 @@
 <li>如果路由表中已有相同目的网络的路由表项，且度量值相等，保留原来的路由表项</li>
 </ol>
 </blockquote>
-<p>##rip报文格式</p>
-<p>RIP通过UDP报文进行路由信息的交换，使用的端口号为520。所以它又是一个不可靠的路由协议<br>由于RIP的实现较为简单，在配置和维护管理方面也远比OSPF和IS-IS容易，因此RIP主要应用于规模较小的网络中，例如校园网以及结构较简单的地区性网络。对于更为复杂的环境和大型网络，一般不使用RIP协议<br>RIP包括RIP-1和RIP-2两个版本，RIP-2对RIP-1进行了扩充，使其更具有优势</p>
+<h2 id="rip报文格式"><a href="#rip报文格式" class="headerlink" title="rip报文格式"></a>rip报文格式</h2><p>RIP通过UDP报文进行路由信息的交换，使用的端口号为520。所以它又是一个不可靠的路由协议<br>由于RIP的实现较为简单，在配置和维护管理方面也远比OSPF和IS-IS容易，因此RIP主要应用于规模较小的网络中，例如校园网以及结构较简单的地区性网络。对于更为复杂的环境和大型网络，一般不使用RIP协议<br>RIP包括RIP-1和RIP-2两个版本，RIP-2对RIP-1进行了扩充，使其更具有优势</p>
 <p>RIP-1报文格式：<br><img src="https://s1.ax1x.com/2018/12/17/F03T7F.png" alt=""></p>
 <table>
 <thead>
@@ -645,7 +661,27 @@
 </tr>
 </tbody>
 </table>
-<h2 id="rip经典配置（H3C）"><a href="#rip经典配置（H3C）" class="headerlink" title="rip经典配置（H3C）"></a>rip经典配置（H3C）</h2><p>笔者电脑出问题了，回头补上</p>
+<h2 id="rip经典配置（H3C）"><a href="#rip经典配置（H3C）" class="headerlink" title="rip经典配置（H3C）"></a>rip经典配置（H3C）</h2><p><img src="https://s1.ax1x.com/2018/12/19/FBzfUg.png" alt=""></p>
+<h3 id="极简配置"><a href="#极简配置" class="headerlink" title="极简配置"></a>极简配置</h3><p>RT1:(端口和rip极简配置)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">int g 0/1 </span><br><span class="line">ip add 192.0.1.1 24</span><br><span class="line">int g 0/2</span><br><span class="line">ip add 192.0.2.1 24</span><br><span class="line">quit</span><br><span class="line">int loopback 0</span><br><span class="line">ip add 1.1.1.1 32</span><br><span class="line"></span><br><span class="line">rip</span><br><span class="line"></span><br><span class="line">network 1.1.1.1</span><br><span class="line">network 192.0.1.0</span><br><span class="line">network 192.0.2.0</span><br></pre></td></tr></table></figure></p>
+<p>RT2:(端口和rip极简配置)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">int g 0/1 </span><br><span class="line">ip add 192.0.1.2 24</span><br><span class="line">int g 0/2</span><br><span class="line">ip add 192.0.3.1 24</span><br><span class="line">quit</span><br><span class="line">int loopback 0</span><br><span class="line">ip add 2.2.2.2 32</span><br><span class="line"></span><br><span class="line">rip</span><br><span class="line"></span><br><span class="line">network 2.2.2.2</span><br><span class="line">network 192.0.1.0</span><br><span class="line">network 192.0.3.0</span><br></pre></td></tr></table></figure></p>
+<p>RT3:(端口和rip极简配置)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">int g 0/1 </span><br><span class="line">ip add 192.0.2.2 24</span><br><span class="line">int g 0/2</span><br><span class="line">ip add 192.0.3.2 24</span><br><span class="line">quit</span><br><span class="line">int loopback 0</span><br><span class="line">ip add 3.3.3.3 32</span><br><span class="line"></span><br><span class="line">rip</span><br><span class="line"></span><br><span class="line">network 3.3.3.3</span><br><span class="line">network 192.0.2.0</span><br><span class="line">network 192.0.3.0</span><br></pre></td></tr></table></figure></p>
+<h3 id="RIPV2掩码配置："><a href="#RIPV2掩码配置：" class="headerlink" title="RIPV2掩码配置："></a>RIPV2掩码配置：</h3><p>RT1:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rip</span><br><span class="line">version 2</span><br><span class="line">undo summary</span><br></pre></td></tr></table></figure>
+<p>RT2:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rip</span><br><span class="line">version 2</span><br><span class="line">undo summary</span><br></pre></td></tr></table></figure>
+<p>RT3:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rip</span><br><span class="line">version 2</span><br><span class="line">undo summary</span><br></pre></td></tr></table></figure>
+<p>查看rip表（需要等180s的老化时间）<br>或者重启端口加快rip学习：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int g 0/1 </span><br><span class="line">shutdown</span><br><span class="line">undo shutdown</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://s1.ax1x.com/2018/12/19/FDPpFO.png" alt=""></p>
+<p>可以看到已经带掩码了</p>
+<h3 id="配置RIPV2认证"><a href="#配置RIPV2认证" class="headerlink" title="配置RIPV2认证"></a>配置RIPV2认证</h3><p>RT1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rip authentication-mode md5 rfc2453 plain 123456</span><br></pre></td></tr></table></figure>
+<p>RT2:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rip authentication-mode md5 rfc2453 plain 123456</span><br></pre></td></tr></table></figure>
+<p>RT2:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rip authentication-mode md5 rfc2453 plain 123456</span><br></pre></td></tr></table></figure>
+<p>查看rip表（需要等180s的老化时间）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int g 0/1 </span><br><span class="line">shutdown</span><br><span class="line">undo shutdown</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>本文不全是笔者原创，有部分是借鉴其他文章，没有表明出处还请谅解</p>
 </blockquote>
@@ -896,7 +932,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RIP动态路由协议"><span class="nav-number">1.</span> <span class="nav-text">RIP动态路由协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入"><span class="nav-number">1.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RIP工作原理"><span class="nav-number">1.2.</span> <span class="nav-text">RIP工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RIP路由表"><span class="nav-number">1.3.</span> <span class="nav-text">RIP路由表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#路由环路"><span class="nav-number">1.3.1.</span> <span class="nav-text">路由环路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析问题"><span class="nav-number">1.3.2.</span> <span class="nav-text">分析问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决问题"><span class="nav-number">1.3.3.</span> <span class="nav-text">解决问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rip经典配置（H3C）"><span class="nav-number">1.4.</span> <span class="nav-text">rip经典配置（H3C）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RIP动态路由协议"><span class="nav-number">1.</span> <span class="nav-text">RIP动态路由协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入"><span class="nav-number">1.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RIP简介"><span class="nav-number">1.2.</span> <span class="nav-text">RIP简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RIP工作原理"><span class="nav-number">1.3.</span> <span class="nav-text">RIP工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rip默认设置"><span class="nav-number">1.4.</span> <span class="nav-text">rip默认设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RIP路由表"><span class="nav-number">1.5.</span> <span class="nav-text">RIP路由表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#跳数"><span class="nav-number">1.5.1.</span> <span class="nav-text">跳数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rip的更新机制"><span class="nav-number">1.6.</span> <span class="nav-text">rip的更新机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rip学习原理"><span class="nav-number">1.6.1.</span> <span class="nav-text">rip学习原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由环路产生的过程"><span class="nav-number">1.6.2.</span> <span class="nav-text">路由环路产生的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环路避免机制"><span class="nav-number">1.6.3.</span> <span class="nav-text">环路避免机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rip路由表策略"><span class="nav-number">1.7.</span> <span class="nav-text">rip路由表策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rip报文格式"><span class="nav-number">1.8.</span> <span class="nav-text">rip报文格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rip经典配置（H3C）"><span class="nav-number">1.9.</span> <span class="nav-text">rip经典配置（H3C）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#极简配置"><span class="nav-number">1.9.1.</span> <span class="nav-text">极简配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RIPV2掩码配置："><span class="nav-number">1.9.2.</span> <span class="nav-text">RIPV2掩码配置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置RIPV2认证"><span class="nav-number">1.9.3.</span> <span class="nav-text">配置RIPV2认证</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
