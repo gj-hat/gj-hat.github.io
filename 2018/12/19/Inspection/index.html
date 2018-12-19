@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="静下来，喝杯咖啡">
 <meta property="og:description" content="H3C设备和HUAWEI设备巡检命令H3C设备 依据设备情况进行更改  123456789101112131415161718192021screen-length disabledisplay versiondisplay cpudisplay memorydisplay devicedisplay dev mdisplay powerdisplay fandisplay environment">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-19T01:50:55.691Z">
+<meta property="og:updated_time" content="2018-12-19T01:58:45.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H3C,HUAWEI设备巡检命令">
 <meta name="twitter:description" content="H3C设备和HUAWEI设备巡检命令H3C设备 依据设备情况进行更改  123456789101112131415161718192021screen-length disabledisplay versiondisplay cpudisplay memorydisplay devicedisplay dev mdisplay powerdisplay fandisplay environment">
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  281
+                  549
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -458,6 +458,75 @@
 </li>
 <li><p>显示所有vlan</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display vlan all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示接口信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display interface</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示静态协议路由</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display ip routing-table protocol static</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示路由ip统计</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display ip routing-table statistics</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示stp信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display stp</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示ntp-service状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display ntp-service status</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示之前配置的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display cu</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示接口简要</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display interface  brief</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示接口ip简要</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display ip interface  brief</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示收发器诊断接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display transceiver diagnosis  interface</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如有需要保存配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">save</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="HUAWEI设备"><a href="#HUAWEI设备" class="headerlink" title="HUAWEI设备"></a>HUAWEI设备</h2><blockquote>
+<p>依据设备情况进行更改</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">screen-length 0 temporary</span><br><span class="line">display version</span><br><span class="line">display cpu</span><br><span class="line">display memory</span><br><span class="line">display device</span><br><span class="line">display dev m</span><br><span class="line">display power</span><br><span class="line">display fan</span><br><span class="line">display environment</span><br><span class="line">display logbuffer</span><br><span class="line">display vlan</span><br><span class="line">display interface</span><br><span class="line">display ip routing-table protocol static</span><br><span class="line">display ip routing-table statistics </span><br><span class="line">display stp</span><br><span class="line">display ntp-service status </span><br><span class="line">display cu</span><br><span class="line">display interface  brief</span><br><span class="line">display ip interface  brief</span><br><span class="line">display transceiver diagnosis  interface</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>屏幕长度禁用（可以不用纠结于一直安空格）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen-length 0 temporary</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示版本号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display version</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示cpu运行情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display cpu</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示存储情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display memory</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示设备硬件信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display device</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看设备硬件详细信息（包括MAC) </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display device m</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示电源情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display power</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示风扇运行情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display fan</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示设备环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display environment</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display logbuffer</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示所有vlan</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display vlan</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>显示接口信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display interface</span><br></pre></td></tr></table></figure>
@@ -735,7 +804,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#H3C设备和HUAWEI设备巡检命令"><span class="nav-number">1.</span> <span class="nav-text">H3C设备和HUAWEI设备巡检命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#H3C设备"><span class="nav-number">1.1.</span> <span class="nav-text">H3C设备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令解释"><span class="nav-number">1.1.1.</span> <span class="nav-text">命令解释</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#H3C设备和HUAWEI设备巡检命令"><span class="nav-number">1.</span> <span class="nav-text">H3C设备和HUAWEI设备巡检命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#H3C设备"><span class="nav-number">1.1.</span> <span class="nav-text">H3C设备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令解释"><span class="nav-number">1.1.1.</span> <span class="nav-text">命令解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HUAWEI设备"><span class="nav-number">1.2.</span> <span class="nav-text">HUAWEI设备</span></a></li></ol></li></ol></div>
             
 
           </div>
