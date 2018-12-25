@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="ubuntu,linux,git,解压,fuck,">
+  <meta name="keywords" content="java,static,new,实例化,编译过程,JVM,">
 
 
 
@@ -86,20 +86,18 @@
 
 
 
-<meta name="description" content="what the fuck今天介绍给大家一款解压神器： The FUCK linux命令敲错？  fuck 重写依然错误？ fuck 权限不够？ fuck 参数错误？ fuck ……. 总之简单来说这款”the fuck“神器是一个linux的纠错小软件。 总之出现问题了，报错了加不妨fuck以下； 软件以下是作者原图：  1234567891011121314151617181920212223">
-<meta name="keywords" content="ubuntu,linux,git,解压,fuck">
+<meta name="description" content="JAVA加载过程 总觉得有无数想记录的东西但又觉得没什么需要记下来的。但又不能坏了一周一篇的目标，再三思考下决定写一些基础干货。基础扎实的话就会和计算机有某种共鸣——你猜测应该是什么样的，实际上计算机就是什么样的  static静态成员这是我觉得目前以来最重要的java东西——理解静态成员。（本文不讲java实践，只讲java理论）之前学习一直懵懵懂懂，只是学习了java的规则语法。虽然可以满足日">
+<meta name="keywords" content="java,static,new,实例化,编译过程,JVM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The fuck">
-<meta property="og:url" content="http://yoursite.com/2018/12/20/fuck/index.html">
+<meta property="og:title" content="从static学习java的加载过程">
+<meta property="og:url" content="http://yoursite.com/2018/12/25/java-process/index.html">
 <meta property="og:site_name" content="静下来，喝杯咖啡">
-<meta property="og:description" content="what the fuck今天介绍给大家一款解压神器： The FUCK linux命令敲错？  fuck 重写依然错误？ fuck 权限不够？ fuck 参数错误？ fuck ……. 总之简单来说这款”the fuck“神器是一个linux的纠错小软件。 总之出现问题了，报错了加不妨fuck以下； 软件以下是作者原图：  1234567891011121314151617181920212223">
+<meta property="og:description" content="JAVA加载过程 总觉得有无数想记录的东西但又觉得没什么需要记下来的。但又不能坏了一周一篇的目标，再三思考下决定写一些基础干货。基础扎实的话就会和计算机有某种共鸣——你猜测应该是什么样的，实际上计算机就是什么样的  static静态成员这是我觉得目前以来最重要的java东西——理解静态成员。（本文不讲java实践，只讲java理论）之前学习一直懵懵懂懂，只是学习了java的规则语法。虽然可以满足日">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/nvbn/thefuck/master/example.gif">
-<meta property="og:updated_time" content="2018-12-20T03:10:58.418Z">
+<meta property="og:updated_time" content="2018-12-25T03:29:58.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The fuck">
-<meta name="twitter:description" content="what the fuck今天介绍给大家一款解压神器： The FUCK linux命令敲错？  fuck 重写依然错误？ fuck 权限不够？ fuck 参数错误？ fuck ……. 总之简单来说这款”the fuck“神器是一个linux的纠错小软件。 总之出现问题了，报错了加不妨fuck以下； 软件以下是作者原图：  1234567891011121314151617181920212223">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/nvbn/thefuck/master/example.gif">
+<meta name="twitter:title" content="从static学习java的加载过程">
+<meta name="twitter:description" content="JAVA加载过程 总觉得有无数想记录的东西但又觉得没什么需要记下来的。但又不能坏了一周一篇的目标，再三思考下决定写一些基础干货。基础扎实的话就会和计算机有某种共鸣——你猜测应该是什么样的，实际上计算机就是什么样的  static静态成员这是我觉得目前以来最重要的java东西——理解静态成员。（本文不讲java实践，只讲java理论）之前学习一直懵懵懂懂，只是学习了java的规则语法。虽然可以满足日">
 
 
 
@@ -129,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/20/fuck/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/25/java-process/">
 
 
 
 
 
-  <title>The fuck | 静下来，喝杯咖啡</title>
+  <title>从static学习java的加载过程 | 静下来，喝杯咖啡</title>
   
 
 
@@ -303,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/20/fuck/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/25/java-process/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jia_Guo">
@@ -320,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">The fuck</h1>
+          <h1 class="post-title" itemprop="name headline">从static学习java的加载过程</h1>
         
 
         <div class="post-meta">
@@ -332,8 +330,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-20T09:12:08+08:00">
-                2018-12-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-25T11:28:09+08:00">
+                2018-12-25
               </time>
             
 
@@ -355,8 +353,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/日常被折磨的死去活来的笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">日常被折磨的死去活来的笔记</span>
+                  <a href="/categories/program/" itemprop="url" rel="index">
+                    <span itemprop="name">program</span>
                   </a>
                 </span>
 
@@ -386,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  287
+                  1.8k
                 </span>
               
 
@@ -402,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  6
                 </span>
               
             </div>
@@ -423,25 +421,64 @@
       
 
       
-        <h2 id="what-the-fuck"><a href="#what-the-fuck" class="headerlink" title="what the fuck"></a>what the fuck</h2><p>今天介绍给大家一款解压神器： The FUCK</p>
-<p>linux命令敲错？ </p>
-<p><strong>fuck</strong></p>
-<p>重写依然错误？</p>
-<p><strong>fuck</strong></p>
-<p>权限不够？</p>
-<p><strong>fuck</strong></p>
-<p>参数错误？</p>
-<p><strong>fuck</strong></p>
-<p>…….</p>
-<p>总之简单来说这款”the fuck“神器是一个linux的纠错小软件。</p>
-<p>总之出现问题了，报错了加不妨fuck以下；</p>
-<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><p>以下是作者原图：</p>
-<p><img src="https://raw.githubusercontent.com/nvbn/thefuck/master/example.gif" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">➜ apt-get install vim</span><br><span class="line">E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission denied)</span><br><span class="line">E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?</span><br><span class="line"></span><br><span class="line">➜ fuck</span><br><span class="line">sudo apt-get install vim [enter/↑/↓/ctrl+c]</span><br><span class="line">[sudo] password for nvbn:</span><br><span class="line">Reading package lists... Done</span><br><span class="line"></span><br><span class="line">➜ git push</span><br><span class="line">fatal: The current branch master has no upstream branch.</span><br><span class="line">To push the current branch and set the remote as upstream, use</span><br><span class="line"></span><br><span class="line">    git push --set-upstream origin master</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">➜ fuck</span><br><span class="line">git push --set-upstream origin master [enter/↑/↓/ctrl+c]</span><br><span class="line">Counting objects: 9, done.</span><br><span class="line">...</span><br><span class="line">➜ puthon</span><br><span class="line">No command &apos;puthon&apos; found, did you mean:</span><br><span class="line"> Command &apos;python&apos; from package &apos;python-minimal&apos; (main)</span><br><span class="line"> Command &apos;python&apos; from package &apos;python3&apos; (main)</span><br><span class="line">zsh: command not found: puthon</span><br><span class="line"></span><br><span class="line">➜ fuck</span><br><span class="line">python [enter/↑/↓/ctrl+c]</span><br><span class="line">Python 3.4.2 (default, Oct  8 2014, 13:08:17)</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>git安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/nvbn/thefuck.git</span><br></pre></td></tr></table></figure></p>
-<p>ubuntu:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install python3-dev python3-pip python3-setuptools</span><br><span class="line">sudo pip3 install thefuck</span><br></pre></td></tr></table></figure>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#编辑bashrc配置文件</span><br><span class="line">vim ~/.bashrc</span><br><span class="line">#在文件尾加入一行给thefuck取别名fuck</span><br><span class="line">eval &quot;$(thefuck --alias fuck)&quot;</span><br><span class="line">#使生效</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+        <h1 id="JAVA加载过程"><a href="#JAVA加载过程" class="headerlink" title="JAVA加载过程"></a>JAVA加载过程</h1><blockquote>
+<p>总觉得有无数想记录的东西但又觉得没什么需要记下来的。<br>但又不能坏了一周一篇的目标，再三思考下决定写一些基础干货。<br>基础扎实的话就会和计算机有某种共鸣——你猜测应该是什么样的，实际上计算机就是什么样的</p>
+</blockquote>
+<h2 id="static静态成员"><a href="#static静态成员" class="headerlink" title="static静态成员"></a>static静态成员</h2><p>这是我觉得目前以来最重要的java东西——理解静态成员。（本文不讲java实践，只讲java理论）<br>之前学习一直懵懵懂懂，只是学习了java的规则语法。虽然可以满足日常编程却总是提不起兴趣，缺乏创造力，没有创造力的职业我是坚决拒绝的，所以我一次又一次的从头学习java，这是我第四次从头学起了。<br>但是直到今天看到看到static ，仿佛和计算机有了某种共鸣，所以本文从static开始讲解java代码运行过程。</p>
+<h2 id="从static学习java编译过程"><a href="#从static学习java编译过程" class="headerlink" title="从static学习java编译过程"></a>从static学习java编译过程</h2><h3 id="JVM加载顺序摘要："><a href="#JVM加载顺序摘要：" class="headerlink" title="JVM加载顺序摘要："></a>JVM加载顺序摘要：</h3><ol>
+<li>加载所有类（类是默认加载的）</li>
+<li>加载主函数（即main函数）</li>
+</ol>
+<h3 id="稍稍延申一下："><a href="#稍稍延申一下：" class="headerlink" title="稍稍延申一下："></a>稍稍延申一下：</h3><p>JAVA代码的加载过程简简单单的就这两步，但是还是颇有深意的。</p>
+<ol>
+<li><p>加载所有类<br>即就是说，类是在加载java代码时候就已经加载，并写入内存中的。</p>
+</li>
+<li><p>加载主函数<br>即就是说，其他函数是不加载的不存在内存中。<br>也就是说，其他函数只是逻辑存在，内存中并不真正的存在。</p>
+</li>
+<li><p>并没有加载任何对象和变量<br>即所有对象都存在于逻辑中，并不存在。<br>不存在的东西当然是不能调用的。同样的不能调用方法，也就丧失了方法存在的意义。</p>
+</li>
+</ol>
+<h3 id="对于此java给出了两个解决方案："><a href="#对于此java给出了两个解决方案：" class="headerlink" title="对于此java给出了两个解决方案："></a>对于此java给出了两个解决方案：</h3><ol>
+<li><p>实例化成员<br>实例化（即就是执行new操作指令），实例化在JVM的操作就是——将执行new操作的东西（方法或者变量）写进内存中。一般来说抛开访问控制凡是内存中的东西都是可以直接调用的。</p>
+</li>
+<li><p>静态成员<br>声明静态成员的关键字是static。JVM的操作是——在加载优先级等同于类，加载类的同时就会加载static成员。也就是说static的成员已经存在内存中了就可以进行直接调用。<br>所以静态变量又称为类变量。</p>
+</li>
+</ol>
+<h2 id="总结static"><a href="#总结static" class="headerlink" title="总结static"></a>总结static</h2><p>首先static的成员是在类加载的时候初始化的，JVM的CLASSLOADER的加载，首次主动使用加载，而非static的成员是在创建对象的时候，即new 操作的时候才初始化的；</p>
+<p>先后顺序是先加载，才能初始化，那么加载的时候初始化static的成员，此时非static的成员还没有被加载必然不能使用，而非static的成员是在类加载之后，通过new操作符创建对象的时候初始化，此时static 已经分配内存空间，所以可以访问！</p>
+<p>简单点说：静态成员属于类,不需要生成对象就存在了.而非静态需要生成对象才产生.所以静态成员不能直接访问非静态.</p>
+<h3 id="下面说说静态的特点："><a href="#下面说说静态的特点：" class="headerlink" title="下面说说静态的特点："></a>下面说说静态的特点：</h3><ol>
+<li>着类的加载而加载<br>也就是，说静态会随着类的消失而消失，说明静态的生命周期最长</li>
+<li>先于对象的存在<br>明确一点：静态是先存在的对象是后存在的</li>
+<li>所有对象共享</li>
+<li>以直接被类名多调用</li>
+</ol>
+<h3 id="实例变量和类变量的区别"><a href="#实例变量和类变量的区别" class="headerlink" title="实例变量和类变量的区别"></a>实例变量和类变量的区别</h3><ol>
+<li>放位置<br>变量随着类的加载存在于方法区中，实例变量随着对象的对象的建立存在于堆内存里</li>
+<li>命周期<br>变量生命周期最长，随着“类”的加载而加载，随着类的消失而消失,实例变量随着“对象”的消失而消失</li>
+</ol>
+<h3 id="静态的使用注意事项："><a href="#静态的使用注意事项：" class="headerlink" title="静态的使用注意事项："></a>静态的使用注意事项：</h3><ol>
+<li>静态方法只能访问静态成员（包括成员变量和成员方法）<br>静态方法可以访问静态也可以访问非静态</li>
+<li>态方法中不可以定义this，super关键字。<br>静态优先于对象存在，所以静态方法中不可以出现this，super关键字</li>
+<li>函数是静态的。</li>
+</ol>
+<h3 id="静态的利弊"><a href="#静态的利弊" class="headerlink" title="静态的利弊"></a>静态的利弊</h3><p>利：对对象的共享数据进行单独空间的存储，节省空间，没有必要每一个对象中都存储一份可以直接被类名所调用<br>弊：生命周期过长，访问出现局限性（只能访问静态）</p>
+<h2 id="从内存角度理解java的基础语法"><a href="#从内存角度理解java的基础语法" class="headerlink" title="从内存角度理解java的基础语法"></a>从内存角度理解java的基础语法</h2><p><strong>首先需要理解不是java代码本身占用的空间就是内存空间。真正写入内存的也并不是java代码，只是变量。<br>学过汇编的人应该大致知道，基层语言只是一些指令。</strong></p>
+<ol>
+<li><p>为什么主函数一定是静态的<br>如之前所说，不是静态的成员不会预先加载。<br>假如没有static关键词：编译器会主动加载所有的类，可是加载完类之后呢？<br>虽然写了很多方法，可是都是逻辑的方法并不是实际存在的方法，所以这个类这是一个摆设而已，如果不被调用的话。<br>所以主函数一定得是静态的，作为整个编译的开始。</p>
+</li>
+<li><p>为什么需要实例化呢？<br>接上，主函数加载之后，主函数需要调用其他的方法，其他类才能实现这个代码包本身的价值<br>那么问题来了，怎么调用呢？<br>之前说了java只能调用内存中的东西，如果不写入内存是不能调用的否则会报错。<br>如果要写入内存就要执行new指令。<br>所以我们调用类的方法时候需要实例化：类名 变量名 = new 构造函数（）；<br>java中本应该是：类名 变量名 = new 类名（）；<br>为了深入理解我一般记上面的语法。</p>
+</li>
+<li><p>为什么静态的方法只能调用静态的成员变量（方法）呢？<br>如很上很上所说，静态优先存在于普通成员。<br>只有存在的东西才能调用存在的东西。不存在的东西是不能调用不存在的东西的。<br>所以静态方法只能调用静态成员。<br>不过换言之，如上所说“只有存在的东西才能调用存在的东西”<br>那么如果给普通成员实例化不就存在了吗？<br>恭喜你已经回举一反三了。事实上就是如此。<br>这就是为什么静态方法调用静态方法不用实例化，而非静态方法调用静态方法需要实例化。</p>
+</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>java运行基本过程：</p>
+<ol>
+<li>加载所有类预加载，但不加载类的方法</li>
+<li>加载所有的static成员（即就是加载主函数）</li>
+<li>主函数里运行，主函数实例化谁就把谁写进内存。</li>
+<li>主函数调用哪个方法就调用哪个方法。</li>
+</ol>
 
       
     </div>
@@ -488,15 +525,17 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ubuntu/" rel="tag"><i class="fa fa-tag"></i> ubuntu</a>
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
-            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+            <a href="/tags/static/" rel="tag"><i class="fa fa-tag"></i> static</a>
           
-            <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+            <a href="/tags/new/" rel="tag"><i class="fa fa-tag"></i> new</a>
           
-            <a href="/tags/解压/" rel="tag"><i class="fa fa-tag"></i> 解压</a>
+            <a href="/tags/实例化/" rel="tag"><i class="fa fa-tag"></i> 实例化</a>
           
-            <a href="/tags/fuck/" rel="tag"><i class="fa fa-tag"></i> fuck</a>
+            <a href="/tags/编译过程/" rel="tag"><i class="fa fa-tag"></i> 编译过程</a>
+          
+            <a href="/tags/JVM/" rel="tag"><i class="fa fa-tag"></i> JVM</a>
           
         </div>
       
@@ -509,8 +548,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/20/shadowsocks/" rel="next" title="ss飞机">
-                <i class="fa fa-chevron-left"></i> ss飞机
+              <a href="/2018/12/20/fuck/" rel="next" title="The fuck">
+                <i class="fa fa-chevron-left"></i> The fuck
               </a>
             
           </div>
@@ -518,10 +557,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/25/java-process/" rel="prev" title="从static学习java的加载过程">
-                从static学习java的加载过程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -691,7 +726,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-the-fuck"><span class="nav-number">1.</span> <span class="nav-text">what the fuck</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件"><span class="nav-number">2.</span> <span class="nav-text">软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA加载过程"><span class="nav-number">1.</span> <span class="nav-text">JAVA加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#static静态成员"><span class="nav-number">1.1.</span> <span class="nav-text">static静态成员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从static学习java编译过程"><span class="nav-number">1.2.</span> <span class="nav-text">从static学习java编译过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM加载顺序摘要："><span class="nav-number">1.2.1.</span> <span class="nav-text">JVM加载顺序摘要：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#稍稍延申一下："><span class="nav-number">1.2.2.</span> <span class="nav-text">稍稍延申一下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对于此java给出了两个解决方案："><span class="nav-number">1.2.3.</span> <span class="nav-text">对于此java给出了两个解决方案：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结static"><span class="nav-number">1.3.</span> <span class="nav-text">总结static</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下面说说静态的特点："><span class="nav-number">1.3.1.</span> <span class="nav-text">下面说说静态的特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例变量和类变量的区别"><span class="nav-number">1.3.2.</span> <span class="nav-text">实例变量和类变量的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态的使用注意事项："><span class="nav-number">1.3.3.</span> <span class="nav-text">静态的使用注意事项：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态的利弊"><span class="nav-number">1.3.4.</span> <span class="nav-text">静态的利弊</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从内存角度理解java的基础语法"><span class="nav-number">1.4.</span> <span class="nav-text">从内存角度理解java的基础语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
             
 
           </div>
