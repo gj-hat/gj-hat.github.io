@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="静下来，喝杯咖啡">
 <meta property="og:description" content="JAVA加载过程 总觉得有无数想记录的东西但又觉得没什么需要记下来的。但又不能坏了一周一篇的目标，再三思考下决定写一些基础干货。基础扎实的话就会和计算机有某种共鸣——你猜测应该是什么样的，实际上计算机就是什么样的  static静态成员这是我觉得目前以来最重要的java东西——理解静态成员。（本文不讲java实践，只讲java理论）之前学习一直懵懵懂懂，只是学习了java的规则语法。虽然可以满足日">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-25T03:35:07.908Z">
+<meta property="og:updated_time" content="2018-12-25T03:43:46.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从static学习java的加载过程">
 <meta name="twitter:description" content="JAVA加载过程 总觉得有无数想记录的东西但又觉得没什么需要记下来的。但又不能坏了一周一篇的目标，再三思考下决定写一些基础干货。基础扎实的话就会和计算机有某种共鸣——你猜测应该是什么样的，实际上计算机就是什么样的  static静态成员这是我觉得目前以来最重要的java东西——理解静态成员。（本文不讲java实践，只讲java理论）之前学习一直懵懵懂懂，只是学习了java的规则语法。虽然可以满足日">
@@ -433,7 +433,7 @@
 <ol>
 <li><p>加载所有类<br>即就是说，类是在加载java代码时候就已经加载，并写入内存中的。</p>
 </li>
-<li><p>加载主函数<br>即就是说，其他函数是不加载的不存在内存中。<br>也就是说，其他函数只是逻辑存在，内存中并不真正的存在。</p>
+<li><p>加载主函数<br>即就是说，其他函数是不加载的。<br>也就是说，其他函数只是逻辑存在，内存中并不真正的存在。</p>
 </li>
 <li><p>并没有加载任何对象和变量<br>即所有对象都存在于逻辑中，并不存在。<br>不存在的东西当然是不能调用的。同样的不能调用方法，也就丧失了方法存在的意义。</p>
 </li>
