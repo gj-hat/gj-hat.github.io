@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/logo-tubiao.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JAVA,JAVA EE,框架,Java框架,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="MVC架构 mvc是一种架构模型，本身并没有新功能，只是对项目的一种规范，方便后期进行维护；mvc架构将模型（M），视图（V)和控制（C）割离开，这么做可以提高代码书写的效率和后期维护；  MVC分层次介绍模型（MODEL） 模型负责封装应用的状态，并实现应用的功能；封装的是数据源和所有对这些数据的操作；在组件中，模型表示组件的状态和操作状态的方法。  模型通常分为数据模型和业务逻辑模型：  数据">
+<meta name="keywords" content="JAVA,JAVA EE,框架,Java框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MVC架构">
+<meta property="og:url" content="http://yoursite.com/2019/01/11/MVC/index.html">
+<meta property="og:site_name" content="静下来，喝杯咖啡">
+<meta property="og:description" content="MVC架构 mvc是一种架构模型，本身并没有新功能，只是对项目的一种规范，方便后期进行维护；mvc架构将模型（M），视图（V)和控制（C）割离开，这么做可以提高代码书写的效率和后期维护；  MVC分层次介绍模型（MODEL） 模型负责封装应用的状态，并实现应用的功能；封装的是数据源和所有对这些数据的操作；在组件中，模型表示组件的状态和操作状态的方法。  模型通常分为数据模型和业务逻辑模型：  数据">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-11T05:38:13.105Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MVC架构">
+<meta name="twitter:description" content="MVC架构 mvc是一种架构模型，本身并没有新功能，只是对项目的一种规范，方便后期进行维护；mvc架构将模型（M），视图（V)和控制（C）割离开，这么做可以提高代码书写的效率和后期维护；  MVC分层次介绍模型（MODEL） 模型负责封装应用的状态，并实现应用的功能；封装的是数据源和所有对这些数据的操作；在组件中，模型表示组件的状态和操作状态的方法。  模型通常分为数据模型和业务逻辑模型：  数据">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/11/MVC/">
+
+
+
+
+
+  <title>MVC架构 | 静下来，喝杯咖啡</title>
+  
+
+
+
+
+
+
+
+
+  
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">静下来，喝杯咖啡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学习笔记，日记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/11/MVC/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jia_Guo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/title/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静下来，喝杯咖啡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MVC架构</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-11T13:36:16+08:00">
+                2019-01-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/program/" itemprop="url" rel="index">
+                    <span itemprop="name">program</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="MVC架构"><a href="#MVC架构" class="headerlink" title="MVC架构"></a>MVC架构</h1><blockquote>
+<p>mvc是一种架构模型，本身并没有新功能，只是对项目的一种规范，方便后期进行维护；mvc架构将模型（M），视图（V)和控制（C）割离开，这么做可以提高代码书写的效率和后期维护；</p>
+</blockquote>
+<h2 id="MVC分层次介绍"><a href="#MVC分层次介绍" class="headerlink" title="MVC分层次介绍"></a>MVC分层次介绍</h2><h3 id="模型（MODEL）"><a href="#模型（MODEL）" class="headerlink" title="模型（MODEL）"></a>模型（MODEL）</h3><p><strong> 模型负责封装应用的状态，并实现应用的功能；<br>封装的是数据源和所有对这些数据的操作；<br>在组件中，模型表示组件的状态和操作状态的方法。
+</strong></p>
+<p>模型通常分为数据模型和业务逻辑模型：</p>
+<ol>
+<li>数据模型<br>数据模型主要存放业务数据，如订单，用户信息等。</li>
+<li>业务逻辑模型<br>业务逻辑模型往往是对数据的处理，如订单和用户信息的修改。</li>
+</ol>
+<p>mvc的三个部件中模型拥有处理的处理能力，安装上文所说，M可以连接和处理数据库。（EJBs和ColdFusion Components构建对象处理数据库）被模型返回的数据是中立的（模型于数据格式无关），这么一来一个模型可以被多个视图调用。可以减少代码的重复性。</p>
+<h3 id="视图（VIEW）"><a href="#视图（VIEW）" class="headerlink" title="视图（VIEW）"></a>视图（VIEW）</h3><p><strong><br>视图是将模型的内容呈现出来，用户可以通过对视图的操作进而操作模型，封装的是对数据源Model的显示；
+</strong><br>一个模型可以被多个视图复用，一个视图理论上也可以和多个模型进行关联；<br>视图从模型中获取展示的数据，然后用自己的方法展示给用户。如用户点击H5页面的登录，视图会给模型提交用户的数据，视图接收模型的数据，然后按照自己的方式展示给用户。</p>
+<p>在实际WEB项目中，视图通常是HTML，XHTML，XML/XSL，WML代码组成的界面。<br>在MVC模式中，视图只是起到展示的作用，真正处理数据其实并没有发生。</p>
+<h3 id="控制器（CONTROLLER）"><a href="#控制器（CONTROLLER）" class="headerlink" title="控制器（CONTROLLER）"></a>控制器（CONTROLLER）</h3><p><strong><br>控制器时用来出来视图和模型关系的组件。封装的是外界对模型的操作。
+</strong><br>这些操作一般为转发给模型，模型处理数据，并调用模型中相应的一个或多个方法；<br>一般控制器是在模型和视图之间作为沟通的组件存在的。<br>用户填写完账号密码由控制器接收处理并转发给模型。可以让视图和控制器之间的耦合关系更加密切；严格的分工可以提高工作的效率。</p>
+<p>当控制器接收到用户的请求之后，会将用户的数据和模型的更新相映射，也就是调用模型来实现用户请求的功能；控制器会选择响应应用的视图，把模型更新后的数据发送给视图，视图按照自己的方式展示给用户；</p>
+<p>当点击WEB的超链接和发送HTML表单时，控制器本身并不传输任何数据，也不做任何处理。只是接收请求并决定调用哪个模型进行构建去处理请求，然后决定用哪个视图来显示模型返回的数据。</p>
+<h2 id="MVC的组件关系"><a href="#MVC的组件关系" class="headerlink" title="MVC的组件关系"></a>MVC的组件关系</h2><p>根据上文的描述，Model和View是严格分开的，甚至他们之间互相不知道彼此。只有Controller作为中介连接他们两个。</p>
+<p>视图里不会有逻辑的东西。控制器里没有展示的东西。一个模型会有很多的展示方法，每一个展示方法页不止一种模型。</p>
+<p>比如：windows下打开文件夹；</p>
+<p>文件夹的大图标小图标就是不同的视图但内容数据是一样的（模型数据一样）；<br>点击进入其他的文件夹内，视图一样但是数据不同。</p>
+<p>即–模型和视图之间并非一一对应的。</p>
+<p>而Controller作为模型和视图之间的桥梁，可以保证模型和视图之间相互制约；点击视图的操作控制器立即给出相应； </p>
+<p>MVC交互关系：</p>
+<ol>
+<li>登入程序后，展示视图用户在视图上进行操作，填写业务数据</li>
+<li>用户点击提交来提交发出的请求</li>
+<li>视图发出的请求传到控制器，其中包含想要完成什么样的业务功能及相关数据</li>
+<li>控制器处理用户请求并封装，选择合适的模型，请求模型来处理用户请求的数据，接收模型的更新，并选择接下来用哪一个视图进行展示这些数据</li>
+<li>模型会处理用户请求的业务功能，同时进行模型状态的维护和更新</li>
+<li>当模型进行更新后模型会通知相应的视图进行更新</li>
+<li>当视图接收到模型的通知后，会向模型进行状态查询，获取需要展示的数据，然后按照视图的规则进行展示</li>
+<li>等待用户的下一次操作，重复上面的操作</li>
+</ol>
+<h2 id="JAVA-EE的MVC架构"><a href="#JAVA-EE的MVC架构" class="headerlink" title="JAVA EE的MVC架构"></a>JAVA EE的MVC架构</h2><p>MVC是一种横向分层的模型。采用MVC模式的用户不可以直接访问JSP视图，即使不需要调用业务逻辑功能，也应该让用户的所有操作都经过控制器，由控制器转到视图。</p>
+<p>JAVA EE中视图层一般JSP实现一个交互性高的异步通信Web应用。<br>模型层：一般以JAvaBean为主体，实现Java的业务主体<br>控制器：用Servlet实现，</p>
+<p>JavaEE中通常把Servlet+JSP+Javabean的模型称为Model2模型，基本划分如下：</p>
+<ol>
+<li>Javabean作为模型，既可以作为数据模型来封装业务数据，也可以作为业务逻辑模型来实现业务的操作；其中数据模型用来存储和传递业务数据。业务逻辑模型接收控制器传来的模型请求更新后，执行特定的业务逻辑 处理，返回相应的执行结果；</li>
+<li>JSP作为视图，负责提供页面给用户展示数据。提供相应的表单（Form）来相应用户的请求，并在适当的时候（比如用户点击提交按钮）向控制器发送用户请求来要求模型进行更新；</li>
+<li>Servlet作为控制器，用来接收用户提交的请求，并获取请求中的数据，将其转化为业务模型中需要的数据模型，然后调用业务模型中相应的方法，请求业务模型进行更新，同时根据业务执行的结果来选择需要返回的视图。发送数据给相应的视图JSP；</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>分享笔记，希望能帮到更多的人</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/img/wechatmoney.jpg" alt="Jia_Guo 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/img/alipaymoney.jpg" alt="Jia_Guo 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JAVA/" rel="tag"><i class="fa fa-tag"></i> JAVA</a>
+          
+            <a href="/tags/JAVA-EE/" rel="tag"><i class="fa fa-tag"></i> JAVA EE</a>
+          
+            <a href="/tags/框架/" rel="tag"><i class="fa fa-tag"></i> 框架</a>
+          
+            <a href="/tags/Java框架/" rel="tag"><i class="fa fa-tag"></i> Java框架</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/29/VNCserver/" rel="next" title="VNCserver">
+                <i class="fa fa-chevron-left"></i> VNCserver
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/title/touxiang.jpg" alt="Jia_Guo">
+            
+              <p class="site-author-name" itemprop="name">Jia_Guo</p>
+              <p class="site-description motion-element" itemprop="description">乐于现状，追求卓越</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/gj-hat" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1520047927@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="gj1520047927@gmail.com" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/JiaGuo23372893" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="Skype:1520047927@qq.com" target="_blank" title="Skype">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Skype</a>
+                  </span>
+                
+            </div>
+          
+          
+          
+
+          
+          
+<div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="110" src="//music.163.com/outchain/player?type=0&id=2530237292&auto=1&height=90"></iframe>
+</div>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MVC架构"><span class="nav-number">1.</span> <span class="nav-text">MVC架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC分层次介绍"><span class="nav-number">1.1.</span> <span class="nav-text">MVC分层次介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模型（MODEL）"><span class="nav-number">1.1.1.</span> <span class="nav-text">模型（MODEL）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图（VIEW）"><span class="nav-number">1.1.2.</span> <span class="nav-text">视图（VIEW）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制器（CONTROLLER）"><span class="nav-number">1.1.3.</span> <span class="nav-text">控制器（CONTROLLER）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC的组件关系"><span class="nav-number">1.2.</span> <span class="nav-text">MVC的组件关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA-EE的MVC架构"><span class="nav-number">1.3.</span> <span class="nav-text">JAVA EE的MVC架构</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jia_Guo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+ 
+<script type="text/javascript" color="100,100,100" opacity="0.3" zindex="-1" count="20" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
